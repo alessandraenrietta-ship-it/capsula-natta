@@ -40,7 +40,10 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
 - **Tre fasi**, che il sito ricava da solo da quella data:
   1. **prima dell'interramento**: eventi, Partecipa, Per i docenti;
   2. **dopo l'interramento**: l'elenco di che cosa contiene la capsula,
-     senza i contenuti; spariscono Partecipa e Per i docenti;
+     senza i contenuti; spariscono Partecipa e Per i docenti, da sole,
+     e al loro posto non compare nulla. Nella capsula ci sono di sicuro
+     le lettere; il resto è in definizione: [DA COMPLETARE: che cosa
+     contiene la capsula];
   3. **dopo l'apertura**: i contenuti, compresi lettere e dizionario.
 - I contenuti della capsula non si mostrano prima dell'apertura.
 
@@ -211,8 +214,8 @@ In quest'ordine:
 1. **Testata**: logo, nome della scuola e pulsante "Menu".
 2. **Apertura**, senza disegno: occhiello "2006–2026 · CAPSULA DEL
    TEMPO", titolo "Vent'anni del Natta", conto alla rovescia (vedi
-   sotto), pulsanti "Partecipa" (solo prima dell'interramento) e "Il
-   progetto".
+   sotto), pulsanti "Partecipa" e "Il progetto". Dopo l'interramento
+   "Partecipa" sparisce e resta solo "Il progetto".
 3. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
    sotto il pero, dall'interramento all'apertura, non quelli della
    scuola. Sotto il titolo una riga lo spiega: [DA COMPLETARE: testo da
@@ -223,11 +226,12 @@ In quest'ordine:
    una fila di foto piccole, ognuna con la sua data, che si scorre con
    due frecce. Toccando una foto, la foto prende il posto del disegno,
    con la data e il pulsante "Torna al pero".
-4. **"Gli eventi del ventennale"** (solo prima dell'interramento): il
-   programma, ogni evento con il foglietto della data.
+4. **"Gli eventi del ventennale"** (solo prima dell'interramento; dopo
+   la sezione sparisce e al suo posto non compare nulla): il programma,
+   ogni evento con il foglietto della data.
 5. **Piede**: il timbro e il link al kit della pagina Per i docenti. Il
-   link si toglie insieme alla pagina, con lo stesso interruttore
-   "stato".
+   link sparisce insieme alla pagina, da solo, con la data
+   dell'interramento: non c'è un interruttore da cambiare a mano.
 
 **Il conto alla rovescia** si mostra subito, con la data provvisoria
 dell'interramento (1 maggio 2027) scritta come provvisoria anche sulla
@@ -299,6 +303,7 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 
 - Data dell'interramento: 1 maggio 2027 è provvisoria, da approvare.
 - Testo della riga sotto "10 anni di PEROpezie" (punto 10).
+- Che cosa contiene la capsula oltre alle lettere (in definizione).
 - Nome del sottodominio della scuola.
 - Forma delle foto nel palco: il palco è verticale; le foto
   orizzontali si mostrano intere con margini bianchi o ritagliate?

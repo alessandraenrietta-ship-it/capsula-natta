@@ -394,7 +394,7 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
 .pero {
   display: inline-block;
   text-transform: uppercase;
-  transform: rotate(-7deg) translateY(-0.04em);
+  transform: rotate(-12deg) translateY(-0.06em);
 }
 
 .sezione-riga { max-width: 34rem; margin: -0.5rem auto 2rem; text-wrap: balance; }

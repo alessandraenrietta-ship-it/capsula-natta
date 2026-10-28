@@ -334,7 +334,7 @@ sezione PEROPEZIE di `contenuti/home.txt`, foto in
 - Titolo "10 anni di Peropezie", scritto normale nel file, verde come
   gli altri titoli; la sillaba "pero" la mette in maiuscolo il CSS
   (`text-transform`), così il lettore di schermo legge una parola sola,
-  e la inclina un po' (7 gradi), come un timbro messo di traverso.
+  e la inclina (12 gradi), come un timbro messo di traverso.
 - Sotto il titolo la riga "Dal giorno dell'interramento, una foto
   all'anno fino all'apertura della capsula." (da approvare).
 - **Il palco**, centrato, verticale (proporzioni 220 per 300, largo 18rem

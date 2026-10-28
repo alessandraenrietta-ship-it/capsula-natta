@@ -6,8 +6,33 @@ toccare nessun altro file.
 
 ## I file
 
-[DA COMPLETARE: l'elenco si scrive qui man mano che si crea ogni file,
-con che cosa contiene]
+- `comuni.txt`: i dati di tutte le pagine. Il nome della scuola; la
+  **data dell'interramento** (l'unica data da scrivere: l'apertura è
+  dieci anni dopo e il sito la calcola), la sua ora e la scritta "data
+  provvisoria"; l'elenco delle **pagine**, ognuna `pronta` o `in
+  preparazione`; le scritte del timbro; il link del piede per i
+  docenti.
+- `home.txt`: i testi della pagina iniziale. Occhiello, titolo, scritte
+  dei pulsanti e del conto alla rovescia.
+
+L'elenco si allunga man mano che si crea ogni file.
+
+### La data dell'interramento e le tre fasi
+
+Dalla data scritta in `comuni.txt` il sito capisce da solo in quale
+fase siamo: prima dell'interramento, dopo l'interramento, dopo
+l'apertura. Partecipa e Per i docenti spariscono da sole dopo
+l'interramento; il conto alla rovescia cambia da solo. Non c'è niente
+da cambiare a mano quel giorno.
+
+Per vedere come sarà la pagina in un altro momento, nell'anteprima si
+aggiunge all'indirizzo `?prova=` e una data (in ora italiana):
+
+    http://localhost:8767/index.html?prova=2030-01-01
+    http://localhost:8767/index.html?prova=2027-04-30T23:59:50
+
+La pagina si comporta come se fosse quel momento. Funziona anche sul
+sito online, ma non cambia niente per gli altri visitatori.
 
 ## Le quattro regole
 
@@ -55,7 +80,9 @@ file con `NON-PUBBLICARE` nel nome.
 
 ## Dopo una modifica
 
-Si controlla con `anteprima.bat`. Poi si pubblica con commit e push.
+Si controlla con `anteprima.bat`: si apre una finestra nera e poi il
+browser, all'indirizzo http://localhost:8767/. Per fermare l'anteprima
+si chiude la finestra nera. Poi si pubblica con commit e push.
 
 ## Come spostare il sito
 

@@ -1,0 +1,44 @@
+# TESTI DELLA PAGINA INIZIALE (index.html)
+# ------------------------------------------------------------------
+# La data dell'interramento non sta qui: è in comuni.txt.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== APERTURA ==
+# La riga piccola sopra il titolo. Il sito la scrive in maiuscolo.
+occhiello: 2006–2026 · capsula del tempo
+# Il titolo grande. Compare esattamente come è scritto qui.
+titolo: Vent'anni del Natta
+# Le scritte dei due pulsanti sotto il conto alla rovescia. Compaiono
+# solo quando la loro pagina è "pronta" (comuni.txt, sezione PAGINE).
+# "Partecipa" sparisce da solo dopo l'interramento.
+pulsante-partecipa: Partecipa
+pulsante-progetto: Il progetto
+
+== CONTO ALLA ROVESCIA ==
+# Prima dell'interramento: la riga sopra i foglietti e le scritte
+# piccole dentro i foglietti.
+prima: All'interramento della capsula mancano
+giorni: giorni
+ore: ore
+minuti: minuti
+secondi: secondi
+# Le stesse parole al singolare: il lettore di schermo legge per
+# esempio "1 giorno, 3 ore, 1 minuto".
+giorno: giorno
+ora: ora
+minuto: minuto
+secondo: secondo
+# Dopo l'interramento: la riga sopra i foglietti degli anni e dei
+# giorni, e la parola sotto i foglietti, prima della data dell'apertura.
+dopo: All'apertura della capsula mancano
+anni: anni
+anno: anno
+data-apertura: Apertura:
+# Dopo l'apertura il conto alla rovescia sparisce e resta questa frase.
+# Al posto di [data] il sito scrive la data dell'apertura. Il link porta
+# ai contenuti della capsula, quando la pagina è "pronta".
+aperta: La capsula è stata aperta il [data].
+link-contenuti: Che cosa c'era nella capsula

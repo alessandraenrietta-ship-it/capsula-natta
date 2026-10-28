@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TESTO MODIFICABILE: titolo della scheda del browser e descrizione
+       che compare su Google e nelle anteprime quando si condivide il
+       link. Stanno qui e non in contenuti/ perché devono esserci prima
+       che la pagina legga i file di testo. -->
+  <title>Vent'anni del Natta | IIS Giulio Natta, Rivoli</title>
+  <meta name="description" content="Vent'anni dell'IIS Giulio Natta di Rivoli: la capsula del tempo sotto il pero, gli eventi del ventennale e come partecipare.">
+
+  <!-- BOZZA: chiede ai motori di ricerca di non mostrare questa pagina
+       e di non seguirne i link. Va TOLTA quando il sito è approvato. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!--
+    Il numero dopo ?v= serve a far riscaricare il file quando cambia.
+    Senza, il browser continua a usare per qualche minuto la copia
+    vecchia e le modifiche non si vedono.
+    QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
+    in tutte le pagine che lo caricano.
+  -->
+  <link rel="stylesheet" href="grafica.css?v=1">
+  <link rel="icon" href="immagini/logo-natta.png">
+</head>
+<body>
+
+  <a class="salta" href="#contenuto">Salta al contenuto</a>
+
+  <!-- La testata: logo e nome della scuola, su fondo bianco -->
+  <header class="testata">
+    <div class="interno">
+      <p class="marchio">
+        <!-- alt vuoto: il nome della scuola è scritto subito accanto -->
+        <img class="logo-scuola" src="immagini/logo-natta.png" alt="" width="231" height="155">
+        <span id="nome-scuola"></span>
+      </p>
+    </div>
+  </header>
+
+  <!-- Tutti i testi qui sotto arrivano dai file della cartella
+       contenuti/: home.txt e comuni.txt. Il contenuto resta nascosto
+       finché i testi non sono stati letti, così non si vedono titoli
+       vuoti. -->
+  <main id="contenuto" tabindex="-1" hidden>
+
+    <!-- Apertura: occhiello, titolo, conto alla rovescia e pulsanti.
+         Senza disegno: il pero sta nella sezione dopo. -->
+    <section class="sezione apertura" aria-labelledby="titolo">
+      <div class="interno">
+        <p class="occhiello" id="occhiello"></p>
+        <h1 class="titolo-sito" id="titolo"></h1>
+        <!-- Il conto alla rovescia lo scrive js/home.js e cambia con le
+             tre fasi: prima dell'interramento, dopo l'interramento, dopo
+             l'apertura. -->
+        <div class="conto" id="conto"></div>
+        <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
+        <p class="pulsanti" id="pulsanti" hidden></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TESTO MODIFICABILE: compare solo se i file di testo non si
+       possono leggere. -->
+  <section class="sezione" id="avviso" hidden>
+    <div class="interno">
+      <h1 class="titolo-sezione">Vent'anni del Natta</h1>
+      <p>Non riesco a caricare i testi di questa pagina.</p>
+      <p>Se hai aperto il file dal computer con un doppio clic, usa invece
+         anteprima.bat. Altrimenti ricarica la pagina, oppure
+         visita il <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+    </div>
+  </section>
+
+  <!-- Se JavaScript è spento, la pagina non può leggere i testi -->
+  <noscript>
+    <section class="sezione">
+      <div class="interno">
+        <p>Per vedere questa pagina serve JavaScript attivo nel browser.
+           In alternativa visita il
+           <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+      </div>
+    </section>
+  </noscript>
+
+  <!-- Il piede: il timbro rotondo e, accanto, il link al kit per i
+       docenti (solo quando la pagina c'è, e solo prima
+       dell'interramento) -->
+  <footer class="piede">
+    <div class="interno piede-interno">
+      <!-- Il timbro lo disegna js/comuni.js. È solo decorativo. -->
+      <div class="timbro" id="timbro" aria-hidden="true"></div>
+      <ul class="piede-voci" id="piede" hidden></ul>
+    </div>
+  </footer>
+
+  <script src="js/contenuti.js?v=1"></script>
+  <script src="js/comuni.js?v=1"></script>
+  <script src="js/home.js?v=1"></script>
+</body>
+</html>

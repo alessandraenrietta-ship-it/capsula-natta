@@ -1,0 +1,57 @@
+# DATI COMUNI A TUTTE LE PAGINE DEL SITO
+# ------------------------------------------------------------------
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== SCUOLA ==
+# Il nome della scuola, come si scrive nei testi. Nella testata il sito
+# lo scrive in maiuscolo.
+nome: IIS Giulio Natta
+
+== CAPSULA ==
+# La data dell'interramento della capsula sotto il pero. È l'unica data
+# da scrivere: l'apertura è dieci anni dopo, lo stesso giorno, e il
+# sito la calcola da solo. Dalla data il sito capisce anche in quale
+# fase siamo e che cosa mostrare:
+#   - prima dell'interramento: eventi, Partecipa, Per i docenti;
+#   - dopo l'interramento: Partecipa e Per i docenti spariscono;
+#   - dopo l'apertura: i contenuti della capsula.
+# Si scrive il giorno, il mese in lettere e l'anno: 1 maggio 2027
+data-interramento: 1 maggio 2027
+# L'ora dell'interramento, con il punto: 10.30. Finché la riga è vuota
+# il conto alla rovescia arriva alla mezzanotte, ora italiana.
+ora-interramento:
+# Finché la data non è approvata qui c'è "sì", e accanto alla data
+# compare la scritta "data provvisoria". Quando è approvata si scrive
+# "no".
+data-provvisoria: sì
+scritta-provvisoria: data provvisoria
+
+== PAGINE ==
+# Le pagine del sito, oltre alla home. Con "in preparazione" la pagina
+# non c'è ancora: i pulsanti e i link che portano lì non compaiono, così
+# nessuno finisce su una pagina di errore. Quando la pagina è fatta si
+# scrive "pronta".
+# Partecipa e Per i docenti spariscono comunque da sole dopo
+# l'interramento, anche se sono "pronta".
+# pagina | file | stato
+progetto | il-progetto.html | in preparazione
+pero | il-pero.html | in preparazione
+partecipa | partecipa.html | in preparazione
+docenti | per-i-docenti.html | in preparazione
+capsula | la-capsula.html | in preparazione
+
+== TIMBRO ==
+# Il timbro rotondo del piede: una scritta sull'arco in alto, una
+# sull'arco in basso, e gli anni sotto il logo. Il sito le scrive in
+# maiuscolo. "º" è l'indicatore ordinale, non il simbolo dei gradi "°".
+in-alto: IIS Giulio Natta
+in-basso: 20º anniversario
+anni: 2006–2026
+
+== PIEDE ==
+# Il link al kit della pagina Per i docenti, accanto al timbro. Compare
+# solo quando la pagina è "pronta" e solo prima dell'interramento.
+docenti-domanda: [DA COMPLETARE: domanda per i docenti]
+docenti-link: [DA COMPLETARE: scritta del link al kit]

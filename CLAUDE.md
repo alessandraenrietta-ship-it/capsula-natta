@@ -143,7 +143,9 @@ regole:
   è uguale a ">"), nascosta al lettore di schermo. Pieni verdi con
   testo bianco, oppure bianchi con bordo e testo verdi.
 - **Foglietti da calendario** per le date e il conto alla rovescia:
-  contorno di 1 px blu notte, angoli vivi, circa 58 px di larghezza;
+  contorno di 1 px blu notte, angoli vivi, circa 58 px di larghezza
+  (64 nel conto alla rovescia, perché ci stiano "SECONDI" e i giorni a
+  tre cifre);
   dentro la scritta piccola maiuscola grigia (12 px) e il numero grande
   (30 px) in verde; niente anellini, niente striscia piena. Sono un
   disegno (`aria-hidden`): la data per intero è scritta per il lettore
@@ -207,6 +209,18 @@ si caricano foto.
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
 "colleghe".
 
+**Pagine non ancora fatte.** La sezione PAGINE di
+`contenuti/comuni.txt` elenca le pagine, ognuna `pronta` o `in
+preparazione`. Pulsanti e link verso una pagina `in preparazione` non
+compaiono, così nessuno finisce su una pagina di errore. È una cosa
+diversa dalle fasi: Partecipa e Per i docenti spariscono comunque da
+sole dopo l'interramento, anche se sono `pronta` (`Comuni.pagina` in
+`js/comuni.js`). Prima di ogni push si controlla che ogni pagina
+`pronta` esista davvero.
+
+**Il pulsante "Menu"** della testata si aggiunge con la seconda pagina:
+con la sola home non servirebbe.
+
 ## 10. La home
 
 In quest'ordine:
@@ -243,7 +257,28 @@ pagina. Cambia con le fasi:
   il [data]", con il link ai contenuti.
 
 Il conteggio non si annuncia di continuo ai lettori di schermo: niente
-`aria-live` sui numeri.
+`aria-live` sui numeri. I foglietti sono `aria-hidden`; accanto alla
+riga sopra i foglietti c'è una frase nascosta ("184 giorni, 7 ore, 53
+minuti"), senza i secondi, che il lettore di schermo legge quando ci
+arriva. Con `prefers-reduced-motion` il foglietto dei secondi non c'è
+e il conto si aggiorna una volta al minuto.
+
+- **L'ora** dell'interramento è il campo `ora-interramento` di
+  `comuni.txt`; finché è vuoto, il conto arriva alla mezzanotte. Le
+  date sono sempre in ora italiana, anche per chi apre il sito da un
+  altro fuso orario.
+- Se una fase finisce mentre la pagina è aperta, la pagina si
+  ridispone da sola.
+- **Per provare le fasi**: `index.html?prova=2030-01-01` (oppure
+  `?prova=2027-04-30T23:59:50`) mostra la pagina come se fosse quel
+  momento, in ora italiana. Le schermate delle tre fasi si fanno così.
+
+File della home: `index.html`, `grafica.css`, `js/contenuti.js`
+(copiato identico da orientamento: è il lettore dei file di testo),
+`js/comuni.js` (fasi, pagine, testata, piede, timbro), `js/home.js`,
+`contenuti/comuni.txt`, `contenuti/home.txt`. Titolo della scheda del
+browser e descrizione per Google stanno in `index.html`, perché devono
+esserci prima che la pagina legga i file di testo.
 
 **Le foto del pero** le scattano gli studenti della classe prima
 incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il

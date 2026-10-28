@@ -1,0 +1,458 @@
+/* =================================================================
+   GRAFICA "A CARTOLINA" - VENT'ANNI DEL NATTA
+   IIS Giulio Natta, Rivoli
+
+   Come il sito di orientamento (le regole sono in CLAUDE.md, punto 6).
+
+   IN BREVE
+     - un solo carattere, Cutive Mono, salvato nella cartella fonts/
+     - fondo tutto bianco; le sezioni sono separate da un filetto
+       grigio sottile
+     - il verde della scuola per titoli, pulsanti e link
+     - pulsanti rettangolari ad angoli vivi, con la freccia "›"
+     - foglietti da calendario per le date e il conto alla rovescia
+
+   Si scrive PRIMA PER IL TELEFONO: le regole qui sotto valgono per lo
+   schermo piccolo, e quelle per computer e LIM stanno in fondo, nella
+   sezione SCHERMI PIÙ LARGHI.
+   ================================================================= */
+
+
+/* -----------------------------------------------------------------
+   IL CARATTERE
+   Cutive Mono, licenza SIL Open Font License (testo in fonts/OFL.txt).
+   Il file sta nel sito: nessun collegamento a Google Fonts.
+   Ha un solo spessore, senza grassetto: titoli e nomi si distinguono
+   per grandezza, colore e maiuscolo. font-synthesis: none impedisce
+   al browser di inventare un grassetto finto.
+   ----------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Cutive Mono";
+  src: url("fonts/cutive-mono-regular.ttf?v=1") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* -----------------------------------------------------------------
+   COLORI
+   Contrasto sul bianco scritto accanto a ogni colore. Non si cambiano
+   senza dirlo ad Alessandra.
+   ----------------------------------------------------------------- */
+
+:root {
+  --verde:         #026C37;  /* titoli, pulsanti, link: 6,6 sul bianco */
+  --verde-scuro:   #014A26;  /* pulsante pieno al passaggio del mouse: 10,4 */
+  --blu-notte:     #00193C;  /* il testo: 17,9 sul bianco */
+  --grigio:        #5B6B80;  /* scritte secondarie: 5,4 sul bianco */
+  --filetto:       #D5D9DE;  /* il filetto fra le sezioni: solo decorativo */
+  --bianco:        #FFFFFF;
+
+  --carattere:     "Cutive Mono", "Courier New", monospace;
+
+  /* Misure */
+  --massimo:       72rem;    /* larghezza massima del contenuto */
+}
+
+
+/* -----------------------------------------------------------------
+   BASE
+   ----------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: var(--carattere);
+  font-size: 1.0625rem;   /* 17 pixel: il minimo è 16 */
+  font-weight: normal;
+  font-synthesis: none;
+  /* Niente legature: "fi" resta di due lettere, come vuole il Cutive
+     Mono, che ha tutte le lettere larghe uguali */
+  font-variant-ligatures: none;
+  /* Il Cutive Mono è piuttosto sottile: un contorno di 0,3 pixel nello
+     stesso colore del testo lo rende un po' più pieno, come nel sito di
+     orientamento. Non vale per il timbro (più sotto). */
+  -webkit-text-stroke: 0.3px currentColor;
+  line-height: 1.6;
+  color: var(--blu-notte);
+  background: var(--bianco);
+}
+
+/* Il timbro resta come un timbro vero, senza il contorno */
+.timbro { -webkit-text-stroke: 0; }
+
+h1, h2, h3 {
+  margin: 0 0 0.6em;
+  font-weight: normal;
+  line-height: 1.25;
+  color: var(--verde);
+}
+
+/* Righe pareggiate: nei titoli e nei testi brevi centrati le righe
+   hanno lunghezze simili, così nessuna parola resta sola a capo. Sui
+   browser vecchi non succede niente. */
+.titolo-sito,
+.titolo-sezione,
+.occhiello,
+.conto-riga { text-wrap: balance; }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+a { color: var(--verde); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Testo nascosto alla vista ma letto dai lettori di schermo */
+.solo-lettori {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Un dato che manca: [DA COMPLETARE: ...], ben visibile */
+.da-completare {
+  padding: 0 0.3em;
+  border: 2px dashed currentColor;
+}
+
+
+/* -----------------------------------------------------------------
+   ACCESSIBILITÀ
+   Il contorno di messa a fuoco serve a chi naviga con la tastiera:
+   non va tolto. Blu notte, 3 pixel.
+   ----------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 3px solid var(--blu-notte);
+  outline-offset: 3px;
+}
+
+/* Il contenuto riceve il focus da "Salta al contenuto": niente
+   contorno, il lettore di schermo lo legge comunque */
+[tabindex="-1"]:focus { outline: none; }
+
+/* Salta al contenuto: compare solo premendo Tab appena aperta la
+   pagina, e porta dritti al contenuto senza passare dalla testata */
+.salta {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.6em 1em;
+  color: var(--bianco);
+  background: var(--verde);
+}
+
+.salta:focus { left: 0.75rem; }
+
+
+/* -----------------------------------------------------------------
+   LE SEZIONI
+   Tutte su fondo bianco. Dentro, il contenuto è largo al massimo
+   --massimo. Fra una sezione e l'altra, un filetto grigio sottile.
+   ----------------------------------------------------------------- */
+
+.interno {
+  max-width: var(--massimo);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sezione {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--filetto);
+}
+
+.titolo-sezione {
+  font-size: 1.75rem;
+  margin-bottom: 1.2em;
+}
+
+
+/* -----------------------------------------------------------------
+   I PULSANTI
+   Rettangolo ad angoli vivi, con la freccia "›" dopo la scritta, alti
+   almeno 44 pixel (la misura minima per il dito).
+     - pulsante pieno: fondo verde, testo bianco (6,6)
+     - pulsante vuoto: fondo bianco, bordo e testo verdi
+   ----------------------------------------------------------------- */
+
+.pulsante {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 2.75rem;      /* 44 pixel */
+  padding: 0.45em 1.1em;
+  border: 2px solid var(--verde);
+  border-radius: 0;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+/* La freccia "›" è disegnata con due lati di un quadratino ruotato: il
+   "›" del Cutive Mono è uguale al segno di maggiore. È solo un disegno,
+   senza testo: il lettore di schermo non la legge. */
+.pulsante::after,
+.link-freccia::after {
+  content: "";
+  flex: none;
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 0.15em;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.pulsante:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+
+.pulsante-pieno {
+  color: var(--bianco);
+  background: var(--verde);
+}
+
+.pulsante-pieno:hover { background: var(--verde-scuro); border-color: var(--verde-scuro); }
+
+.pulsante-vuoto {
+  color: var(--verde);
+  background: var(--bianco);
+}
+
+/* Un link nel testo con la freccia dopo */
+.link-freccia::after {
+  margin-left: 0.4em;
+  vertical-align: 0.08em;
+}
+
+
+/* -----------------------------------------------------------------
+   TESTATA
+   Bianca: il logo e il nome della scuola, con il filetto sotto.
+   ----------------------------------------------------------------- */
+
+.testata {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--filetto);
+}
+
+.marchio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+/* Il logo è piccolo (231 per 155 pixel): non va ingrandito oltre */
+.logo-scuola {
+  display: block;
+  flex: none;
+  width: 56px;
+  height: auto;
+}
+
+
+/* -----------------------------------------------------------------
+   APERTURA
+   Occhiello, titolo, conto alla rovescia e pulsanti, centrati. Senza
+   disegno. La sezione d'apertura non ha il filetto sopra: c'è già
+   quello della testata.
+   ----------------------------------------------------------------- */
+
+.apertura {
+  border-top: 0;
+  text-align: center;
+}
+
+.occhiello {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+
+.titolo-sito {
+  max-width: 20em;
+  margin: 0 auto 0.5em;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+/* Sul telefono i pulsanti uno sotto l'altro, larghi uguali, a tutta
+   larghezza; sul computer affiancati (SCHERMI PIÙ LARGHI) */
+.pulsanti {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.9rem;
+  margin: 2rem 0 0;
+}
+
+.pulsanti .pulsante { justify-content: center; }
+
+
+/* -----------------------------------------------------------------
+   IL CONTO ALLA ROVESCIA
+   Una riga sopra, i foglietti in fila e, sotto, la data. I foglietti
+   sono un disegno (aria-hidden): per il lettore di schermo c'è una
+   frase nascosta, scritta una volta sola all'apertura della pagina e
+   non annunciata di continuo.
+   ----------------------------------------------------------------- */
+
+.conto { margin: 1.75rem 0 0; }
+
+.conto-riga { margin: 0 auto 1rem; max-width: 30rem; }
+
+.conto-foglietti {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Il foglietto: contorno sottile blu notte, angoli vivi; dentro la
+   scritta piccola grigia e il numero grande in verde. Niente anellini,
+   niente striscia piena. Largo 64 pixel e non 58 come in orientamento,
+   perché ci stiano "SECONDI" e i giorni a tre cifre. */
+.foglietto {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  padding: 0.35rem 0 0.4rem;
+  border: 1px solid var(--blu-notte);
+  line-height: 1;
+}
+
+.foglietto-scritta {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  margin-left: 0.06em;     /* bilancia la spaziatura dopo l'ultima lettera */
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+
+.foglietto-numero {
+  margin-top: 0.3rem;
+  font-size: 30px;
+  color: var(--verde);
+}
+
+.conto-data {
+  margin: 1rem 0 0;
+  color: var(--grigio);
+}
+
+/* Dopo l'apertura: la frase al posto dei foglietti */
+.conto-aperta { margin: 0; font-size: 1.125rem; }
+
+
+/* -----------------------------------------------------------------
+   PIEDE
+   Bianco: il timbro rotondo verde e, accanto, il link al kit per i
+   docenti quando c'è.
+   ----------------------------------------------------------------- */
+
+.piede {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--filetto);
+  font-size: 1rem;
+}
+
+.piede-interno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+/* Il timbro: due cerchi, le scritte lungo gli archi, le righette verso
+   l'interno e il logo al centro, tutto in verde */
+.timbro {
+  position: relative;
+  flex: none;
+  width: 120px;
+  height: 120px;
+  color: var(--verde);
+}
+
+.timbro svg { display: block; width: 100%; height: 100%; }
+
+.timbro-bordo,
+.timbro-righette {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.timbro-righette { stroke-width: 0.8; }
+
+/* Il disegno del timbro è largo 120 unità: con il timbro largo 120
+   pixel, un'unità è un pixel */
+.timbro-scritta {
+  font-family: var(--carattere);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  fill: currentColor;
+}
+
+.timbro-anni { font-size: 9px; letter-spacing: 0.02em; }
+
+/* Il logo al centro, tinto di verde: il disegno del logo fa da stampo
+   (mask) e il colore lo riempie. Sta un po' sopra il centro, per
+   lasciare posto agli anni sotto. */
+.timbro-logo {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: 37%;
+  aspect-ratio: 231 / 155;
+  transform: translate(-50%, -50%);
+  background: currentColor;
+  -webkit-mask: url("immagini/logo-natta.png") center / contain no-repeat;
+          mask: url("immagini/logo-natta.png") center / contain no-repeat;
+}
+
+.piede-voci {
+  flex: 0 1 auto;
+  min-width: 0;
+  line-height: 1.7;
+}
+
+.piede-domanda { color: var(--grigio); }
+
+
+/* -----------------------------------------------------------------
+   SCHERMI PIÙ LARGHI
+   ----------------------------------------------------------------- */
+
+@media (min-width: 40rem) {
+  .interno { padding: 0 1.5rem; }
+  .sezione { padding: 3.5rem 0; }
+  .titolo-sito { font-size: 2.75rem; }
+  .titolo-sezione { font-size: 2rem; }
+  .pulsanti { flex-direction: row; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .conto-foglietti { gap: 1rem; }
+  .piede-interno { gap: 2rem; }
+  .timbro { width: 130px; height: 130px; }
+}
+
+@media (min-width: 56rem) {
+  .titolo-sito { font-size: 3.25rem; }
+}

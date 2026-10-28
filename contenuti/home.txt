@@ -46,3 +46,24 @@ apertura: Apertura:
 # ai contenuti della capsula, quando la pagina è "pronta".
 aperta: La capsula è stata aperta il [data].
 link-contenuti: Che cosa c'era nella capsula
+
+== PEROPEZIE ==
+# La sezione con il disegno del pero e le sue foto. Le foto non stanno
+# qui: sono in foto-pero.txt.
+# Il titolo si scrive normale: la sillaba "pero" la mette in maiuscolo
+# il sito ("10 anni di PEROpezie"), così il lettore di schermo legge una
+# parola sola.
+titolo: 10 anni di Peropezie
+# La riga sotto il titolo (da approvare)
+riga: Dal giorno dell'interramento, una foto all'anno fino all'apertura della capsula.
+# Il pulsante sotto la foto, che rimette nel palco il disegno del pero
+torna: Torna al pero
+# Per il lettore di schermo: il nome dei pulsanti della fila di foto.
+# Al posto di [data] il sito scrive la data della foto.
+apri-foto: Mostra la foto del [data]
+freccia-indietro: Foto più recenti
+freccia-avanti: Foto meno recenti
+nome-fila: Le foto del pero, dalla più recente
+# Per il lettore di schermo: che cosa c'è nel palco dopo ogni cambio
+annuncio-foto: Nel palco la foto del [data].
+annuncio-pero: Nel palco il disegno del pero.

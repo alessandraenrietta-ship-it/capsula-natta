@@ -158,19 +158,33 @@ regole:
 
 ## 7. Il disegno: il pero e la capsula
 
-- In un file SVG a parte, in `immagini/`.
-- **Tre linee continue e chiuse** in tre verdi: `#014A26` (10,4 sul
-  bianco), `#026C37` (6,6), `#3E8E5E` (4,0). Il terzo è sotto 4,5: si
+- **Il disegno definitivo** è `immagini/pero-capsula.svg`, preparato
+  da Alessandra e scelto il 28 ottobre 2026: si usa **così com'è** e
+  sostituisce ogni versione precedente. Chioma a nuvola, base sinuosa,
+  il terreno formato dalle linee stesse. Largo 680 e alto 300; il
+  pero sta fra 230 e 450.
+- **Tre verdi**, dall'esterno all'interno: `#00321A` (14,3 sul
+  bianco), `#026C37` (6,6), `#5B9B2F` (3,4). Il terzo è sotto 4,5: si
   usa **solo per le linee del disegno, mai per il testo**.
-- Ogni linea parte dalla capsula sotto terra, sale nel tronco, disegna
-  la chioma piramidale del pero, scende e chiude la capsula. Curve
-  morbide, nessuno spigolo.
-- Sulla chioma, righette corte verso l'esterno: i gruppi laterali della
-  catena del polipropilene di Giulio Natta.
-- Linea del terreno da bordo a bordo, nel grigio `#D5D9DE` dei
-  filetti.
-- Animazione: le linee si disegnano una dopo l'altra, poi compaiono le
-  righette. Con `prefers-reduced-motion` il disegno compare già intero.
+- **linea-1 e linea-2** fanno terreno, tronco e chioma; ognuna è divisa
+  in due metà, sinistra e destra, che si incontrano in cima alla chioma.
+  **linea-3** disegna la chioma interna e la capsula sotto terra.
+- **Niente linea grigia del terreno**: il terreno lo fanno i primi
+  tratti di linea-1 e linea-2.
+- **Righette solo nella parte alta della chioma**, corte e verso
+  l'esterno: i gruppi laterali della catena del polipropilene di
+  Giulio Natta.
+- **Animazione**, quando il palco entra nello schermo: le due metà di
+  linea-1 partono insieme dai due bordi e si incontrano in cima alla
+  chioma; linea-2 fa lo stesso mezzo secondo dopo; poi linea-3 disegna
+  la chioma interna e scende a chiudere la capsula; infine compaiono le
+  righette. Con `prefers-reduced-motion` il disegno compare già
+  completo. Tornando al pero da una foto il disegno compare completo,
+  senza ripetere l'animazione.
+- **Al computer** i tratti del terreno si allungano fino ai bordi della
+  finestra (`js/peropezie.js`, con un raccordo morbido, senza angoli).
+  Lo spessore delle linee sullo schermo resta uguale a ogni grandezza:
+  2 px sul telefono, 2,6 px dai 40rem.
 - Il disegno è decorativo: `aria-hidden`, senza descrizione.
 
 ## 8. Il timbro del piede
@@ -238,14 +252,7 @@ In quest'ordine:
    "Partecipa" sparisce e resta solo "Il progetto".
 3. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
    sotto il pero, dall'interramento all'apertura, non quelli della
-   scuola. Sotto il titolo una riga lo spiega: [DA COMPLETARE: testo da
-   scrivere insieme]. La sillaba "pero" la evidenzia il CSS; nel file
-   di testo non è scritta in maiuscolo, così il lettore di schermo
-   legge una parola sola. Al centro un palco: all'inizio il disegno del
-   pero, che si traccia quando la sezione entra nello schermo; sotto,
-   una fila di foto piccole, ognuna con la sua data, che si scorre con
-   due frecce. Toccando una foto, la foto prende il posto del disegno,
-   con la data e il pulsante "Torna al pero".
+   scuola. Vedi sotto.
 4. **"Gli eventi del ventennale"** (solo prima dell'interramento; dopo
    la sezione sparisce e al suo posto non compare nulla): il programma,
    ogni evento con il foglietto della data.
@@ -317,6 +324,44 @@ tutti modificabili dai file di contenuto):
 - eventi passati: nascosti, come le date degli open day di
   orientamento.
 
+**La sezione "10 anni di PEROpezie"** (`js/peropezie.js`, testi nella
+sezione PEROPEZIE di `contenuti/home.txt`, foto in
+`contenuti/foto-pero.txt`):
+
+- Titolo "10 anni di Peropezie", scritto normale nel file, verde come
+  gli altri titoli; la sillaba "pero" la mette in maiuscolo il CSS
+  (`text-transform`), così il lettore di schermo legge una parola sola.
+- Sotto il titolo la riga "Dal giorno dell'interramento, una foto
+  all'anno fino all'apertura della capsula." (da approvare).
+- **Il palco**, centrato, verticale (proporzioni 220 per 300, largo 18rem
+  sul telefono e 22rem al computer): il disegno del pero (punto 7).
+- **La fila delle foto** sotto il palco: foto piccole quadrate da 72 px
+  con la data sotto, dalla più recente, fra due frecce (pulsanti
+  quadrati a etichetta da 44 px, spenti a inizio e a fine fila). La
+  data sotto le foto piccole è a 14 px: eccezione voluta al minimo di
+  16, perché "1 maggio 2027" stia sotto una foto di 72 px.
+- Toccando una foto, la foto prende il posto del disegno nel palco,
+  **intera, con margini bianchi** se non ha la forma del palco; sotto
+  data, credito e il pulsante vuoto "Torna al pero ›". La foto piccola
+  scelta ha il bordo verde.
+- **Accessibilità**: foto piccole e frecce sono pulsanti raggiungibili
+  da tastiera ("Mostra la foto del 1 maggio 2028", "Foto più recenti",
+  "Foto meno recenti"); la foto scelta ha `aria-pressed`; ogni cambio
+  del palco è annunciato al lettore di schermo ("Nel palco la foto
+  del ...", "Nel palco il disegno del pero."); ogni foto ha il suo
+  testo alternativo dal file; tornando al pero il focus torna sulla
+  foto piccola che era aperta. Niente scorrimento automatico.
+- **Foto**: una riga per foto in `foto-pero.txt` (file, data, credito,
+  testo alternativo). I file vanno nella cartella `foto-pero/`, in JPG,
+  sotto i 300 KB. Senza foto la fila non compare e il palco mostra solo
+  il disegno.
+- **Foto d'esempio**, per presentare il sito prima delle foto vere: tre
+  immagini grigie senza persone (`immagini/esempio-foto-1.svg`, una
+  orizzontale, una verticale, una quadrata), segnate "FOTO D'ESEMPIO"
+  nell'immagine e nel testo alternativo. Sono l'unica eccezione voluta
+  alla regola "nessun testo dentro le immagini" (punto 5). Compaiono con
+  `esempio: sì` in `foto-pero.txt`; con `esempio: no` spariscono.
+
 **Le foto del pero** le scattano gli studenti della classe prima
 incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il
 credito, nella forma "Foto della classe 1ª X, a.s. AAAA/AA": nessun
@@ -375,7 +420,10 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 
 - Data e ora dell'interramento: 1 maggio 2027, ore 15.00, provvisorie,
   da approvare.
-- Testo della riga sotto "10 anni di PEROpezie" (punto 10).
+- Testo della riga sotto "10 anni di PEROpezie" (punto 10): proposto
+  "Dal giorno dell'interramento, una foto all'anno fino all'apertura
+  della capsula.", da approvare.
+- Quando togliere le foto d'esempio (`esempio: no`).
 - Che cosa contiene la capsula oltre alle lettere (in definizione).
 - Nome del sottodominio della scuola.
 - Da confermare i valori predefiniti del punto 10: foto orizzontali

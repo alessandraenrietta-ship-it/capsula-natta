@@ -1,0 +1,32 @@
+# LE FOTO DEL PERO (sezione "10 anni di Peropezie" della home)
+# ------------------------------------------------------------------
+# Una foto all'anno, dal giorno dell'interramento fino all'apertura
+# della capsula. Le scattano gli studenti della classe prima incaricata,
+# oppure le sceglie la vicepresidenza, che prima di inviarle verifica
+# liberatorie e diritti. Nessun nome di studenti.
+#
+# I file delle foto vanno nella cartella foto-pero/, in JPG, sotto i
+# 300 KB, con il nome minuscolo, con i trattini, senza spazi né accenti
+# (per esempio foto-pero/pero-2028.jpg).
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== FOTO ==
+# Una riga per foto, in qualsiasi ordine: il sito le mette dalla più
+# recente. La data si scrive per intero (1 maggio 2028). Il testo
+# alternativo descrive la foto per chi non la vede.
+# file | data | credito | testo alternativo
+# foto-pero/pero-2028.jpg | 1 maggio 2028 | Foto della classe 1ª X, a.s. 2027/28 | [DA COMPLETARE: che cosa si vede nella foto]
+
+== ESEMPIO ==
+# Tre immagini grigie, segnate "Foto d'esempio", per mostrare come
+# funziona la sezione prima che ci siano le foto vere. Con "sì"
+# compaiono, con "no" no. Senza foto vere e con "no", la fila delle
+# foto non compare e il palco mostra solo il disegno del pero.
+esempio: sì
+# file | data | credito | testo alternativo
+immagini/esempio-foto-1.svg | 1 maggio 2029 | Foto d'esempio | Foto d'esempio: un rettangolo grigio orizzontale al posto di una foto del pero.
+immagini/esempio-foto-2.svg | 1 maggio 2028 | Foto d'esempio | Foto d'esempio: un rettangolo grigio verticale al posto di una foto del pero.
+immagini/esempio-foto-3.svg | 1 maggio 2027 | Foto d'esempio | Foto d'esempio: un quadrato grigio al posto di una foto del pero.

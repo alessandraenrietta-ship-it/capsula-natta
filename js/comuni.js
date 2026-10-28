@@ -294,6 +294,7 @@ window.Comuni = (function () {
 
   return {
     tempo: tempo,
+    leggiData: leggiData,
     mancano: mancano,
     giorniCalendario: giorniCalendario,
     pagina: pagina,

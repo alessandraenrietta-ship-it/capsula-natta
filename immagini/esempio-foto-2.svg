@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200">
+  <!-- Immagine d'esempio, al posto di una foto vera del pero. Si toglie
+       dal sito scrivendo "esempio: no" in contenuti/foto-pero.txt. -->
+  <rect width="900" height="1200" fill="#E4E7EB"/>
+  <rect x="24" y="24" width="852" height="1152" fill="none" stroke="#B8C0CA" stroke-width="4" stroke-dasharray="18 12"/>
+  <text x="450" y="600" text-anchor="middle" dominant-baseline="middle" font-family="Courier New, monospace" font-size="75" fill="#4A5566">FOTO D'ESEMPIO</text>
+</svg>

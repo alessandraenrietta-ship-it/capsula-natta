@@ -22,7 +22,7 @@
     QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
     in tutte le pagine che lo caricano.
   -->
-  <link rel="stylesheet" href="grafica.css?v=2">
+  <link rel="stylesheet" href="grafica.css?v=3">
   <link rel="icon" href="immagini/logo-natta.png">
 </head>
 <body>
@@ -41,7 +41,7 @@
   </header>
 
   <!-- Tutti i testi qui sotto arrivano dai file della cartella
-       contenuti/: home.txt e comuni.txt. Il contenuto resta nascosto
+       contenuti/: home.txt, comuni.txt e foto-pero.txt. Il contenuto resta nascosto
        finché i testi non sono stati letti, così non si vedono titoli
        vuoti. -->
   <main id="contenuto" tabindex="-1" hidden>
@@ -58,6 +58,44 @@
         <div class="conto" id="conto"></div>
         <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
         <p class="pulsanti" id="pulsanti" hidden></p>
+      </div>
+    </section>
+
+    <!-- "10 anni di Peropezie": il palco con il disegno del pero e, sotto,
+         la fila delle foto. Toccando una foto, la foto prende il posto
+         del disegno. Lo riempie js/peropezie.js, con i testi di home.txt
+         e le foto di foto-pero.txt. -->
+    <section class="sezione peropezie" aria-labelledby="titolo-peropezie">
+      <div class="interno">
+        <h2 class="titolo-sezione" id="titolo-peropezie"></h2>
+        <p class="sezione-riga" id="riga-peropezie"></p>
+
+        <div class="palco">
+          <!-- Il disegno del pero, letto da immagini/pero-capsula.svg. È
+               solo decorativo: nascosto ai lettori di schermo. -->
+          <div class="palco-scena palco-pero" id="palco-pero" aria-hidden="true"></div>
+          <!-- La foto scelta, al posto del disegno -->
+          <figure class="palco-scena palco-foto" id="palco-foto" hidden>
+            <img id="palco-immagine" src="" alt="">
+          </figure>
+        </div>
+        <div class="palco-sotto" id="palco-sotto" hidden>
+          <p class="palco-data" id="palco-data"></p>
+          <p class="palco-credito" id="palco-credito"></p>
+          <p><button type="button" class="pulsante pulsante-vuoto" id="torna-al-pero"></button></p>
+        </div>
+
+        <!-- La fila delle foto piccole, dalla più recente, con le due
+             frecce. Compare solo se ci sono foto. -->
+        <div class="fila-foto" id="fila-foto" hidden>
+          <button type="button" class="freccia freccia-indietro" id="freccia-indietro"></button>
+          <ul class="miniature" id="miniature"></ul>
+          <button type="button" class="freccia freccia-avanti" id="freccia-avanti"></button>
+        </div>
+
+        <!-- Per il lettore di schermo: dice che cosa c'è nel palco dopo
+             ogni cambio -->
+        <p class="solo-lettori" id="annuncio-palco" aria-live="polite"></p>
       </div>
     </section>
 
@@ -98,7 +136,8 @@
   </footer>
 
   <script src="js/contenuti.js?v=1"></script>
-  <script src="js/comuni.js?v=2"></script>
+  <script src="js/comuni.js?v=3"></script>
   <script src="js/home.js?v=2"></script>
+  <script src="js/peropezie.js?v=1"></script>
 </body>
 </html>

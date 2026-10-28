@@ -217,6 +217,10 @@ a:hover { text-decoration-thickness: 2px; }
 
 .pulsante:hover { text-decoration: underline; text-decoration-thickness: 1px; }
 
+/* I pulsanti veri (button) non prendono da soli il carattere della
+   pagina */
+button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; }
+
 .pulsante-pieno {
   color: var(--bianco);
   background: var(--verde);
@@ -377,6 +381,161 @@ a:hover { text-decoration-thickness: 2px; }
 
 
 /* -----------------------------------------------------------------
+   "10 ANNI DI PEROPEZIE"
+   Titolo e riga centrati, il palco verticale con il disegno del pero
+   (o la foto scelta), sotto la fila delle foto piccole con le frecce.
+   La linea del terreno esce dal disegno: la sezione la taglia ai bordi.
+   ----------------------------------------------------------------- */
+
+.peropezie { text-align: center; overflow: hidden; }
+
+/* La sillaba "pero" del titolo: nel file è scritta normale */
+.pero { text-transform: uppercase; }
+
+.sezione-riga { max-width: 34rem; margin: -0.5rem auto 2rem; text-wrap: balance; }
+
+/* Il palco ha le proporzioni del disegno (220 per 300) */
+.palco {
+  position: relative;
+  width: min(100%, 18rem);
+  aspect-ratio: 220 / 300;
+  margin: 0 auto;
+}
+
+.palco-scena { position: absolute; inset: 0; margin: 0; }
+
+.palco-pero svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+/* La foto intera, con i margini bianchi se non ha la forma del palco */
+.palco-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--bianco);
+}
+
+/* Lo spessore lo calcola js/peropezie.js (--spessore), perché sullo
+   schermo resti uguale a ogni grandezza del palco */
+.palco-pero .linea path { stroke-width: var(--spessore, 2px); }
+.palco-pero .righette { stroke-width: var(--spessore-righette, 1.4px); }
+
+/* Il disegno si traccia quando il palco entra nello schermo
+   ("disegna"): le due metà di linea-1 partono insieme dai bordi e si
+   incontrano in cima alla chioma; linea-2 fa lo stesso mezzo secondo
+   dopo; poi linea-3 disegna la chioma interna e scende a chiudere la
+   capsula; infine compaiono le righette. Ogni tratto è lungo 1
+   (pathLength nel disegno). Con "completo" il disegno è intero, senza
+   animazione (per esempio tornando al pero da una foto). */
+@keyframes disegna-pero { from { stroke-dashoffset: 1.01; } to { stroke-dashoffset: 0; } }
+@keyframes compari { from { opacity: 0; } to { opacity: 1; } }
+
+.palco-pero .linea path { stroke-dasharray: 1 2; stroke-dashoffset: 1.01; }
+.palco-pero .righette { opacity: 0; }
+.palco-pero.disegna .linea-1 path { animation: disegna-pero 2.4s ease-in-out forwards; }
+.palco-pero.disegna .linea-2 path { animation: disegna-pero 2.4s ease-in-out 0.5s forwards; }
+.palco-pero.disegna .linea-3 path { animation: disegna-pero 2s ease-in-out 2.9s forwards; }
+.palco-pero.disegna .righette { animation: compari 0.8s ease 5s forwards; }
+.palco-pero.completo .linea path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
+.palco-pero.completo .righette { animation: none; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .palco-pero .linea path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
+  .palco-pero .righette { animation: none; opacity: 1; }
+}
+
+.palco-sotto { margin-top: 1rem; }
+.palco-data { margin: 0; }
+.palco-credito { margin: 0 0 1rem; color: var(--grigio); }
+
+/* La fila delle foto piccole fra le due frecce */
+/* Larga quanto le foto, così le frecce stanno accanto alla fila; quando
+   le foto non ci stanno, la fila si scorre */
+.fila-foto {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: min(100%, 40rem);
+  margin: 2rem auto 0;
+}
+
+.miniature {
+  flex: 0 1 auto;
+  display: flex;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 6px 4px;          /* spazio per il contorno del focus */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 4px;  /* la prima foto si ferma dentro il margine */
+  scrollbar-width: none;
+}
+
+.miniature li { flex: none; scroll-snap-align: start; }
+/* Con poche foto la fila sta al centro */
+.miniature li:first-child { margin-left: auto; }
+.miniature li:last-child { margin-right: auto; }
+
+.miniatura {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.miniatura img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 3px solid transparent;
+}
+
+/* La foto che è nel palco ha il bordo verde */
+.miniatura[aria-pressed="true"] img { border-color: var(--verde); }
+
+/* La data sotto la foto piccola: 14 pixel, eccezione voluta al minimo di
+   16, perché "1 maggio 2027" stia sotto una foto di 72 pixel */
+.miniatura-data { margin-top: 0.3rem; font-size: 14px; line-height: 1.3; }
+
+/* Le frecce: pulsanti quadrati a etichetta da 44 pixel */
+.freccia {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid var(--verde);
+  background: var(--bianco);
+  color: var(--verde);
+  cursor: pointer;
+}
+
+.freccia::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translate(-65%, -50%) rotate(45deg);
+}
+
+.freccia-indietro::before { transform: translate(-35%, -50%) rotate(-135deg); }
+
+.freccia:disabled { border-color: var(--filetto); color: var(--filetto); cursor: default; }
+
+
+/* -----------------------------------------------------------------
    PIEDE
    Bianco: il timbro rotondo verde e, accanto, il link al kit per i
    docenti quando c'è.
@@ -462,6 +621,7 @@ a:hover { text-decoration-thickness: 2px; }
   .conto-foglietti { gap: 1rem; }
   .piede-interno { gap: 2rem; }
   .timbro { width: 130px; height: 130px; }
+  .palco { width: 22rem; }
 }
 
 @media (min-width: 56rem) {

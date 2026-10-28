@@ -13,7 +13,24 @@ toccare nessun altro file.
   preparazione`; le scritte del timbro; il link del piede per i
   docenti.
 - `home.txt`: i testi della pagina iniziale. Occhiello, titolo, scritte
-  dei pulsanti e del conto alla rovescia.
+  dei pulsanti e del conto alla rovescia, testi della sezione "10 anni
+  di Peropezie".
+- `foto-pero.txt`: le foto del pero, una riga per foto (file, data,
+  credito, testo alternativo), e l'interruttore delle foto d'esempio.
+
+### Aggiungere una foto del pero
+
+1. Si salva la foto in JPG, sotto i 300 KB, nella cartella `foto-pero/`,
+   con un nome minuscolo, con i trattini, senza spazi né accenti
+   (`foto-pero/pero-2028.jpg`).
+2. In `foto-pero.txt`, nella sezione FOTO, si aggiunge una riga:
+
+       foto-pero/pero-2028.jpg | 1 maggio 2028 | Foto della classe 1ª X, a.s. 2027/28 | [che cosa si vede nella foto]
+
+   Il testo alternativo dice che cosa si vede, per chi non vede la foto.
+   Nessun nome di studenti.
+3. Quando ci sono le foto vere, in fondo allo stesso file si scrive
+   `esempio: no`, così spariscono le tre immagini grigie d'esempio.
 
 L'elenco si allunga man mano che si crea ogni file.
 

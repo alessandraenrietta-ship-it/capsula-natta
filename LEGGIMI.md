@@ -83,22 +83,23 @@ https://alessandraenrietta-ship-it.github.io/capsula-natta/.
 
 ### Il sito passa al sottodominio della scuola
 
-Indirizzo: [DA COMPLETARE: sottodominio]. Due strade, da decidere con
-il referente:
+Indirizzo: [DA COMPLETARE: sottodominio].
 
-- **Sul server della scuola**: si copiano nella cartella del
-  sottodominio tutti i file e le cartelle del sito, con la stessa
-  struttura. Non si copiano `materiali-grezzi/`, i file con
-  `NON-PUBBLICARE` nel nome, la cartella nascosta `.git`,
-  `anteprima.bat` e `anteprima.ps1`. Il server deve mandare i file
-  `.txt` in UTF-8: se le lettere accentate compaiono storte, va
-  sistemato sul server.
-- **Il sottodominio punta a GitHub Pages**: il tecnico della scuola
-  aggiunge un record DNS e su GitHub si indica il dominio (Settings >
-  Pages > Custom domain), che aggiunge al repository un file `CNAME`.
-  È una funzione di GitHub, contraria alla regola del sito "nessuna
-  funzione specifica di GitHub": si sceglie solo se lo decide il
-  referente.
+**La scelta fatta**: il sottodominio della scuola punterà a GitHub
+Pages. Il tecnico della scuola aggiunge un record DNS (l'indicazione
+che collega il nome del sottodominio al server di GitHub) e su GitHub
+si indica il dominio (Settings > Pages > Custom domain), che aggiunge
+al repository un file `CNAME`. È l'unica eccezione voluta alla regola
+"nessuna funzione specifica di GitHub": il file `CNAME` si aggiunge
+solo quando il sito è pronto e il nome del sottodominio è deciso.
+
+**Se un giorno il sito passerà sul server della scuola**, il file
+`CNAME` non serve più: basta cancellarlo. Poi si copiano nella cartella
+del sottodominio tutti i file e le cartelle del sito, con la stessa
+struttura. Non si copiano `materiali-grezzi/`, i file con
+`NON-PUBBLICARE` nel nome, la cartella nascosta `.git`, `anteprima.bat`
+e `anteprima.ps1`. Il server deve mandare i file `.txt` in UTF-8: se le
+lettere accentate compaiono storte, va sistemato sul server.
 
 ### Dopo ogni spostamento
 

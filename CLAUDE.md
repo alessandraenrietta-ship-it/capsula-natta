@@ -21,15 +21,28 @@ servono: `fonts/cutive-mono-regular.ttf` con `fonts/OFL.txt`,
 
 ## 1. Che cos'è
 
-Il sito "Capsula del tempo" per il ventennale dell'IIS Giulio Natta di
-Rivoli (2006–2026).
+Il sito "Vent'anni del Natta": la capsula del tempo per il ventennale
+dell'IIS Giulio Natta di Rivoli (2006–2026).
 
-- A chi si rivolge: [DA COMPLETARE: pubblico del sito]
-- Il sito ha due fasi: **durante la raccolta**, fino alla chiusura
-  della capsula (data provvisoria 1 maggio 2027), e **dopo la
-  raccolta**.
-- Interramento: [DA COMPLETARE: data]. Apertura: [DA COMPLETARE: data].
-- I contenuti della capsula non si mostrano prima dell'interramento.
+- **Titolo del sito**: "Vent'anni del Natta", con l'articolo: senza,
+  "Natta" sarebbe Giulio Natta, la persona. Occhiello sopra il titolo:
+  "2006–2026 · CAPSULA DEL TEMPO". Titolo della scheda del browser
+  della home: "Vent'anni del Natta | IIS Giulio Natta, Rivoli". Il nome
+  del repository resta `capsula-natta`.
+- **A chi si rivolge**: studenti e docenti di oggi. I testi devono
+  essere comprensibili anche a famiglie, ex studenti e ospiti delle
+  conferenze.
+- **Una sola data da gestire**: quella dell'interramento, scritta nel
+  file dei contenuti. L'apertura è dieci anni dopo e il sito la calcola
+  da solo. Data provvisoria dell'interramento: 1 maggio 2027. Si mostra
+  subito, scritta come provvisoria; il sito non verrà pubblicizzato
+  finché la data non è approvata.
+- **Tre fasi**, che il sito ricava da solo da quella data:
+  1. **prima dell'interramento**: eventi, Partecipa, Per i docenti;
+  2. **dopo l'interramento**: l'elenco di che cosa contiene la capsula,
+     senza i contenuti; spariscono Partecipa e Per i docenti;
+  3. **dopo l'apertura**: i contenuti, compresi lettere e dizionario.
+- I contenuti della capsula non si mostrano prima dell'apertura.
 
 ## 2. Sito statico
 
@@ -47,6 +60,10 @@ Rivoli (2006–2026).
   niente impostazioni o file che funzionano solo su GitHub Pages): il
   sito deve funzionare uguale su qualsiasi server. Come si sposta è
   spiegato in `LEGGIMI.md`.
+- **L'unica eccezione voluta è il file `CNAME`**, che fa puntare un
+  sottodominio della scuola a GitHub Pages. Si aggiunge solo quando il
+  sito è pronto e il nome del sottodominio è deciso. Se un giorno il
+  sito passerà sul server della scuola, basta cancellarlo.
 - Le pagine leggono i file di `contenuti/` con JavaScript: aprire una
   pagina con un doppio clic non basta, l'anteprima si fa con
   `anteprima.bat`.
@@ -144,12 +161,11 @@ regole:
   morbide, nessuno spigolo.
 - Sulla chioma, righette corte verso l'esterno: i gruppi laterali della
   catena del polipropilene di Giulio Natta.
-- Linea del terreno grigia da bordo a bordo. [DA DECIDERE: grigio
-  `#D5D9DE` dei filetti o `#5B6B80`]
+- Linea del terreno da bordo a bordo, nel grigio `#D5D9DE` dei
+  filetti.
 - Animazione: le linee si disegnano una dopo l'altra, poi compaiono le
   righette. Con `prefers-reduced-motion` il disegno compare già intero.
-- Testo alternativo: [DA DECIDERE: decorativo o con una descrizione
-  breve].
+- Il disegno è decorativo: `aria-hidden`, senza descrizione.
 
 ## 8. Il timbro del piede
 
@@ -166,40 +182,72 @@ regole:
 
 ## 9. Pagine e menu
 
-Cinque voci durante la raccolta, tre dopo:
+Cinque voci prima dell'interramento, tre dopo:
 
 1. Home
 2. Il progetto
 3. Il pero
-4. Partecipa (solo durante la raccolta)
-5. Per i docenti (solo durante la raccolta)
+4. Partecipa (solo prima dell'interramento)
+5. Per i docenti (solo prima dell'interramento)
 
 **Nessuna password**, in nessuna pagina: un sito statico non può
 proteggere davvero una pagina, quindi tutto ciò che sta nel sito è
 pubblico, anche "Per i docenti".
+
+**Partecipa**: il sito non riceve nulla. La pagina contiene solo i link
+(e i codici QR) ai Google Moduli del dominio della scuola: aperti solo
+agli utenti dell'istituto, una risposta per persona, nessuna raccolta
+delle email. Titolare del trattamento dei dati è la scuola; informativa
+e modalità le decide la dirigente, sentito il DPO. Nei questionari non
+si caricano foto.
+
+**Per i docenti**: contiene il kit. Si scrive "docenti", non
+"colleghe".
 
 ## 10. La home
 
 In quest'ordine:
 
 1. **Testata**: logo, nome della scuola e pulsante "Menu".
-2. **Apertura**, senza disegno: occhiello "VENT'ANNI · IIS GIULIO
-   NATTA", titolo "Capsula del tempo", conto alla rovescia a foglietti
-   verso la chiusura della capsula (data provvisoria 1 maggio 2027,
-   indicata come provvisoria anche sulla pagina), pulsanti "Partecipa"
-   e "Il progetto".
-3. **"10 anni di PEROpezie"**: la sillaba "pero" la evidenzia il CSS;
-   nel file di testo non è scritta in maiuscolo, così il lettore di
-   schermo legge una parola sola. Al centro un palco: all'inizio il
-   disegno del pero, che si traccia quando la sezione entra nello
-   schermo; sotto, una fila di foto piccole, ognuna con la sua data, che
-   si scorre con due frecce. Toccando una foto, la foto prende il posto
-   del disegno, con la data e il pulsante "Torna al pero".
-4. **"Gli eventi del ventennale"**: il programma, ogni evento con il
-   foglietto della data.
-5. **Piede**: il timbro e il link al kit per le colleghe.
+2. **Apertura**, senza disegno: occhiello "2006–2026 · CAPSULA DEL
+   TEMPO", titolo "Vent'anni del Natta", conto alla rovescia (vedi
+   sotto), pulsanti "Partecipa" (solo prima dell'interramento) e "Il
+   progetto".
+3. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
+   sotto il pero, dall'interramento all'apertura, non quelli della
+   scuola. Sotto il titolo una riga lo spiega: [DA COMPLETARE: testo da
+   scrivere insieme]. La sillaba "pero" la evidenzia il CSS; nel file
+   di testo non è scritta in maiuscolo, così il lettore di schermo
+   legge una parola sola. Al centro un palco: all'inizio il disegno del
+   pero, che si traccia quando la sezione entra nello schermo; sotto,
+   una fila di foto piccole, ognuna con la sua data, che si scorre con
+   due frecce. Toccando una foto, la foto prende il posto del disegno,
+   con la data e il pulsante "Torna al pero".
+4. **"Gli eventi del ventennale"** (solo prima dell'interramento): il
+   programma, ogni evento con il foglietto della data.
+5. **Piede**: il timbro e il link al kit della pagina Per i docenti. Il
+   link si toglie insieme alla pagina, con lo stesso interruttore
+   "stato".
 
-I contenuti della capsula non si mostrano prima dell'interramento.
+**Il conto alla rovescia** si mostra subito, con la data provvisoria
+dell'interramento (1 maggio 2027) scritta come provvisoria anche sulla
+pagina. Cambia con le fasi:
+
+- prima dell'interramento: foglietti per giorni, ore, minuti e secondi;
+- dopo l'interramento: anni e giorni all'apertura;
+- dopo l'apertura sparisce e resta la frase "La capsula è stata aperta
+  il [data]", con il link ai contenuti.
+
+Il conteggio non si annuncia di continuo ai lettori di schermo: niente
+`aria-live` sui numeri.
+
+**Le foto del pero** le scattano gli studenti della classe prima
+incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il
+credito, nella forma "Foto della classe 1ª X, a.s. AAAA/AA": nessun
+nome di studenti. Liberatorie e diritti li verifica la vicepresidenza
+prima di inviare le foto.
+
+I contenuti della capsula non si mostrano prima dell'apertura.
 
 ## 11. Il repository è pubblico
 
@@ -249,14 +297,11 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 
 ## 15. Questioni aperte
 
-- "10 anni di PEROpezie": da quando c'è il pero? [DA COMPLETARE]
-- Che cosa si mostra dopo l'interramento e che cosa solo dopo
-  l'apertura.
-- Partecipa: come arrivano i contributi (un sito statico non li
-  riceve), con quali liberatorie e chi tratta i dati.
-- Conto alla rovescia: quali foglietti (giorni, ore...) e che cosa
-  mostra dopo la data.
-- Kit per le colleghe: dove sta e se il link del piede resta dopo la
-  raccolta.
-- Foto del pero: autori, licenza, persone riconoscibili.
-- Sottodominio: server della scuola o GitHub Pages (vedi `LEGGIMI.md`).
+- Data dell'interramento: 1 maggio 2027 è provvisoria, da approvare.
+- Testo della riga sotto "10 anni di PEROpezie" (punto 10).
+- Nome del sottodominio della scuola.
+- Forma delle foto nel palco: il palco è verticale; le foto
+  orizzontali si mostrano intere con margini bianchi o ritagliate?
+- Formato della data delle foto.
+- Dati degli eventi: [DA COMPLETARE].
+- Eventi passati: visibili come conclusi o nascosti?

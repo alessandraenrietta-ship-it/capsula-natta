@@ -10,7 +10,7 @@
 # La riga piccola sopra il titolo. Il sito la scrive in maiuscolo.
 occhiello: 2006–2026 · capsula del tempo
 # Il titolo grande. Compare esattamente come è scritto qui.
-titolo: Vent'anni del Natta
+titolo: Vent'anni di Natta
 # Le scritte dei due pulsanti sotto il conto alla rovescia. Compaiono
 # solo quando la loro pagina è "pronta" (comuni.txt, sezione PAGINE).
 # "Partecipa" sparisce da solo dopo l'interramento.

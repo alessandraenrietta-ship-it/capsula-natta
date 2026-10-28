@@ -21,12 +21,16 @@
 # foto-pero/pero-2028.jpg | 1 maggio 2028 | Foto della classe 1ª X, a.s. 2027/28 | [DA COMPLETARE: che cosa si vede nella foto]
 
 == ESEMPIO ==
-# Tre immagini grigie, segnate "Foto d'esempio", per mostrare come
-# funziona la sezione prima che ci siano le foto vere. Con "sì"
-# compaiono, con "no" no. Senza foto vere e con "no", la fila delle
-# foto non compare e il palco mostra solo il disegno del pero.
+# Cinque foto di peri qualsiasi, NON del pero della scuola, per mostrare
+# come funziona la sezione prima che ci siano le foto vere. Vengono da
+# Wikimedia Commons, con licenza libera: il credito con autore e
+# licenza va lasciato com'è. Le date sono inventate.
+# Con "sì" compaiono, con "no" no. Senza foto vere e con "no", la fila
+# delle foto non compare e il palco mostra solo il disegno del pero.
 esempio: sì
 # file | data | credito | testo alternativo
-immagini/esempio-foto-1.svg | 1 maggio 2029 | Foto d'esempio | Foto d'esempio: un rettangolo grigio orizzontale al posto di una foto del pero.
-immagini/esempio-foto-2.svg | 1 maggio 2028 | Foto d'esempio | Foto d'esempio: un rettangolo grigio verticale al posto di una foto del pero.
-immagini/esempio-foto-3.svg | 1 maggio 2027 | Foto d'esempio | Foto d'esempio: un quadrato grigio al posto di una foto del pero.
+foto-pero/esempio-pero-1.jpg | 1 maggio 2028 | Foto di Lendskaip, Wikimedia Commons, CC0 | Un grande pero in fiore accanto a una casa di mattoni, sotto un cielo azzurro.
+foto-pero/esempio-pero-2.jpg | 1 maggio 2029 | Foto di Rosser1954, Wikimedia Commons, CC BY-SA 4.0 | Un pero selvatico in fiore, da solo in cima a un prato verde.
+foto-pero/esempio-pero-3.jpg | 1 maggio 2030 | Foto di Reinhold Möller, Wikimedia Commons, CC BY-SA 4.0 | Un pero in fiore isolato su un prato, con il cielo azzurro dietro.
+foto-pero/esempio-pero-4.jpg | 1 maggio 2031 | Foto di Uoaei1, Wikimedia Commons, CC BY-SA 4.0 | Un pero in fiore con il tronco spaccato in due, su un prato.
+foto-pero/esempio-pero-5.jpg | 1 maggio 2032 | Foto di Roman Eisele, Wikimedia Commons, CC BY-SA 4.0 | Un vecchio pero senza foglie d'inverno, in un campo coperto di neve.

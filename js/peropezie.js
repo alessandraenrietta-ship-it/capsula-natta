@@ -20,7 +20,7 @@
        disegno compare completo, senza ripetere l'animazione.
 
    Le foto vere stanno nella sezione FOTO di foto-pero.txt; con
-   "esempio: sì" si aggiungono le tre immagini d'esempio. Senza foto la
+   "esempio: sì" si aggiungono le cinque foto d'esempio. Senza foto la
    fila non compare e il palco mostra solo il disegno.
    Niente scorrimento automatico. Il cambio del palco è annunciato al
    lettore di schermo.
@@ -53,7 +53,7 @@
   /* Quanto dura il disegno: le due metà di linea-1 partono insieme dai
      bordi, linea-2 mezzo secondo dopo, poi linea-3, infine le righette
      (le stesse misure sono in grafica.css) */
-  var DURATA_DISEGNO = 6200;
+  var DURATA_DISEGNO = 3500;
 
   Promise.all([C.leggi("contenuti/home.txt"), C.leggi("contenuti/foto-pero.txt")])
     .then(function (file) { prepara(file[0], file[1]); })

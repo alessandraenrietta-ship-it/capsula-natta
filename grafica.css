@@ -389,8 +389,13 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
 
 .peropezie { text-align: center; overflow: hidden; }
 
-/* La sillaba "pero" del titolo: nel file è scritta normale */
-.pero { text-transform: uppercase; }
+/* La sillaba "pero" del titolo: nel file è scritta normale. In
+   maiuscolo e un po' storta, come un timbro messo di traverso. */
+.pero {
+  display: inline-block;
+  text-transform: uppercase;
+  transform: rotate(-7deg) translateY(-0.04em);
+}
 
 .sezione-riga { max-width: 34rem; margin: -0.5rem auto 2rem; text-wrap: balance; }
 
@@ -432,10 +437,10 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
 
 .palco-pero .linea path { stroke-dasharray: 1 2; stroke-dashoffset: 1.01; }
 .palco-pero .righette { opacity: 0; }
-.palco-pero.disegna .linea-1 path { animation: disegna-pero 2.4s ease-in-out forwards; }
-.palco-pero.disegna .linea-2 path { animation: disegna-pero 2.4s ease-in-out 0.5s forwards; }
-.palco-pero.disegna .linea-3 path { animation: disegna-pero 2s ease-in-out 2.9s forwards; }
-.palco-pero.disegna .righette { animation: compari 0.8s ease 5s forwards; }
+.palco-pero.disegna .linea-1 path { animation: disegna-pero 1.3s ease-in-out forwards; }
+.palco-pero.disegna .linea-2 path { animation: disegna-pero 1.3s ease-in-out 0.5s forwards; }
+.palco-pero.disegna .linea-3 path { animation: disegna-pero 1s ease-in-out 1.8s forwards; }
+.palco-pero.disegna .righette { animation: compari 0.5s ease 2.8s forwards; }
 .palco-pero.completo .linea path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
 .palco-pero.completo .righette { animation: none; opacity: 1; }
 

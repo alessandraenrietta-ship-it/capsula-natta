@@ -21,14 +21,15 @@ servono: `fonts/cutive-mono-regular.ttf` con `fonts/OFL.txt`,
 
 ## 1. Che cos'è
 
-Il sito "Vent'anni del Natta": la capsula del tempo per il ventennale
+Il sito "Vent'anni di Natta": la capsula del tempo per il ventennale
 dell'IIS Giulio Natta di Rivoli (2006–2026).
 
-- **Titolo del sito**: "Vent'anni del Natta", con l'articolo: senza,
-  "Natta" sarebbe Giulio Natta, la persona. Occhiello sopra il titolo:
-  "2006–2026 · CAPSULA DEL TEMPO". Titolo della scheda del browser
-  della home: "Vent'anni del Natta | IIS Giulio Natta, Rivoli". Il nome
-  del repository resta `capsula-natta`.
+- **Titolo del sito**: "Vent'anni di Natta" (deciso da Alessandra il 28
+  ottobre 2026, sera; prima era "Vent'anni del Natta", con l'articolo,
+  perché senza "Natta" fa pensare a Giulio Natta, la persona).
+  Occhiello sopra il titolo: "2006–2026 · CAPSULA DEL TEMPO". Titolo
+  della scheda del browser della home: "Vent'anni di Natta | IIS Giulio
+  Natta, Rivoli". Il nome del repository resta `capsula-natta`.
 - **A chi si rivolge**: studenti e docenti di oggi. I testi devono
   essere comprensibili anche a famiglie, ex studenti e ospiti delle
   conferenze.
@@ -178,8 +179,10 @@ regole:
   linea-1 partono insieme dai due bordi e si incontrano in cima alla
   chioma; linea-2 fa lo stesso mezzo secondo dopo; poi linea-3 disegna
   la chioma interna e scende a chiudere la capsula; infine compaiono le
-  righette. Con `prefers-reduced-motion` il disegno compare già
-  completo. Tornando al pero da una foto il disegno compare completo,
+  righette. In tutto circa 3,3 secondi (accorciata il 28 ottobre 2026,
+  sera, perché era troppo lenta): linea-1 1,3 s, linea-2 1,3 s dopo
+  0,5 s, linea-3 1 s, righette 0,5 s. Con `prefers-reduced-motion` il
+  disegno compare già completo. Tornando al pero da una foto il disegno compare completo,
   senza ripetere l'animazione.
 - **Al computer** i tratti del terreno si allungano fino ai bordi della
   finestra (`js/peropezie.js`, con un raccordo morbido, senza angoli).
@@ -247,7 +250,7 @@ In quest'ordine:
 
 1. **Testata**: logo, nome della scuola e pulsante "Menu".
 2. **Apertura**, senza disegno: occhiello "2006–2026 · CAPSULA DEL
-   TEMPO", titolo "Vent'anni del Natta", conto alla rovescia (vedi
+   TEMPO", titolo "Vent'anni di Natta", conto alla rovescia (vedi
    sotto), pulsanti "Partecipa" e "Il progetto". Dopo l'interramento
    "Partecipa" sparisce e resta solo "Il progetto".
 3. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
@@ -330,7 +333,8 @@ sezione PEROPEZIE di `contenuti/home.txt`, foto in
 
 - Titolo "10 anni di Peropezie", scritto normale nel file, verde come
   gli altri titoli; la sillaba "pero" la mette in maiuscolo il CSS
-  (`text-transform`), così il lettore di schermo legge una parola sola.
+  (`text-transform`), così il lettore di schermo legge una parola sola,
+  e la inclina un po' (7 gradi), come un timbro messo di traverso.
 - Sotto il titolo la riga "Dal giorno dell'interramento, una foto
   all'anno fino all'apertura della capsula." (da approvare).
 - **Il palco**, centrato, verticale (proporzioni 220 per 300, largo 18rem
@@ -355,12 +359,17 @@ sezione PEROPEZIE di `contenuti/home.txt`, foto in
   testo alternativo). I file vanno nella cartella `foto-pero/`, in JPG,
   sotto i 300 KB. Senza foto la fila non compare e il palco mostra solo
   il disegno.
-- **Foto d'esempio**, per presentare il sito prima delle foto vere: tre
-  immagini grigie senza persone (`immagini/esempio-foto-1.svg`, una
-  orizzontale, una verticale, una quadrata), segnate "FOTO D'ESEMPIO"
-  nell'immagine e nel testo alternativo. Sono l'unica eccezione voluta
-  alla regola "nessun testo dentro le immagini" (punto 5). Compaiono con
-  `esempio: sì` in `foto-pero.txt`; con `esempio: no` spariscono.
+- **Foto d'esempio**, per presentare il sito prima delle foto vere
+  (dal 28 ottobre 2026, sera, al posto di tre immagini grigie): cinque
+  foto di peri qualsiasi, **non** del pero della scuola, senza persone,
+  scaricate da Wikimedia Commons con il permesso di Alessandra
+  (`foto-pero/esempio-pero-1.jpg` … `-5.jpg`, tre orizzontali e due
+  verticali, rimpicciolite a 1000 pixel e sotto i 300 KB). Una è CC0,
+  quattro sono CC BY-SA 4.0: il credito sotto la foto dice autore,
+  Wikimedia Commons e licenza, e non va tolto finché la foto è nel
+  sito. Le date sotto le foto sono inventate (1 maggio 2028–2032).
+  Compaiono con `esempio: sì` in `foto-pero.txt`; con `esempio: no`
+  spariscono.
 
 **La sezione "Gli eventi del ventennale"** (`js/home.js`, titolo nella
 sezione EVENTI di `contenuti/home.txt`, eventi in
@@ -375,10 +384,13 @@ sezione EVENTI di `contenuti/home.txt`, eventi in
   dai 66rem.
 - Per l'interramento, in data e ora c'è "interramento": il sito prende
   data e ora da `comuni.txt`, così non si scrivono due volte.
-- Righe segnaposto, visibili sul sito: la conferenza su Giulio Natta
-  (titolo, data, ora, luogo e relatore [DA COMPLETARE]), un secondo
-  evento [DA COMPLETARE], l'interramento accanto al pero. Senza data il
-  foglietto mostra "?".
+- **Eventi inventati, per presentare il sito** (decisione di
+  Alessandra, 28 ottobre 2026, sera): cinque eventi con nomi bizzarri e
+  date inventate, tutti al Teatro del Natta, più l'interramento "Sotto
+  il pero". **Sul sito non sono segnati come inventati**: è
+  un'eccezione voluta alla regola "mai inventare dati" (punto 12).
+  Vanno sostituiti con quelli veri prima di dare il link a chi non lo
+  sa. Senza data il foglietto mostra "?".
 - Gli eventi passati spariscono da soli dal giorno dopo; la sezione si
   vede solo prima dell'interramento e solo se resta almeno un evento.
 
@@ -414,7 +426,9 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 - Mai il trattino lungo al posto della virgola. Il trattino medio "–"
   solo negli intervalli (2006–2026).
 - **Mai inventare dati.** Dove un dato manca si scrive
-  `[DA COMPLETARE: ...]`, ben visibile, e lo si segnala.
+  `[DA COMPLETARE: ...]`, ben visibile, e lo si segnala. Unica
+  eccezione, decisa da Alessandra: gli eventi inventati della home, per
+  presentare il sito (punto 10).
 
 ## 13. Git e metodo di lavoro
 
@@ -449,4 +463,5 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 - Da confermare i valori predefiniti del punto 10: foto orizzontali
   intere con margini bianchi, data completa sotto le foto, eventi
   passati nascosti.
-- Dati degli eventi: [DA COMPLETARE].
+- Dati degli eventi: oggi sono inventati (punto 10), da sostituire con
+  quelli veri.

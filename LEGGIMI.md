@@ -35,7 +35,8 @@ toccare nessun altro file.
    Il testo alternativo dice che cosa si vede, per chi non vede la foto.
    Nessun nome di studenti.
 3. Quando ci sono le foto vere, in fondo allo stesso file si scrive
-   `esempio: no`, così spariscono le tre immagini grigie d'esempio.
+   `esempio: no`, così spariscono le cinque foto d'esempio (peri
+   qualsiasi presi da Wikimedia Commons).
 
 L'elenco si allunga man mano che si crea ogni file.
 

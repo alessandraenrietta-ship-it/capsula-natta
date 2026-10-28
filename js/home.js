@@ -7,9 +7,11 @@
 
    Il conto alla rovescia cambia con le tre fasi (CLAUDE.md, punto 10):
      - prima dell'interramento: foglietti per giorni, ore, minuti e
-       secondi, e sotto la data (con "data provvisoria" finché non è
-       approvata);
-     - dopo l'interramento: anni e giorni all'apertura;
+       secondi; sotto la data e l'ora (con "data provvisoria" finché non
+       sono approvate) e la data dell'apertura;
+     - dopo l'interramento: un solo foglietto, più largo, con tutti i
+       giorni del calendario che mancano all'apertura (3.653 il giorno
+       dell'interramento);
      - dopo l'apertura: la frase "La capsula è stata aperta il ..." e,
        quando la pagina c'è, il link ai contenuti.
    Se una fase finisce mentre la pagina è aperta, la pagina si ridispone
@@ -19,7 +21,10 @@
    aria-live): accanto alla riga sopra i foglietti c'è una frase
    nascosta, "185 giorni, 3 ore, 20 minuti", che si legge quando ci si
    arriva. Chi ha chiesto al computer di ridurre il movimento non vede
-   il foglietto dei secondi, che cambierebbe ogni secondo.
+   il foglietto dei secondi, che cambierebbe ogni secondo. Per tutti gli
+   altri i secondi restano, senza un pulsante per fermarli: eccezione
+   consapevole alla regola WCAG 2.2.2, decisa da Alessandra (CLAUDE.md,
+   punto 10).
    ================================================================== */
 
 (function () {
@@ -97,10 +102,11 @@
       return;
     }
 
-    /* Le unità dei foglietti: [scritta del foglietto, singolare] */
+    /* Le unità dei foglietti: [scritta del foglietto, singolare]. Dopo
+       l'interramento un solo foglietto, più largo, con tutti i giorni. */
     var unita = fase === "prima" ?
       [["giorni", "giorno"], ["ore", "ora"], ["minuti", "minuto"], ["secondi", "secondo"]] :
-      [["anni", "anno"], ["giorni", "giorno"]];
+      [["giorni", "giorno"]];
     if (fase === "prima" && RIDOTTO) { unita.pop(); }
 
     var sopra = elemento("p", "conto-riga", parola(fase === "prima" ? "prima" : "dopo"));
@@ -111,7 +117,7 @@
     var fila = elemento("div", "conto-foglietti");
     fila.setAttribute("aria-hidden", "true");
     var numeri = unita.map(function (u) {
-      var foglietto = elemento("span", "foglietto");
+      var foglietto = elemento("span", fase === "prima" ? "foglietto" : "foglietto foglietto-largo");
       foglietto.appendChild(elemento("span", "foglietto-scritta", parola(u[0])));
       var numero = elemento("span", "foglietto-numero");
       foglietto.appendChild(numero);
@@ -120,22 +126,35 @@
     });
     box.appendChild(fila);
 
-    /* Sotto, la data: dell'interramento prima, dell'apertura dopo */
-    var data = elemento("p", "conto-data");
+    /* Sotto, prima dell'interramento, la sua data e la sua ora:
+       "1 maggio 2027, ore 15.00 · data provvisoria" */
     if (fase === "prima") {
-      data.appendChild(document.createTextNode(t.scriviData(t.interramento)));
+      var data = elemento("p", "conto-data");
+      var quando = t.scriviData(t.interramento);
+      if (t.ora) { quando += ", " + parola("parola-ora") + " " + t.ora; }
+      /* I due pezzi non si spezzano: sul telefono "data provvisoria" va
+         a capo intera */
+      data.appendChild(elemento("span", "intero", quando));
       if (t.provvisoria) {
         var punto = elemento("span", "", " · ");
         punto.setAttribute("aria-hidden", "true");
         data.appendChild(punto);
-        C.scrivi(data, comuni.campo("CAPSULA", "scritta-provvisoria"));
+        data.appendChild(elemento("span", "intero", comuni.campo("CAPSULA", "scritta-provvisoria")));
       }
-    } else {
-      C.scrivi(data, parola("data-apertura") + " " + t.scriviData(t.apertura));
+      box.appendChild(data);
     }
-    box.appendChild(data);
+
+    /* Poi la data dell'apertura: "Apertura prevista:" finché la data
+       dell'interramento è provvisoria, "Apertura:" quando è approvata
+       e sempre dopo l'interramento */
+    var etichetta = fase === "prima" && t.provvisoria ? "apertura-prevista" : "apertura";
+    box.appendChild(elemento("p", fase === "prima" ? "conto-apertura" : "conto-data",
+      parola(etichetta) + " " + t.scriviData(t.apertura)));
 
     function dueCifre(n) { return n < 10 ? "0" + n : String(n); }
+
+    /* Il punto delle migliaia: 3653 -> "3.653" */
+    function migliaia(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
 
     function aggiorna() {
       if (t.fase() !== fase) { disponi(); return; }
@@ -144,11 +163,11 @@
       if (fase === "prima") {
         var m = K.mancano(adesso, t.interramento);
         valori = [m.giorni, m.ore, m.minuti, m.secondi];
-        mostrati = [String(m.giorni), dueCifre(m.ore), dueCifre(m.minuti), dueCifre(m.secondi)];
+        mostrati = [migliaia(m.giorni), dueCifre(m.ore), dueCifre(m.minuti), dueCifre(m.secondi)];
       } else {
-        var a = K.mancanoAnni(adesso, t.apertura);
-        valori = [a.anni, a.giorni];
-        mostrati = [String(a.anni), String(a.giorni)];
+        var giorni = K.giorniCalendario(adesso, t.apertura);
+        valori = [giorni];
+        mostrati = [migliaia(giorni)];
       }
       numeri.forEach(function (el, i) { el.textContent = mostrati[i]; });
 
@@ -156,7 +175,7 @@
       var pezzi = [];
       unita.forEach(function (u, i) {
         if (u[0] === "secondi") { return; }
-        pezzi.push(valori[i] + " " + parola(valori[i] === 1 ? u[1] : u[0]));
+        pezzi.push(migliaia(valori[i]) + " " + parola(valori[i] === 1 ? u[1] : u[0]));
       });
       frase.textContent = " " + pezzi.join(", ") + ".";
     }

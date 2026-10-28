@@ -31,12 +31,16 @@ giorno: giorno
 ora: ora
 minuto: minuto
 secondo: secondo
-# Dopo l'interramento: la riga sopra i foglietti degli anni e dei
-# giorni, e la parola sotto i foglietti, prima della data dell'apertura.
+# Sotto i foglietti, prima della data dell'interramento: la parola
+# davanti all'ora ("1 maggio 2027, ore 15.00").
+parola-ora: ore
+# Dopo l'interramento: la riga sopra il foglietto dei giorni. Il
+# foglietto mostra tutti i giorni che mancano all'apertura (3.653).
 dopo: All'apertura della capsula mancano
-anni: anni
-anno: anno
-data-apertura: Apertura:
+# La riga con la data dell'apertura, sotto i foglietti: "prevista"
+# finché la data dell'interramento è provvisoria (comuni.txt).
+apertura-prevista: Apertura prevista:
+apertura: Apertura:
 # Dopo l'apertura il conto alla rovescia sparisce e resta questa frase.
 # Al posto di [data] il sito scrive la data dell'apertura. Il link porta
 # ai contenuti della capsula, quando la pagina è "pronta".

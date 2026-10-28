@@ -19,12 +19,12 @@ nome: IIS Giulio Natta
 #   - dopo l'apertura: i contenuti della capsula.
 # Si scrive il giorno, il mese in lettere e l'anno: 1 maggio 2027
 data-interramento: 1 maggio 2027
-# L'ora dell'interramento, con il punto: 10.30. Finché la riga è vuota
-# il conto alla rovescia arriva alla mezzanotte, ora italiana.
-ora-interramento:
-# Finché la data non è approvata qui c'è "sì", e accanto alla data
-# compare la scritta "data provvisoria". Quando è approvata si scrive
-# "no".
+# L'ora dell'interramento, con il punto: 15.00. Se la riga è vuota il
+# conto alla rovescia arriva alla mezzanotte. Sempre ora italiana.
+ora-interramento: 15.00
+# Finché data e ora non sono approvate qui c'è "sì": accanto alla data
+# compare la scritta "data provvisoria" e l'apertura è "prevista".
+# Quando sono approvate si scrive "no".
 data-provvisoria: sì
 scritta-provvisoria: data provvisoria
 
@@ -43,12 +43,10 @@ docenti | per-i-docenti.html | in preparazione
 capsula | la-capsula.html | in preparazione
 
 == TIMBRO ==
-# Il timbro rotondo del piede: una scritta sull'arco in alto, una
-# sull'arco in basso, e gli anni sotto il logo. Il sito le scrive in
-# maiuscolo. "º" è l'indicatore ordinale, non il simbolo dei gradi "°".
+# Il timbro rotondo del piede: una scritta sull'arco in alto e una
+# sull'arco in basso, intorno al logo. Il sito le scrive in maiuscolo.
 in-alto: IIS Giulio Natta
-in-basso: 20º anniversario
-anni: 2006–2026
+in-basso: 2006 · vent'anni · 2026
 
 == PIEDE ==
 # Il link al kit della pagina Per i docenti, accanto al timbro. Compare

@@ -34,8 +34,9 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
   conferenze.
 - **Una sola data da gestire**: quella dell'interramento, scritta nel
   file dei contenuti. L'apertura è dieci anni dopo e il sito la calcola
-  da solo. Data provvisoria dell'interramento: 1 maggio 2027. Si mostra
-  subito, scritta come provvisoria; il sito non verrà pubblicizzato
+  da solo. Data provvisoria dell'interramento: 1 maggio 2027, ore
+  15.00. Data e ora stanno in `contenuti/comuni.txt`. Si mostrano
+  subito, scritte come provvisorie; il sito non verrà pubblicizzato
   finché la data non è approvata.
 - **Tre fasi**, che il sito ricava da solo da quella data:
   1. **prima dell'interramento**: eventi, Partecipa, Per i docenti;
@@ -174,13 +175,18 @@ regole:
 
 ## 8. Il timbro del piede
 
-- Due cerchi. "IIS GIULIO NATTA" sull'arco superiore, "20º
-  ANNIVERSARIO" sull'arco inferiore, leggibile da sinistra a destra.
-  `º` è l'indicatore ordinale, **non** il simbolo dei gradi `°`.
-- Righette verso l'interno lungo il cerchio interno.
-- Al centro il logo ufficiale della scuola (`immagini/logo-natta.png`)
-  colorato di verde dal CSS, **mai ridisegnato a mano**; sotto il logo
-  "2006–2026".
+Seconda versione, decisa il 28 ottobre 2026: in Cutive Mono "º" si
+leggeva come "°" ("20º ANNIVERSARIO"), e gli anni sotto il logo
+toccavano quasi le righette.
+
+- Due cerchi. "IIS GIULIO NATTA" sull'arco superiore, "2006 · VENT'ANNI
+  · 2026" sull'arco inferiore, tutte e due leggibili da sinistra a
+  destra. Le scritte stanno nella sezione TIMBRO di
+  `contenuti/comuni.txt`.
+- Righette verso l'interno lungo tutto il cerchio interno.
+- Al centro il logo ufficiale della scuola (`immagini/logo-natta.png`),
+  più grande della prima versione, colorato di verde dal CSS, **mai
+  ridisegnato a mano**. Niente scritte sotto il logo.
 - Tutto in verde `#026C37`. Decorativo (`aria-hidden`).
 - Il logo è piccolo (231 × 155 pixel): non va ingrandito molto. Se
   arriva l'originale in alta risoluzione, si sostituisce.
@@ -248,25 +254,45 @@ In quest'ordine:
    dell'interramento: non c'è un interruttore da cambiare a mano.
 
 **Il conto alla rovescia** si mostra subito, con la data provvisoria
-dell'interramento (1 maggio 2027) scritta come provvisoria anche sulla
-pagina. Cambia con le fasi:
+dell'interramento (1 maggio 2027, ore 15.00) scritta come provvisoria
+anche sulla pagina. Cambia con le fasi:
 
-- prima dell'interramento: foglietti per giorni, ore, minuti e secondi;
-- dopo l'interramento: anni e giorni all'apertura;
-- dopo l'apertura sparisce e resta la frase "La capsula è stata aperta
-  il [data]", con il link ai contenuti.
+- **prima dell'interramento**: "All'interramento della capsula
+  mancano", foglietti per giorni, ore, minuti e secondi, sotto la data
+  e l'ora dell'interramento (con "data provvisoria" finché non è
+  approvata) e la riga "Apertura prevista: 1 maggio 2037" finché la
+  data è provvisoria ("Apertura: ..." quando è approvata);
+- **dopo l'interramento**: "All'apertura della capsula mancano", un solo
+  foglietto, più largo degli altri, con "GIORNI" e il numero totale dei
+  giorni all'apertura, con il punto delle migliaia (3.653); sotto
+  "Apertura: 1 maggio 2037". Il conto si fa per giorni del calendario,
+  non per ore: il giorno dell'interramento mostra il totale pieno;
+- **dopo l'apertura** sparisce e resta la frase "La capsula è stata
+  aperta il [data]", con il link "Che cosa c'era nella capsula" ai
+  contenuti, quando la pagina c'è.
+
+Testi approvati da Alessandra: "All'interramento della capsula
+mancano", "All'apertura della capsula mancano", "Che cosa c'era nella
+capsula", "Apertura prevista:" e "Apertura:".
 
 Il conteggio non si annuncia di continuo ai lettori di schermo: niente
 `aria-live` sui numeri. I foglietti sono `aria-hidden`; accanto alla
 riga sopra i foglietti c'è una frase nascosta ("184 giorni, 7 ore, 53
 minuti"), senza i secondi, che il lettore di schermo legge quando ci
-arriva. Con `prefers-reduced-motion` il foglietto dei secondi non c'è
-e il conto si aggiorna una volta al minuto.
+arriva.
+
+**Eccezione consapevole alla regola WCAG 2.2.2** (un contenuto che si
+aggiorna da solo deve potersi fermare): il foglietto dei secondi cambia
+ogni secondo e non c'è un pulsante per fermarlo. Decisione di
+Alessandra, 28 ottobre 2026. Resta la mitigazione: con
+`prefers-reduced-motion` il foglietto dei secondi non c'è e il conto si
+aggiorna una volta al minuto.
 
 - **L'ora** dell'interramento è il campo `ora-interramento` di
-  `comuni.txt`; finché è vuoto, il conto arriva alla mezzanotte. Le
-  date sono sempre in ora italiana, anche per chi apre il sito da un
-  altro fuso orario.
+  `comuni.txt`, scritta con il punto (15.00); se il campo è vuoto, il
+  conto arriva alla mezzanotte. Le date sono sempre in ora italiana,
+  anche per chi apre il sito da un altro fuso orario.
+- Gli orari, in tutto il sito, si scrivono con il punto: 15.00.
 - Se una fase finisce mentre la pagina è aperta, la pagina si
   ridispone da sola.
 - **Per provare le fasi**: `index.html?prova=2030-01-01` (oppure
@@ -277,8 +303,19 @@ File della home: `index.html`, `grafica.css`, `js/contenuti.js`
 (copiato identico da orientamento: è il lettore dei file di testo),
 `js/comuni.js` (fasi, pagine, testata, piede, timbro), `js/home.js`,
 `contenuti/comuni.txt`, `contenuti/home.txt`. Titolo della scheda del
-browser e descrizione per Google stanno in `index.html`, perché devono
-esserci prima che la pagina legga i file di testo.
+browser e descrizione per i motori di ricerca stanno in `index.html`,
+perché devono esserci prima che la pagina legga i file di testo.
+Descrizione della home: "Il ventennale dell'IIS Giulio Natta di Rivoli
+(2006–2026) e la capsula del tempo custodita per dieci anni sotto il
+pero della scuola."
+
+**Valori predefiniti, per poter presentare il sito** (da confermare,
+tutti modificabili dai file di contenuto):
+
+- foto orizzontali nel palco: intere, con margini bianchi;
+- data sotto le foto: completa (1 maggio 2027);
+- eventi passati: nascosti, come le date degli open day di
+  orientamento.
 
 **Le foto del pero** le scattano gli studenti della classe prima
 incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il
@@ -336,12 +373,12 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 
 ## 15. Questioni aperte
 
-- Data dell'interramento: 1 maggio 2027 è provvisoria, da approvare.
+- Data e ora dell'interramento: 1 maggio 2027, ore 15.00, provvisorie,
+  da approvare.
 - Testo della riga sotto "10 anni di PEROpezie" (punto 10).
 - Che cosa contiene la capsula oltre alle lettere (in definizione).
 - Nome del sottodominio della scuola.
-- Forma delle foto nel palco: il palco è verticale; le foto
-  orizzontali si mostrano intere con margini bianchi o ritagliate?
-- Formato della data delle foto.
+- Da confermare i valori predefiniti del punto 10: foto orizzontali
+  intere con margini bianchi, data completa sotto le foto, eventi
+  passati nascosti.
 - Dati degli eventi: [DA COMPLETARE].
-- Eventi passati: visibili come conclusi o nascosti?

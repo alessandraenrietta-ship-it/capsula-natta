@@ -88,10 +88,10 @@ window.Comuni = (function () {
     return [+parti[3], mese, +parti[1]];
   }
 
-  /* "10.30" oppure "10:30" -> [10, 30]; vuoto -> mezzanotte */
+  /* "15.00" (oppure "15:00") -> [15, 0]; vuoto o sbagliato -> null */
   function leggiOra(testo) {
     var parti = (testo || "").trim().match(/^(\d{1,2})[.:](\d{2})$/);
-    return parti ? [+parti[1], +parti[2]] : [0, 0];
+    return parti && +parti[1] < 24 && +parti[2] < 60 ? [+parti[1], +parti[2]] : null;
   }
 
   /* La data finta di ?prova=, se c'è */
@@ -102,8 +102,8 @@ window.Comuni = (function () {
     return oraItaliana(+parti[1], +parti[2], +parti[3], +(parti[4] || 0), +(parti[5] || 0), +(parti[6] || 0));
   }
 
-  /* Un momento scritto per esteso, in italiano: "1 maggio 2027" */
-  function scriviData(momento) {
+  /* Il giorno del calendario italiano di un momento: [anno, mese, giorno] */
+  function giornoItaliano(momento) {
     var parti = {};
     try {
       new Intl.DateTimeFormat("en-GB", {
@@ -113,12 +113,25 @@ window.Comuni = (function () {
       var d = new Date(momento);
       parti = { day: d.getDate(), month: d.getMonth() + 1, year: d.getFullYear() };
     }
-    return +parti.day + " " + MESI[+parti.month - 1] + " " + parti.year;
+    return [+parti.year, +parti.month, +parti.day];
+  }
+
+  /* Un momento scritto per esteso, in italiano: "1 maggio 2027" */
+  function scriviData(momento) {
+    var g = giornoItaliano(momento);
+    return g[2] + " " + MESI[g[1] - 1] + " " + g[0];
   }
 
   function tempo(comuni) {
     var data = leggiData(comuni.campo("CAPSULA", "data-interramento"));
-    var ora = leggiOra(comuni.campo("CAPSULA", "ora-interramento"));
+    var testoOra = comuni.campo("CAPSULA", "ora-interramento").trim();
+    var oraLetta = leggiOra(testoOra);
+    /* Senza ora, la mezzanotte */
+    var ora = oraLetta || [0, 0];
+    if (testoOra && !oraLetta) {
+      console.warn("comuni.txt: non capisco l'ora dell'interramento -> " + testoOra +
+                   " (si scrive così: 15.00)");
+    }
     var prova = dataDiProva();
     /* Con la data finta, l'orologio parte da lì e poi scorre */
     var spostamento = prova === null ? 0 : prova - Date.now();
@@ -126,6 +139,9 @@ window.Comuni = (function () {
     var t = {
       interramento: null,
       apertura: null,
+      /* L'ora come va scritta sulla pagina, con il punto ("15.00"), o
+         "" se nel file non c'è */
+      ora: oraLetta ? ora[0] + "." + (ora[1] < 10 ? "0" : "") + ora[1] : "",
       provvisoria: comuni.campo("CAPSULA", "data-provvisoria").trim().toLowerCase() !== "no",
       adesso: function () { return Date.now() + spostamento; },
       fase: function () {
@@ -159,16 +175,14 @@ window.Comuni = (function () {
     };
   }
 
-  /* Quanto manca, in anni interi e giorni */
-  function mancanoAnni(da, a) {
-    var anni = new Date(a).getUTCFullYear() - new Date(da).getUTCFullYear();
-    function piuAnni(n) {
-      var d = new Date(da);
-      d.setUTCFullYear(d.getUTCFullYear() + n);
-      return d.getTime();
-    }
-    while (anni > 0 && piuAnni(anni) > a) { anni--; }
-    return { anni: anni, giorni: Math.floor((a - piuAnni(anni)) / GIORNO) };
+  /* Quanti giorni del calendario italiano ci sono fra un momento e
+     l'altro, senza guardare l'ora: dal giorno dell'interramento
+     all'apertura sono 3.653 (dieci anni, con tre 29 febbraio), anche
+     subito dopo l'interramento */
+  function giorniCalendario(da, a) {
+    var g1 = giornoItaliano(da), g2 = giornoItaliano(a);
+    return Math.max(0, Math.round((Date.UTC(g2[0], g2[1] - 1, g2[2]) -
+                                   Date.UTC(g1[0], g1[1] - 1, g1[2])) / GIORNO));
   }
 
 
@@ -219,12 +233,11 @@ window.Comuni = (function () {
 
   /* ---------------------------------------------------------------
      IL TIMBRO
-     Due cerchi. "IIS GIULIO NATTA" sull'arco in alto, "20º
-     ANNIVERSARIO" sull'arco in basso, tutte e due leggibili da
-     sinistra a destra. Righette verso l'interno lungo il cerchio
-     interno. Al centro il logo, tinto di verde da grafica.css, e sotto
-     il logo gli anni. Le scritte vengono dalla sezione TIMBRO di
-     comuni.txt. È solo decorativo: va nell'elemento con id="timbro",
+     Due cerchi. "IIS GIULIO NATTA" sull'arco in alto, "2006 ·
+     VENT'ANNI · 2026" sull'arco in basso, tutte e due leggibili da
+     sinistra a destra. Righette verso l'interno lungo tutto il cerchio
+     interno. Al centro il logo, tinto di verde da grafica.css. Le
+     scritte vengono dalla sezione TIMBRO di comuni.txt. È solo decorativo: va nell'elemento con id="timbro",
      che ha aria-hidden.
      --------------------------------------------------------------- */
 
@@ -272,10 +285,6 @@ window.Comuni = (function () {
     scritta(comuni.campo("TIMBRO", "in-alto"), "timbro-arco-alto");
     scritta(comuni.campo("TIMBRO", "in-basso"), "timbro-arco-basso");
 
-    var anni = nuovo("text", { x: 60, y: 82, "class": "timbro-scritta timbro-anni", "text-anchor": "middle" });
-    anni.textContent = comuni.campo("TIMBRO", "anni");
-    svg.appendChild(anni);
-
     contenitore.appendChild(svg);
 
     var logo = document.createElement("span");
@@ -286,7 +295,7 @@ window.Comuni = (function () {
   return {
     tempo: tempo,
     mancano: mancano,
-    mancanoAnni: mancanoAnni,
+    giorniCalendario: giorniCalendario,
     pagina: pagina,
     testata: testata,
     piede: piede,

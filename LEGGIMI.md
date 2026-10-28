@@ -19,6 +19,9 @@ L'elenco si allunga man mano che si crea ogni file.
 
 ### La data dell'interramento e le tre fasi
 
+La data si scrive con il mese in lettere (1 maggio 2027), l'ora con il
+punto (15.00). Vale per tutti gli orari del sito.
+
 Dalla data scritta in `comuni.txt` il sito capisce da solo in quale
 fase siamo: prima dell'interramento, dopo l'interramento, dopo
 l'apertura. Partecipa e Per i docenti spariscono da sole dopo

@@ -354,8 +354,21 @@ a:hover { text-decoration-thickness: 2px; }
   color: var(--verde);
 }
 
+/* Dopo l'interramento: un solo foglietto, più largo, con tutti i
+   giorni all'apertura (fino a "3.653") */
+.foglietto-largo { width: 120px; }
+
 .conto-data {
   margin: 1rem 0 0;
+  color: var(--grigio);
+}
+
+/* Un pezzo di riga che non si spezza: va a capo intero */
+.intero { white-space: nowrap; }
+
+/* La riga dell'apertura sotto la data dell'interramento */
+.conto-apertura {
+  margin: 0.25rem 0 0;
   color: var(--grigio);
 }
 
@@ -407,21 +420,19 @@ a:hover { text-decoration-thickness: 2px; }
    pixel, un'unità è un pixel */
 .timbro-scritta {
   font-family: var(--carattere);
-  font-size: 10px;
-  letter-spacing: 0.06em;
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
   fill: currentColor;
 }
 
-.timbro-anni { font-size: 9px; letter-spacing: 0.02em; }
-
 /* Il logo al centro, tinto di verde: il disegno del logo fa da stampo
-   (mask) e il colore lo riempie. Sta un po' sopra il centro, per
-   lasciare posto agli anni sotto. */
+   (mask) e il colore lo riempie. Largo quasi quanto lo spazio dentro
+   le righette. */
 .timbro-logo {
   position: absolute;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  width: 37%;
+  width: 45%;
   aspect-ratio: 231 / 155;
   transform: translate(-50%, -50%);
   background: currentColor;

@@ -22,7 +22,7 @@
     QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
     in tutte le pagine che lo caricano.
   -->
-  <link rel="stylesheet" href="grafica.css?v=3">
+  <link rel="stylesheet" href="grafica.css?v=4">
   <link rel="icon" href="immagini/logo-natta.png">
 </head>
 <body>
@@ -41,7 +41,7 @@
   </header>
 
   <!-- Tutti i testi qui sotto arrivano dai file della cartella
-       contenuti/: home.txt, comuni.txt e foto-pero.txt. Il contenuto resta nascosto
+       contenuti/: home.txt, comuni.txt, foto-pero.txt ed eventi.txt. Il contenuto resta nascosto
        finché i testi non sono stati letti, così non si vedono titoli
        vuoti. -->
   <main id="contenuto" tabindex="-1" hidden>
@@ -99,6 +99,17 @@
       </div>
     </section>
 
+    <!-- "Gli eventi del ventennale": per ogni evento il foglietto della
+         data, il titolo e sotto ora, luogo e relatore. Gli eventi
+         passati spariscono da soli; la sezione si vede solo prima
+         dell'interramento. La riempie js/home.js con eventi.txt. -->
+    <section class="sezione" id="sezione-eventi" aria-labelledby="titolo-eventi" hidden>
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-eventi"></h2>
+        <ul class="date" id="elenco-eventi"></ul>
+      </div>
+    </section>
+
   </main>
 
   <!-- TESTO MODIFICABILE: compare solo se i file di testo non si
@@ -136,8 +147,8 @@
   </footer>
 
   <script src="js/contenuti.js?v=1"></script>
-  <script src="js/comuni.js?v=3"></script>
-  <script src="js/home.js?v=2"></script>
+  <script src="js/comuni.js?v=4"></script>
+  <script src="js/home.js?v=3"></script>
   <script src="js/peropezie.js?v=1"></script>
 </body>
 </html>

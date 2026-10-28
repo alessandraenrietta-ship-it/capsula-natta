@@ -1,0 +1,20 @@
+# GLI EVENTI DEL VENTENNALE (sezione della home)
+# ------------------------------------------------------------------
+# Una riga per evento, nell'ordine in cui devono comparire.
+# Gli eventi passati spariscono da soli dal giorno dopo. La sezione si
+# vede solo prima dell'interramento della capsula.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== EVENTI ==
+# data | ora | titolo | luogo | relatore
+# - data: giorno, mese in lettere e anno (1 maggio 2027);
+# - ora: con il punto (15.00);
+# - relatore: si può lasciare vuoto.
+# Per l'interramento, in data e ora si scrive "interramento": il sito
+# prende data e ora da comuni.txt, così non si scrivono due volte.
+[DA COMPLETARE: data] | [DA COMPLETARE: ora] | Conferenza su Giulio Natta: [DA COMPLETARE: titolo] | [DA COMPLETARE: luogo] | [DA COMPLETARE: relatore]
+[DA COMPLETARE: data] | [DA COMPLETARE: ora] | [DA COMPLETARE: secondo evento] | [DA COMPLETARE: luogo] | [DA COMPLETARE: relatore]
+interramento | interramento | Interramento della capsula del tempo | Accanto al pero |

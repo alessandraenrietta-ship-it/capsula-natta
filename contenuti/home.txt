@@ -67,3 +67,13 @@ nome-fila: Le foto del pero, dalla più recente
 # Per il lettore di schermo: che cosa c'è nel palco dopo ogni cambio
 annuncio-foto: Nel palco la foto del [data].
 annuncio-pero: Nel palco il disegno del pero.
+
+== EVENTI ==
+# La sezione con il programma del ventennale. Gli eventi non stanno
+# qui: sono in eventi.txt. La sezione si vede solo prima
+# dell'interramento.
+titolo: Gli eventi del ventennale
+# La parola davanti all'ora ("ore 15.00") e quella davanti al relatore
+# ("con ..."), nella riga grigia sotto il titolo dell'evento
+parola-ora: ore
+parola-relatore: con

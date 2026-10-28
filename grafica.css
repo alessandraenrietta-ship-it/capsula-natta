@@ -536,6 +536,41 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
 
 
 /* -----------------------------------------------------------------
+   "GLI EVENTI DEL VENTENNALE"
+   Il titolo centrato; sotto, per ogni evento, il foglietto della data
+   (come gli open day di orientamento) e accanto il titolo dell'evento
+   con sotto, in grigio, ora, luogo e relatore. Una colonna sul
+   telefono, due dai 48rem, tre dai 66rem.
+   ----------------------------------------------------------------- */
+
+.titolo-centrato { text-align: center; }
+
+.date {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.data {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Il foglietto degli eventi è largo 58 pixel, come in orientamento */
+.data .foglietto { width: 58px; }
+
+.data-testi { min-width: 0; }
+
+.evento-titolo {
+  margin: 0 0 0.3rem;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.evento-dettagli { margin: 0; color: var(--grigio); }
+
+
+/* -----------------------------------------------------------------
    PIEDE
    Bianco: il timbro rotondo verde e, accanto, il link al kit per i
    docenti quando c'è.
@@ -626,4 +661,13 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
 
 @media (min-width: 56rem) {
   .titolo-sito { font-size: 3.25rem; }
+}
+
+/* Gli eventi in colonne */
+@media (min-width: 48rem) {
+  .date { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+}
+
+@media (min-width: 66rem) {
+  .date { grid-template-columns: repeat(3, 1fr); }
 }

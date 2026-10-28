@@ -17,6 +17,11 @@ toccare nessun altro file.
   di Peropezie".
 - `foto-pero.txt`: le foto del pero, una riga per foto (file, data,
   credito, testo alternativo), e l'interruttore delle foto d'esempio.
+- `eventi.txt`: gli eventi del ventennale, una riga per evento (data,
+  ora, titolo, luogo, relatore), nell'ordine in cui devono comparire.
+  Gli eventi passati spariscono da soli dal giorno dopo. Per
+  l'interramento si scrive "interramento" in data e ora: il sito le
+  prende da `comuni.txt`.
 
 ### Aggiungere una foto del pero
 

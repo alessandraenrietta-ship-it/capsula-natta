@@ -35,8 +35,9 @@
   var RIDOTTO = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var orologio = null;
 
-  Promise.all([C.leggi("contenuti/comuni.txt"), C.leggi("contenuti/home.txt")])
-    .then(function (file) { mostra(file[0], file[1]); })
+  Promise.all([C.leggi("contenuti/comuni.txt"), C.leggi("contenuti/home.txt"),
+               C.leggi("contenuti/eventi.txt")])
+    .then(function (file) { mostra(file[0], file[1], file[2]); })
     .catch(function (errore) {
       console.error(errore);
       document.getElementById("avviso").hidden = false;
@@ -49,7 +50,7 @@
     return e;
   }
 
-  function mostra(comuni, home) {
+  function mostra(comuni, home, eventiFile) {
     var t = K.tempo(comuni);
 
     K.testata(comuni);
@@ -61,6 +62,7 @@
     function disponi() {
       conto(comuni, home, t, disponi);
       pulsanti(comuni, home, t);
+      eventi(comuni, home, eventiFile, t);
       document.getElementById("piede").textContent = "";
       document.getElementById("piede").hidden = true;
       K.piede(comuni, t);
@@ -182,6 +184,88 @@
 
     aggiorna();
     orologio = setInterval(aggiorna, fase === "prima" && !RIDOTTO ? 1000 : 60000);
+  }
+
+
+  /* ---------------------------------------------------------------
+     GLI EVENTI DEL VENTENNALE
+     Una riga di eventi.txt per evento: data | ora | titolo | luogo |
+     relatore, nell'ordine del file. Per ogni evento il foglietto della
+     data, il titolo e sotto, in grigio, ora, luogo e relatore. Con
+     "interramento" in data e ora, si usano quelle di comuni.txt. Gli
+     eventi passati spariscono dal giorno dopo; la sezione si vede solo
+     prima dell'interramento e solo se resta almeno un evento. I
+     segnaposto [DA COMPLETARE] restano visibili.
+     --------------------------------------------------------------- */
+
+  function eventi(comuni, home, eventiFile, t) {
+    var sezione = document.getElementById("sezione-eventi");
+    var elenco = document.getElementById("elenco-eventi");
+    var parola = function (nome) { return home.campo("EVENTI", nome); };
+    elenco.textContent = "";
+    sezione.hidden = true;
+    if (t.fase() !== "prima") { return; }
+
+    var oggi = K.giornoItaliano(t.adesso());
+    var oggiNumero = oggi[0] * 10000 + oggi[1] * 100 + oggi[2];
+
+    eventiFile.righe("EVENTI").forEach(function (riga) {
+      var testoData = riga[0] || "", testoOra = riga[1] || "";
+      var data = testoData.toLowerCase() === "interramento" ?
+        K.leggiData(comuni.campo("CAPSULA", "data-interramento")) : K.leggiData(testoData);
+      if (testoOra.toLowerCase() === "interramento") { testoOra = t.ora; }
+
+      /* Passato: dal giorno dopo non compare più */
+      if (data && data[0] * 10000 + data[1] * 100 + data[2] < oggiNumero) { return; }
+
+      var voce = elemento("li", "data");
+
+      /* Il foglietto: è un disegno, la data per intero è scritta sotto
+         per il lettore di schermo */
+      var foglietto = elemento("span", "foglietto");
+      foglietto.setAttribute("aria-hidden", "true");
+      foglietto.appendChild(elemento("span", "foglietto-scritta", data ? K.MESI[data[1] - 1].slice(0, 3) : " "));
+      foglietto.appendChild(elemento("span", "foglietto-numero", data ? String(data[2]) : "?"));
+      voce.appendChild(foglietto);
+
+      var testi = elemento("div", "data-testi");
+      if (data) {
+        testi.appendChild(elemento("p", "solo-lettori", data[2] + " " + K.MESI[data[1] - 1] + " " + data[0]));
+      }
+      testi.appendChild(elemento("h3", "evento-titolo", riga[2] || ""));
+
+      /* Sotto il titolo, in grigio: la data se manca, l'ora, il luogo e
+         il relatore, separati da un punto che il lettore di schermo non
+         legge */
+      var pezzi = [];
+      if (!data) { pezzi.push(testoData); }
+      if (testoOra) {
+        pezzi.push(C.daCompletare(testoOra) ? testoOra : parola("parola-ora") + " " + testoOra);
+      }
+      if (riga[3]) { pezzi.push(riga[3]); }
+      if (riga[4]) {
+        pezzi.push(C.daCompletare(riga[4]) ? riga[4] : parola("parola-relatore") + " " + riga[4]);
+      }
+      var dettagli = elemento("p", "evento-dettagli");
+      pezzi.forEach(function (pezzo, i) {
+        if (i) {
+          var punto = elemento("span", "", " · ");
+          punto.setAttribute("aria-hidden", "true");
+          dettagli.appendChild(punto);
+        }
+        dettagli.appendChild(elemento("span", "", pezzo));
+      });
+      testi.appendChild(dettagli);
+
+      voce.appendChild(testi);
+      elenco.appendChild(voce);
+    });
+
+    if (!elenco.firstChild) { return; }
+    var titolo = document.getElementById("titolo-eventi");
+    titolo.textContent = "";
+    C.scrivi(titolo, parola("titolo"));
+    sezione.hidden = false;
   }
 
 

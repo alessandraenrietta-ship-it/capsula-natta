@@ -255,7 +255,7 @@ In quest'ordine:
    scuola. Vedi sotto.
 4. **"Gli eventi del ventennale"** (solo prima dell'interramento; dopo
    la sezione sparisce e al suo posto non compare nulla): il programma,
-   ogni evento con il foglietto della data.
+   ogni evento con il foglietto della data. Vedi sotto.
 5. **Piede**: il timbro e il link al kit della pagina Per i docenti. Il
    link sparisce insieme alla pagina, da solo, con la data
    dell'interramento: non c'è un interruttore da cambiare a mano.
@@ -361,6 +361,26 @@ sezione PEROPEZIE di `contenuti/home.txt`, foto in
   nell'immagine e nel testo alternativo. Sono l'unica eccezione voluta
   alla regola "nessun testo dentro le immagini" (punto 5). Compaiono con
   `esempio: sì` in `foto-pero.txt`; con `esempio: no` spariscono.
+
+**La sezione "Gli eventi del ventennale"** (`js/home.js`, titolo nella
+sezione EVENTI di `contenuti/home.txt`, eventi in
+`contenuti/eventi.txt`):
+
+- Una riga per evento: data | ora | titolo | luogo | relatore,
+  nell'ordine del file. Per ogni evento il foglietto della data, come
+  gli open day di orientamento (58 px, mese abbreviato in grigio,
+  giorno in verde, `aria-hidden`; la data per intero è scritta per il
+  lettore di schermo), poi il titolo e sotto, in grigio, "ore 15.00 ·
+  luogo · con relatore". Una colonna sul telefono, due dai 48rem, tre
+  dai 66rem.
+- Per l'interramento, in data e ora c'è "interramento": il sito prende
+  data e ora da `comuni.txt`, così non si scrivono due volte.
+- Righe segnaposto, visibili sul sito: la conferenza su Giulio Natta
+  (titolo, data, ora, luogo e relatore [DA COMPLETARE]), un secondo
+  evento [DA COMPLETARE], l'interramento accanto al pero. Senza data il
+  foglietto mostra "?".
+- Gli eventi passati spariscono da soli dal giorno dopo; la sezione si
+  vede solo prima dell'interramento e solo se resta almeno un evento.
 
 **Le foto del pero** le scattano gli studenti della classe prima
 incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il

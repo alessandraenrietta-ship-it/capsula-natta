@@ -44,7 +44,7 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
      e al loro posto non compare nulla. Nella capsula ci sono di sicuro
      le lettere; il resto è in definizione: [DA COMPLETARE: che cosa
      contiene la capsula];
-  3. **dopo l'apertura**: i contenuti, compresi lettere e dizionario.
+  3. **dopo l'apertura**: i contenuti, comprese le lettere.
 - I contenuti della capsula non si mostrano prima dell'apertura.
 
 ## 2. Sito statico

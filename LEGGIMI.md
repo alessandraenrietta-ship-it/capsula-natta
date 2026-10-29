@@ -21,6 +21,10 @@ toccare nessun altro file.
   dell'interramento e dell'apertura non stanno qui: la pagina le prende
   da `comuni.txt`, come la home. Le istruzioni per la foto annuale del
   pero sono nella sezione FOTO, una riga `voce` per punto dell'elenco.
+- `partecipa.txt`: i testi della pagina Partecipa e i link dei Google
+  Moduli. Per mettere un modulo si sostituisce `[DA COMPLETARE: link del
+  modulo]` con il link, che comincia con `https://`: compaiono da soli
+  il pulsante e il codice QR.
 - `eventi.txt`: gli eventi del ventennale, una riga per evento (data,
   ora, titolo, luogo, relatore), nell'ordine in cui devono comparire.
   Gli eventi passati spariscono da soli dal giorno dopo. Per

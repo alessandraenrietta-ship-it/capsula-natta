@@ -1,0 +1,50 @@
+# TESTI DELLA PAGINA "PARTECIPA" (partecipa.html)
+# ------------------------------------------------------------------
+# Il sito non riceve nulla: la pagina contiene solo i link (e i codici
+# QR) ai Google Moduli del dominio della scuola, che si aprono solo con
+# l'account dell'istituto.
+#
+# ESEMPIO FUTURISTA: le righe descrittive sono in stile futurista, per
+# presentare il sito (CLAUDE.md, punto 12): vanno sostituite prima di
+# dare il link a chi non sa che è una prova. Le informazioni vere
+# (account della scuola, mail istituzionale per i docenti) devono
+# restare esatte.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== APERTURA ==
+titolo: Partecipa
+# La riga sotto il titolo. ESEMPIO FUTURISTA
+testo: Prendere la penna + il telefono + la fantasia. Il presente aspetta la tua voce prima del decollo.
+# Informazione vera: deve restare chiaro che serve l'account della scuola
+avviso: Motore riservato: i moduli si aprono solo con l'account della scuola.
+
+== STUDENTI ==
+titolo: Questionario per gli studenti
+# ESEMPIO FUTURISTA
+testo: Domande veloci, risposte ancora più veloci: come si vive al Natta oggi, in diretta per il futuro.
+# Il link del Google Modulo, che comincia con https://. Quando c'è,
+# compaiono il pulsante e il codice QR.
+link: [DA COMPLETARE: link del modulo]
+
+== DIZIONARIO ==
+titolo: Dizionario del presente
+# ESEMPIO FUTURISTA
+testo: Una parola di oggi + la sua spiegazione = un mattone del dizionario che parte con la capsula.
+link: [DA COMPLETARE: link del modulo]
+
+== DOCENTI ==
+titolo: Per i docenti
+# Informazione vera: il questionario dei docenti arriva solo via mail
+# istituzionale. Sul sito non c'è nessun link e nessuna password.
+testo: Canale riservato: il questionario dei docenti arriva solo via mail istituzionale. Qui nessun link, nessuna password.
+
+== MODULO ==
+# Le scritte intorno a ogni modulo, quando c'è il link: il pulsante, la
+# riga sotto il codice QR (ESEMPIO FUTURISTA) e la descrizione del QR
+# per il lettore di schermo.
+pulsante: Apri il modulo
+inquadra: Inquadrare il codice con il telefono: il modulo si apre.
+qr-titolo: Codice QR del modulo, da inquadrare con il telefono

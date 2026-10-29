@@ -817,3 +817,30 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
   .voci { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; max-width: 52rem; }
   .date-due { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* -----------------------------------------------------------------
+   PARTECIPA
+   Per ogni modulo: titolo e riga centrati, poi il pulsante pieno e il
+   codice QR (blu notte su fondo bianco, con il suo margine bianco:
+   serve ai telefoni per leggerlo).
+   ----------------------------------------------------------------- */
+
+.modulo { text-align: center; }
+
+/* L'avviso sull'account della scuola, sotto la riga dell'apertura */
+.avviso-account {
+  max-width: 34rem;
+  margin: 1.25rem auto 0;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--verde);
+  color: var(--verde);
+  text-wrap: balance;
+}
+
+.modulo-link { margin-top: 1.5rem; }
+.modulo-pulsante { margin: 0 0 1.25rem; }
+.modulo-qr { width: 160px; margin: 0 auto; color: var(--blu-notte); }
+.modulo-qr svg { display: block; width: 100%; height: auto; }
+.modulo-inquadra { margin: 0.6rem auto 0; max-width: 24rem; color: var(--grigio); font-size: 1rem; }
+.modulo-segnaposto { margin: 0; }

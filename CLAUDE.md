@@ -239,6 +239,22 @@ delle email. Titolare del trattamento dei dati è la scuola; informativa
 e modalità le decide la dirigente, sentito il DPO. Nei questionari non
 si caricano foto.
 
+La pagina `partecipa.html` (`js/partecipa.js`, testi in
+`contenuti/partecipa.txt`, fatta il 29 ottobre 2026):
+
+- apertura: titolo "Partecipa", una riga futurista e, in un riquadro
+  con il bordo verde, l'informazione vera che i moduli si aprono solo
+  con l'account della scuola;
+- "Questionario per gli studenti" e "Dizionario del presente": per
+  ciascuno una riga futurista e il campo `link`. Finché c'è
+  `[DA COMPLETARE: link del modulo]` compare il segnaposto; quando c'è
+  un link che comincia con `https://`, compaiono il pulsante pieno
+  "Apri il modulo ›", il codice QR (`js/qr.js`, copiato identico dal
+  sito di orientamento, che lo ha preso dal Liceo Digitale) e sotto la
+  riga per inquadrarlo;
+- "Per i docenti": l'informazione vera che il questionario dei docenti
+  arriva solo via mail istituzionale, senza link né password.
+
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
 "colleghe".
 

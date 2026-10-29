@@ -277,7 +277,7 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 
 /* -----------------------------------------------------------------
    IL MENU
-   Prima disposizione (A): le voci affiancate a destra del nome della
+   Le voci affiancate a destra del nome della
    scuola, se ci stanno; altrimenti (telefono) il pulsante vuoto "Menu"
    a destra, che apre l'elenco sotto la testata, sopra la pagina. La
    pagina in cui si è: verde e sottolineata. js/comuni.js mette
@@ -325,7 +325,10 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 .menu-pulsante::after { transform: rotate(135deg); margin-top: -0.25em; }
 .menu-pulsante[aria-expanded="true"]::after { transform: rotate(-45deg); margin-top: 0.25em; }
 
-.menu-stretto .menu { overflow: visible; }
+.menu-stretto .menu { flex: none; overflow: visible; }
+/* Con il pulsante, il nome della scuola può andare su due righe invece
+   di finire sotto il pulsante */
+.menu-stretto .marchio { flex: 1 1 auto; min-width: 0; }
 .menu-stretto .menu-pulsante { display: inline-flex; }
 .menu-stretto .menu-lista { display: none; }
 
@@ -345,32 +348,6 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 .menu-stretto.menu-aperto .menu-lista li { border-top: 1px solid var(--filetto); }
 .menu-stretto.menu-aperto .menu-lista li:first-child { border-top: 0; }
 .menu-stretto.menu-aperto .menu-lista a { display: flex; min-height: 3rem; font-size: 1.125rem; }
-
-/* PROVVISORIO, finché Alessandra non sceglie (index.html?menu=b).
-   Seconda disposizione (B): la testata su due righe, tutto centrato,
-   come una cartolina: sopra logo e nome, sotto le voci separate da un
-   punto. Sul telefono il pulsante sta centrato sotto il nome e l'elenco
-   si apre dentro la testata, spingendo giù la pagina, con le voci
-   centrate e più grandi. */
-.menu-b .testata-interno { flex-direction: column; gap: 0.35rem; }
-.menu-b .menu { width: 100%; justify-content: center; }
-.menu-b .menu-lista { gap: 0; }
-.menu-b .menu-lista li + li::before {
-  content: "·";
-  margin: 0 0.9em;
-  color: var(--grigio);
-}
-.menu-b .menu-stretto.menu-aperto .menu-lista {
-  position: static;
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0;
-  border-bottom: 0;
-  text-align: center;
-}
-.menu-b .menu-stretto.menu-aperto .menu-lista li + li::before { content: none; }
-.menu-b .menu-stretto.menu-aperto .menu-lista a { justify-content: center; font-size: 1.25rem; }
-.menu-b .menu-stretto .menu { flex-direction: column; }
 
 /* Il logo è piccolo (231 per 155 pixel): non va ingrandito oltre */
 .logo-scuola {
@@ -789,4 +766,54 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 
 @media (min-width: 66rem) {
   .date { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* =================================================================
+   LE PAGINE INTERNE (il-progetto.html, partecipa.html,
+   per-i-docenti.html)
+   Apertura centrata come la home; sezioni con il titolo centrato e il
+   testo allineato a sinistra in una colonna leggibile.
+   ================================================================= */
+
+.titolo-pagina { margin-bottom: 0.6em; }
+
+.testo-pagina .paragrafi,
+.testo-pagina .voci,
+.testo-pagina .elenco-puntato {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paragrafi p { margin: 0 0 1em; }
+.paragrafi:empty { display: none; }
+
+/* Le voci: nome in verde, sotto la descrizione */
+.voci { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.voce-nome { margin: 0 0 0.2rem; font-size: 1.125rem; }
+.voce-testo { margin: 0; }
+
+/* L'elenco puntato, con un trattino grigio al posto del pallino */
+.elenco-puntato li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+.elenco-puntato li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.8rem;
+  height: 1px;
+  background: var(--grigio);
+}
+
+/* Le due date: una sotto l'altra sul telefono, affiancate al computer */
+.date-due { max-width: 40rem; margin: 0 auto; }
+
+@media (min-width: 48rem) {
+  .voci { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; max-width: 52rem; }
+  .date-due { grid-template-columns: repeat(2, 1fr); }
 }

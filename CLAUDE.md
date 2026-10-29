@@ -251,8 +251,25 @@ sole dopo l'interramento, anche se sono `pronta` (`Comuni.pagina` in
 `js/comuni.js`). Prima di ogni push si controlla che ogni pagina
 `pronta` esista davvero.
 
-**Il pulsante "Menu"** della testata si aggiunge con la seconda pagina:
-con la sola home non servirebbe.
+**Il menu** (disposizione A, scelta da Alessandra il 29 ottobre 2026; la
+B, centrata su due righe, è stata scartata). Lo costruisce
+`Comuni.menu` in `js/comuni.js`, leggendo la sezione PAGINE di
+`comuni.txt`: le voci sono le righe con il nome nell'ultima colonna,
+nell'ordine del file, solo per le pagine che si possono collegare.
+Con una sola voce il menu non compare.
+
+- Al computer le voci stanno affiancate a destra del nome della scuola,
+  sulla stessa riga, se ci stanno; il sito lo misura da solo.
+- Altrimenti (telefono) a destra c'è il pulsante vuoto "Menu" con la
+  freccia in basso; il nome della scuola, se serve, va su due righe.
+  Il pulsante apre l'elenco sotto la testata, sopra la pagina, una voce
+  per riga separate da filetti.
+- La pagina in cui si è: verde e sottolineata, con
+  `aria-current="page"` (la dice `<body data-pagina="...">`).
+- Il pulsante ha `aria-expanded` e `aria-controls`; Esc chiude il menu
+  e riporta il focus sul pulsante; anche un clic fuori lo chiude.
+- Nelle pagine interne logo e nome della scuola portano alla home ("IIS
+  Giulio Natta, pagina iniziale" per il lettore di schermo).
 
 ## 10. La home
 

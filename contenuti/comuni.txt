@@ -40,7 +40,7 @@ scritta-provvisoria: data provvisoria, ancora da confermare
 # vuota se la pagina non sta nel menu.
 # pagina | file | stato | nel menu
 home | index.html | pronta | Home
-progetto | il-progetto.html | in preparazione | Il progetto
+progetto | il-progetto.html | pronta | Il progetto
 partecipa | partecipa.html | in preparazione | Partecipa
 docenti | per-i-docenti.html | in preparazione | Per i docenti
 capsula | la-capsula.html | in preparazione |

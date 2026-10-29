@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TESTO MODIFICABILE: titolo della scheda del browser e descrizione
+       per i motori di ricerca. Stanno qui e non in contenuti/ perché
+       devono esserci prima che la pagina legga i file di testo. -->
+  <title>Il progetto | Vent'anni di Natta</title>
+  <meta name="description" content="La capsula del tempo per il ventennale dell'IIS Giulio Natta di Rivoli: che cosa contiene, chi partecipa, quando si chiude e quando si apre, la foto annuale del pero.">
+
+  <!-- BOZZA: chiede ai motori di ricerca di non mostrare questa pagina
+       e di non seguirne i link. Va TOLTA quando il sito è approvato. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
+       dopo ?v= in tutte le pagine che lo caricano. -->
+  <link rel="stylesheet" href="grafica.css?v=8">
+  <link rel="icon" href="immagini/logo-natta.png">
+</head>
+<body data-pagina="progetto">
+
+  <a class="salta" href="#contenuto">Salta al contenuto</a>
+
+  <!-- La testata, come nella home: qui logo e nome portano alla home -->
+  <header class="testata">
+    <div class="interno testata-interno">
+      <a class="marchio" href="index.html">
+        <!-- alt vuoto: il nome della scuola è scritto subito accanto -->
+        <img class="logo-scuola" src="immagini/logo-natta.png" alt="" width="231" height="155">
+        <span id="nome-scuola"></span>
+      </a>
+      <nav class="menu" id="menu" hidden>
+        <button type="button" class="pulsante pulsante-vuoto menu-pulsante" id="menu-pulsante" aria-expanded="false" aria-controls="menu-lista"></button>
+        <ul class="menu-lista" id="menu-lista"></ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tutti i testi qui sotto arrivano da contenuti/progetto.txt; le
+       date da contenuti/comuni.txt, le stesse della home. -->
+  <main id="contenuto" tabindex="-1" hidden>
+
+    <section class="sezione apertura" aria-labelledby="titolo">
+      <div class="interno">
+        <h1 class="titolo-sito titolo-pagina" id="titolo"></h1>
+        <div class="presentazione" id="riga-apertura"></div>
+      </div>
+    </section>
+
+    <!-- "La capsula del tempo": uno o più paragrafi -->
+    <section class="sezione testo-pagina" aria-labelledby="titolo-capsula">
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-capsula"></h2>
+        <div class="paragrafi" id="testo-capsula"></div>
+      </div>
+    </section>
+
+    <!-- "Che cosa mettiamo nella capsula": una voce per lavoro -->
+    <section class="sezione testo-pagina" aria-labelledby="titolo-contenuti">
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-contenuti"></h2>
+        <div class="paragrafi" id="nota-contenuti"></div>
+        <ul class="voci" id="voci-contenuti"></ul>
+      </div>
+    </section>
+
+    <!-- "Chi partecipa" -->
+    <section class="sezione testo-pagina" aria-labelledby="titolo-chi">
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-chi"></h2>
+        <ul class="voci" id="voci-chi"></ul>
+      </div>
+    </section>
+
+    <!-- "Quando si chiude, quando si apre": le date di comuni.txt, con i
+         foglietti come gli eventi della home. Nessuna data scritta qui. -->
+    <section class="sezione testo-pagina" aria-labelledby="titolo-date">
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-date"></h2>
+        <ul class="date date-due" id="elenco-date"></ul>
+      </div>
+    </section>
+
+    <!-- "La foto annuale del pero": le istruzioni vere per la classe che
+         scatta la foto -->
+    <section class="sezione testo-pagina" aria-labelledby="titolo-foto">
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-foto"></h2>
+        <ul class="elenco-puntato" id="voci-foto"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TESTO MODIFICABILE: compare solo se i file di testo non si
+       possono leggere. -->
+  <section class="sezione" id="avviso" hidden>
+    <div class="interno">
+      <h1 class="titolo-sezione">Il progetto</h1>
+      <p>Non riesco a caricare i testi di questa pagina.</p>
+      <p>Se hai aperto il file dal computer con un doppio clic, usa invece
+         anteprima.bat. Altrimenti ricarica la pagina, oppure
+         visita il <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+    </div>
+  </section>
+
+  <noscript>
+    <section class="sezione">
+      <div class="interno">
+        <p>Per vedere questa pagina serve JavaScript attivo nel browser.
+           In alternativa visita il
+           <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+      </div>
+    </section>
+  </noscript>
+
+  <!-- Il piede, come nella home -->
+  <footer class="piede">
+    <div class="interno piede-interno">
+      <div class="timbro" id="timbro" aria-hidden="true"></div>
+      <ul class="piede-voci" id="piede" hidden></ul>
+    </div>
+  </footer>
+
+  <script src="js/contenuti.js?v=1"></script>
+  <script src="js/comuni.js?v=6"></script>
+  <script src="js/progetto.js?v=1"></script>
+</body>
+</html>

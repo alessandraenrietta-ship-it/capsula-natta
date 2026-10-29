@@ -9,7 +9,7 @@ toccare nessun altro file.
 - `comuni.txt`: i dati di tutte le pagine. Il nome della scuola; la
   **data dell'interramento** (l'unica data da scrivere: l'apertura è
   dieci anni dopo e il sito la calcola), la sua ora e la scritta "data
-  provvisoria"; l'elenco delle **pagine**, ognuna `pronta` o `in
+  provvisoria"; l'elenco delle **pagine**, con il nome nel menu, ognuna `pronta` o `in
   preparazione`; le scritte del timbro; il link del piede per i
   docenti.
 - `home.txt`: i testi della pagina iniziale. Occhiello, titolo, scritte
@@ -17,6 +17,10 @@ toccare nessun altro file.
   di Peropezie".
 - `foto-pero.txt`: le foto del pero, una riga per foto (file, data,
   credito, testo alternativo), e l'interruttore delle foto d'esempio.
+- `progetto.txt`: i testi della pagina Il progetto. Le date
+  dell'interramento e dell'apertura non stanno qui: la pagina le prende
+  da `comuni.txt`, come la home. Le istruzioni per la foto annuale del
+  pero sono nella sezione FOTO, una riga `voce` per punto dell'elenco.
 - `eventi.txt`: gli eventi del ventennale, una riga per evento (data,
   ora, titolo, luogo, relatore), nell'ordine in cui devono comparire.
   Gli eventi passati spariscono da soli dal giorno dopo. Per

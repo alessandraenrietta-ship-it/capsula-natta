@@ -243,12 +243,6 @@ window.Comuni = (function () {
     if (!nav || !lista || !pulsante) { return; }
     var corrente = document.body.getAttribute("data-pagina") || "";
 
-    /* PROVVISORIO, finché Alessandra non sceglie: ?menu=b mostra la
-       seconda disposizione del menu (grafica.css, "menu-b") */
-    if (new URLSearchParams(window.location.search).get("menu") === "b") {
-      document.documentElement.classList.add("menu-b");
-    }
-
     lista.textContent = "";
     comuni.righe("PAGINE").forEach(function (riga) {
       var chiave = (riga[0] || "").toLowerCase();
@@ -335,6 +329,25 @@ window.Comuni = (function () {
   }
 
 
+  /* Il foglietto da calendario di un giorno [anno, mese, giorno]: mese
+     abbreviato e numero del giorno. È un disegno (aria-hidden): la data
+     per intero va scritta accanto. Senza data mostra "?". */
+  function foglietto(g) {
+    var f = document.createElement("span");
+    f.className = "foglietto";
+    f.setAttribute("aria-hidden", "true");
+    var mese = document.createElement("span");
+    mese.className = "foglietto-scritta";
+    mese.textContent = g ? MESI[g[1] - 1].slice(0, 3) : " ";
+    var numero = document.createElement("span");
+    numero.className = "foglietto-numero";
+    numero.textContent = g ? String(g[2]) : "?";
+    f.appendChild(mese);
+    f.appendChild(numero);
+    return f;
+  }
+
+
   /* ---------------------------------------------------------------
      IL TIMBRO
      Due cerchi. "IIS GIULIO NATTA" sull'arco in alto, "2006 ·
@@ -403,6 +416,7 @@ window.Comuni = (function () {
     MESI: MESI,
     mancano: mancano,
     giorniCalendario: giorniCalendario,
+    foglietto: foglietto,
     pagina: pagina,
     testata: testata,
     piede: piede,

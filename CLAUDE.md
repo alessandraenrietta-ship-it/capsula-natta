@@ -256,7 +256,24 @@ La pagina `partecipa.html` (`js/partecipa.js`, testi in
   arriva solo via mail istituzionale, senza link né password.
 
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
-"colleghe".
+"colleghe". La pagina `per-i-docenti.html` (`js/docenti.js`, testi in
+`contenuti/docenti.txt`, fatta il 29 ottobre 2026):
+
+- apertura: titolo "Per i docenti" e una riga futurista;
+- "Come funziona in classe": tre passaggi numerati (il questionario con
+  il QR, 20–30 minuti; il controllo delle risposte della propria
+  classe; la lezione di revisione sulla bozza stampata), con i nomi
+  normali e le descrizioni futuriste;
+- "Materiali da scaricare": scheda di lavoro per la revisione, QR da
+  stampare, istruzioni passo passo, ognuno con `[DA COMPLETARE: file]`;
+  quando c'è il percorso del file (cartella `materiali/`), il nome
+  diventa il link per scaricarlo;
+- "Il questionario dei docenti": la frase vera sulla mail
+  istituzionale, senza link né password. Sta in `comuni.txt`, sezione
+  DOCENTI, perché la usa anche Partecipa: un dato comune a più pagine
+  sta in un solo file;
+- "Calendario" e "Referenti": `[DA COMPLETARE]` (referenti: solo
+  contatti istituzionali).
 
 **Pagine non ancora fatte.** La sezione PAGINE di
 `contenuti/comuni.txt` elenca le pagine, ognuna `pronta` o `in
@@ -310,8 +327,13 @@ sito; h2 le sezioni.
 5. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
    sotto il pero, dall'interramento all'apertura, non quelli della
    scuola. Vedi sotto.
-6. **Piede**: il timbro e il link al kit della pagina Per i docenti. Il
-   link sparisce insieme alla pagina, da solo, con la data
+6. **Piede**, uguale in tutte le pagine: il timbro e, accanto, nello
+   stile del sito di orientamento, la domanda in grigio "Docente ai
+   comandi?" (futurista) e il link verde sottolineato "Il kit per i
+   docenti ›" verso `per-i-docenti.html` (sezione PIEDE di
+   `comuni.txt`; la freccia la aggiunge il sito e resta attaccata
+   all'ultima parola). La riga non compare sulla pagina Per i docenti
+   stessa e sparisce insieme alla pagina, da sola, con la data
    dell'interramento: non c'è un interruttore da cambiare a mano.
 
 **Il conto alla rovescia** si mostra subito, con la data provvisoria

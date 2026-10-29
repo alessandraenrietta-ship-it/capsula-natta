@@ -42,7 +42,7 @@ scritta-provvisoria: data provvisoria, ancora da confermare
 home | index.html | pronta | Home
 progetto | il-progetto.html | pronta | Il progetto
 partecipa | partecipa.html | pronta | Partecipa
-docenti | per-i-docenti.html | in preparazione | Per i docenti
+docenti | per-i-docenti.html | pronta | Per i docenti
 capsula | la-capsula.html | in preparazione |
 
 == MENU ==
@@ -62,6 +62,15 @@ in-basso: 2006 · vent'anni · 2026
 
 == PIEDE ==
 # Il link al kit della pagina Per i docenti, accanto al timbro. Compare
-# solo quando la pagina è "pronta" e solo prima dell'interramento.
-docenti-domanda: [DA COMPLETARE: domanda per i docenti]
-docenti-link: [DA COMPLETARE: scritta del link al kit]
+# solo quando la pagina è "pronta", solo prima dell'interramento e mai
+# sulla pagina Per i docenti stessa.
+# La domanda è un ESEMPIO FUTURISTA; il link è un link di servizio (la
+# freccia la aggiunge il sito).
+docenti-domanda: Docente ai comandi?
+docenti-link: Il kit per i docenti
+
+== DOCENTI ==
+# Informazione vera, comune alle pagine Partecipa e Per i docenti: il
+# questionario dei docenti arriva solo via mail istituzionale. Sul sito
+# non c'è nessun link e nessuna password. Stile futurista, ma esatta.
+questionario: Canale riservato: il questionario dei docenti arriva solo via mail istituzionale. Qui nessun link, nessuna password.

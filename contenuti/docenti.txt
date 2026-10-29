@@ -1,0 +1,52 @@
+# TESTI DELLA PAGINA "PER I DOCENTI" (per-i-docenti.html)
+# ------------------------------------------------------------------
+# Nessuna password e nessun link al questionario dei docenti: la
+# pagina è pubblica come tutto il sito. La frase sul questionario dei
+# docenti sta in comuni.txt, sezione DOCENTI, perché la usa anche la
+# pagina Partecipa.
+#
+# ESEMPIO FUTURISTA: le righe descrittive sono in stile futurista, per
+# presentare il sito (CLAUDE.md, punto 12): vanno sostituite prima di
+# dare il link a chi non sa che è una prova. I contatti dei referenti,
+# quando ci saranno, solo istituzionali.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== APERTURA ==
+titolo: Per i docenti
+# La riga sotto il titolo. ESEMPIO FUTURISTA
+testo: Docenti = piloti del presente. Qui la cassetta degli attrezzi per portare la capsula in classe.
+
+== IN CLASSE ==
+titolo: Come funziona in classe
+# Tre passaggi, nell'ordine: nome | descrizione. Il sito li numera.
+# Descrizioni ESEMPIO FUTURISTA; "20–30 minuti" è un dato vero.
+Il questionario con il QR | Telefoni accesi, codice inquadrato, risposte in corsa: 20–30 minuti in classe.
+Il controllo delle risposte | Ogni docente rilegge le risposte della propria classe: occhio attento + matita rossa virtuale.
+La lezione di revisione | Una lezione sulla bozza stampata: tagliare, limare, lucidare le parole prima del decollo.
+
+== MATERIALI ==
+titolo: Materiali da scaricare
+# La riga sotto il titolo. ESEMPIO FUTURISTA
+testo: Carta + inchiostro + QR: tutto il necessario per il decollo in classe.
+# Un materiale per riga: nome | file. Il file va nella cartella
+# materiali/ (per esempio materiali/scheda-revisione.pdf): quando c'è,
+# il nome diventa il link per scaricarlo.
+Scheda di lavoro per la revisione | [DA COMPLETARE: file]
+QR da stampare | [DA COMPLETARE: file]
+Istruzioni passo passo | [DA COMPLETARE: file]
+
+== QUESTIONARIO ==
+titolo: Il questionario dei docenti
+# Il testo è in comuni.txt, sezione DOCENTI.
+
+== CALENDARIO ==
+titolo: Calendario
+testo: [DA COMPLETARE: calendario]
+
+== REFERENTI ==
+titolo: Referenti
+# Solo contatti istituzionali.
+testo: [DA COMPLETARE: referenti, solo contatti istituzionali]

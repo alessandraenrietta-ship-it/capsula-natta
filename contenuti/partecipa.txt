@@ -37,9 +37,8 @@ link: [DA COMPLETARE: link del modulo]
 
 == DOCENTI ==
 titolo: Per i docenti
-# Informazione vera: il questionario dei docenti arriva solo via mail
-# istituzionale. Sul sito non c'è nessun link e nessuna password.
-testo: Canale riservato: il questionario dei docenti arriva solo via mail istituzionale. Qui nessun link, nessuna password.
+# La frase sul questionario dei docenti non sta qui: è in comuni.txt,
+# sezione DOCENTI, perché la usano due pagine.
 
 == MODULO ==
 # Le scritte intorno a ogni modulo, quando c'è il link: il pulsante, la

@@ -203,7 +203,8 @@ a:hover { text-decoration-thickness: 2px; }
    "›" del Cutive Mono è uguale al segno di maggiore. È solo un disegno,
    senza testo: il lettore di schermo non la legge. */
 .pulsante::after,
-.link-freccia::after {
+.link-freccia::after,
+.con-freccia::after {
   content: "";
   flex: none;
   display: inline-block;
@@ -233,8 +234,11 @@ button.pulsante { font: inherit; font-variant-ligatures: none; cursor: pointer; 
   background: var(--bianco);
 }
 
-/* Un link nel testo con la freccia dopo */
-.link-freccia::after {
+/* Un link nel testo con la freccia dopo; con-freccia tiene insieme
+   l'ultima parola e la freccia */
+.con-freccia { white-space: nowrap; }
+.link-freccia::after,
+.con-freccia::after {
   margin-left: 0.4em;
   vertical-align: 0.08em;
 }
@@ -844,3 +848,42 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 .modulo-qr svg { display: block; width: 100%; height: auto; }
 .modulo-inquadra { margin: 0.6rem auto 0; max-width: 24rem; color: var(--grigio); font-size: 1rem; }
 .modulo-segnaposto { margin: 0; }
+
+
+/* -----------------------------------------------------------------
+   PER I DOCENTI
+   I tre passaggi "Come funziona in classe", numerati in verde.
+   ----------------------------------------------------------------- */
+
+.passi {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.passo {
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+  counter-increment: passo;
+}
+
+/* Il numero del passaggio, in un quadratino come i foglietti */
+.passo::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--blu-notte);
+  color: var(--verde);
+  font-size: 1.125rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+/* La riga per i docenti nel piede, accanto al timbro */
+.piede-voci li { text-align: left; }

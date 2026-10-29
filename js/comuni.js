@@ -314,15 +314,23 @@ window.Comuni = (function () {
   function piede(comuni, t) {
     var file = pagina(comuni, "docenti", t);
     var elenco = document.getElementById("piede");
-    if (!file || !elenco) { return; }
+    /* Mai sulla pagina Per i docenti stessa */
+    if (!file || !elenco || document.body.getAttribute("data-pagina") === "docenti") { return; }
     var voce = document.createElement("li");
     voce.appendChild(C.scrivi(document.createElement("span"), comuni.campo("PIEDE", "docenti-domanda")));
     voce.querySelector("span").className = "piede-domanda";
     voce.appendChild(document.createTextNode(" "));
     var link = document.createElement("a");
     link.href = file;
-    link.className = "link-freccia";
-    C.scrivi(link, comuni.campo("PIEDE", "docenti-link"));
+    /* L'ultima parola e la freccia non si separano: sul telefono la
+       freccia non va a capo da sola */
+    var testo = comuni.campo("PIEDE", "docenti-link").trim();
+    var spazio = testo.lastIndexOf(" ");
+    if (spazio !== -1) { C.scrivi(link, testo.slice(0, spazio + 1)); }
+    var ultima = document.createElement("span");
+    ultima.className = "con-freccia";
+    C.scrivi(ultima, testo.slice(spazio + 1));
+    link.appendChild(ultima);
     voce.appendChild(link);
     elenco.appendChild(voce);
     elenco.hidden = false;

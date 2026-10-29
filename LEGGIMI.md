@@ -25,6 +25,12 @@ toccare nessun altro file.
   Moduli. Per mettere un modulo si sostituisce `[DA COMPLETARE: link del
   modulo]` con il link, che comincia con `https://`: compaiono da soli
   il pulsante e il codice QR.
+- `docenti.txt`: i testi della pagina Per i docenti. Per mettere un
+  materiale da scaricare si salva il file nella cartella `materiali/`
+  (nome minuscolo, con i trattini) e si scrive il percorso al posto di
+  `[DA COMPLETARE: file]`, per esempio `materiali/scheda-revisione.pdf`.
+  La frase sul questionario dei docenti sta in `comuni.txt`, sezione
+  DOCENTI, perché la usa anche la pagina Partecipa.
 - `eventi.txt`: gli eventi del ventennale, una riga per evento (data,
   ora, titolo, luogo, relatore), nell'ordine in cui devono comparire.
   Gli eventi passati spariscono da soli dal giorno dopo. Per

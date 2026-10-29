@@ -59,6 +59,9 @@
       scriviIn("titolo-" + s[1], partecipa.campo(s[0], "titolo"));
       paragrafi("testo-" + s[1], partecipa.campi(s[0], "testo"));
     });
+    /* La frase sul questionario dei docenti sta in comuni.txt: la usa
+       anche la pagina Per i docenti */
+    paragrafi("testo-docenti", [comuni.campo("DOCENTI", "questionario")]);
     modulo(partecipa, "STUDENTI", "link-studenti");
     modulo(partecipa, "DIZIONARIO", "link-dizionario");
 

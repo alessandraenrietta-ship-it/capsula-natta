@@ -207,8 +207,112 @@ window.Comuni = (function () {
      TESTATA E PIEDE
      --------------------------------------------------------------- */
 
-  function testata(comuni) {
-    C.scrivi(document.getElementById("nome-scuola"), comuni.campo("SCUOLA", "nome"));
+  /* La testata: il nome della scuola accanto al logo e il menu. Nelle
+     pagine interne logo e nome portano alla home: il link ha per il
+     lettore di schermo il nome scritto per intero, "IIS Giulio Natta,
+     pagina iniziale", senza il maiuscolo della testata. */
+  function testata(comuni, t) {
+    var nome = comuni.campo("SCUOLA", "nome");
+    var dove = document.getElementById("nome-scuola");
+    dove.textContent = "";
+    C.scrivi(dove, nome);
+    var link = document.querySelector("a.marchio");
+    if (link) { link.setAttribute("aria-label", nome + ", " + comuni.campo("MENU", "pagina-iniziale")); }
+    if (t) { menu(comuni, t); }
+  }
+
+
+  /* ---------------------------------------------------------------
+     IL MENU
+     Le voci sono le righe della sezione PAGINE di comuni.txt con il
+     nome nell'ultima colonna, nell'ordine del file, solo se la pagina
+     si può collegare (Comuni.pagina: "pronta" e, per Partecipa e Per i
+     docenti, prima dell'interramento). La pagina in cui si è ha
+     aria-current="page"; quale sia lo dice <body data-pagina="...">.
+     Se le voci stanno nella testata accanto al nome, si vedono
+     affiancate; altrimenti (telefono) c'è il pulsante "Menu", che apre
+     e chiude l'elenco. Il pulsante ha aria-expanded e aria-controls; Esc
+     chiude il menu e riporta il focus sul pulsante.
+     --------------------------------------------------------------- */
+
+  function menu(comuni, t) {
+    var testataEl = document.querySelector(".testata");
+    var nav = document.getElementById("menu");
+    var lista = document.getElementById("menu-lista");
+    var pulsante = document.getElementById("menu-pulsante");
+    if (!nav || !lista || !pulsante) { return; }
+    var corrente = document.body.getAttribute("data-pagina") || "";
+
+    /* PROVVISORIO, finché Alessandra non sceglie: ?menu=b mostra la
+       seconda disposizione del menu (grafica.css, "menu-b") */
+    if (new URLSearchParams(window.location.search).get("menu") === "b") {
+      document.documentElement.classList.add("menu-b");
+    }
+
+    lista.textContent = "";
+    comuni.righe("PAGINE").forEach(function (riga) {
+      var chiave = (riga[0] || "").toLowerCase();
+      var voce = riga[3] || "";
+      if (!voce) { return; }
+      var file = pagina(comuni, chiave, t);
+      if (!file) { return; }
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = file;
+      C.scrivi(a, voce);
+      if (chiave === corrente) { a.setAttribute("aria-current", "page"); }
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+    /* Con una voce sola (la home) il menu non serve */
+    if (lista.children.length < 2) { nav.hidden = true; return; }
+
+    nav.setAttribute("aria-label", comuni.campo("MENU", "nome"));
+    pulsante.textContent = "";
+    C.scrivi(pulsante, comuni.campo("MENU", "pulsante"));
+    nav.hidden = false;
+
+    function apri(si) {
+      testataEl.classList.toggle("menu-aperto", si);
+      pulsante.setAttribute("aria-expanded", si ? "true" : "false");
+    }
+    if (!pulsante.dataset.pronto) {
+      pulsante.dataset.pronto = "1";
+      pulsante.addEventListener("click", function () {
+        apri(pulsante.getAttribute("aria-expanded") !== "true");
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && pulsante.getAttribute("aria-expanded") === "true") {
+          apri(false);
+          pulsante.focus();
+        }
+      });
+      /* Un clic fuori dal menu lo chiude */
+      document.addEventListener("click", function (e) {
+        if (pulsante.getAttribute("aria-expanded") === "true" && !nav.contains(e.target)) { apri(false); }
+      });
+    }
+
+    /* Le voci stanno nella testata? Si prova a metterle affiancate: se
+       escono dallo spazio accanto al nome, si usa il pulsante. Si rifà
+       quando cambia la larghezza. */
+    var larghezza = 0;
+    function misura(forza) {
+      var ora = testataEl.clientWidth;
+      if (forza !== true && ora === larghezza) { return; }   /* cambia solo l'altezza: niente da rifare */
+      larghezza = ora;
+      testataEl.classList.remove("menu-stretto");
+      var stretto = lista.scrollWidth > nav.clientWidth + 1;
+      testataEl.classList.toggle("menu-stretto", stretto);
+      if (!stretto) { apri(false); }
+    }
+    misura(true);
+    if (!nav.dataset.misurato) {
+      nav.dataset.misurato = "1";
+      if (window.ResizeObserver) { new ResizeObserver(function () { misura(); }).observe(testataEl); }
+      else { window.addEventListener("resize", function () { misura(); }); }
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { misura(true); }); }
+    }
   }
 
   /* Accanto al timbro, il link al kit della pagina Per i docenti, solo

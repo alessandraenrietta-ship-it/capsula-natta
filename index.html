@@ -22,21 +22,28 @@
     QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
     in tutte le pagine che lo caricano.
   -->
-  <link rel="stylesheet" href="grafica.css?v=6">
+  <link rel="stylesheet" href="grafica.css?v=7">
   <link rel="icon" href="immagini/logo-natta.png">
 </head>
-<body>
+<body data-pagina="home">
 
   <a class="salta" href="#contenuto">Salta al contenuto</a>
 
-  <!-- La testata: logo e nome della scuola, su fondo bianco -->
+  <!-- La testata: logo e nome della scuola e il menu, su fondo bianco.
+       Le voci del menu le mette js/comuni.js, leggendo comuni.txt: solo
+       le pagine "pronta". Sul telefono c'è il pulsante "Menu", che apre
+       l'elenco; al computer, se ci stanno, le voci sono affiancate. -->
   <header class="testata">
-    <div class="interno">
+    <div class="interno testata-interno">
       <p class="marchio">
         <!-- alt vuoto: il nome della scuola è scritto subito accanto -->
         <img class="logo-scuola" src="immagini/logo-natta.png" alt="" width="231" height="155">
         <span id="nome-scuola"></span>
       </p>
+      <nav class="menu" id="menu" hidden>
+        <button type="button" class="pulsante pulsante-vuoto menu-pulsante" id="menu-pulsante" aria-expanded="false" aria-controls="menu-lista"></button>
+        <ul class="menu-lista" id="menu-lista"></ul>
+      </nav>
     </div>
   </header>
 
@@ -46,18 +53,40 @@
        vuoti. -->
   <main id="contenuto" tabindex="-1" hidden>
 
-    <!-- Apertura: occhiello, titolo, conto alla rovescia e pulsanti.
-         Senza disegno: il pero sta nella sezione dopo. -->
+    <!-- Apertura: occhiello, titolo (l'unico h1), le righe di testo e i
+         pulsanti. "Capsula del tempo", con il conto alla rovescia, sta
+         più sotto, dopo gli eventi. -->
     <section class="sezione apertura" aria-labelledby="titolo">
       <div class="interno">
         <p class="occhiello" id="occhiello"></p>
         <h1 class="titolo-sito" id="titolo"></h1>
-        <!-- Il conto alla rovescia lo scrive js/home.js e cambia con le
-             tre fasi: prima dell'interramento, dopo l'interramento, dopo
-             l'apertura. -->
-        <div class="conto" id="conto"></div>
+        <!-- Le righe di testo: una per ogni campo "testo" di home.txt -->
+        <div class="presentazione" id="presentazione"></div>
         <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
         <p class="pulsanti" id="pulsanti" hidden></p>
+      </div>
+    </section>
+
+    <!-- "Gli eventi del ventennale": per ogni evento il foglietto della
+         data, il titolo e sotto ora, luogo e relatore. Gli eventi
+         passati spariscono da soli; la sezione si vede solo prima
+         dell'interramento. La riempie js/home.js con eventi.txt. -->
+    <section class="sezione" id="sezione-eventi" aria-labelledby="titolo-eventi" hidden>
+      <div class="interno">
+        <h2 class="titolo-sezione titolo-centrato" id="titolo-eventi"></h2>
+        <ul class="date" id="elenco-eventi"></ul>
+      </div>
+    </section>
+
+    <!-- "Capsula del tempo": il conto alla rovescia e la data, dopo gli
+         eventi. Lo scrive js/home.js e cambia con le tre fasi: prima
+         dell'interramento, dopo l'interramento, dopo l'apertura. Dopo
+         l'interramento gli eventi spariscono e questa sezione sale da
+         sola sotto l'apertura. -->
+    <section class="sezione sezione-conto" id="sezione-conto" aria-labelledby="titolo-conto">
+      <div class="interno">
+        <h2 class="titolo-sezione" id="titolo-conto"></h2>
+        <div class="conto" id="conto"></div>
       </div>
     </section>
 
@@ -99,17 +128,6 @@
       </div>
     </section>
 
-    <!-- "Gli eventi del ventennale": per ogni evento il foglietto della
-         data, il titolo e sotto ora, luogo e relatore. Gli eventi
-         passati spariscono da soli; la sezione si vede solo prima
-         dell'interramento. La riempie js/home.js con eventi.txt. -->
-    <section class="sezione" id="sezione-eventi" aria-labelledby="titolo-eventi" hidden>
-      <div class="interno">
-        <h2 class="titolo-sezione titolo-centrato" id="titolo-eventi"></h2>
-        <ul class="date" id="elenco-eventi"></ul>
-      </div>
-    </section>
-
   </main>
 
   <!-- TESTO MODIFICABILE: compare solo se i file di testo non si
@@ -147,8 +165,8 @@
   </footer>
 
   <script src="js/contenuti.js?v=1"></script>
-  <script src="js/comuni.js?v=4"></script>
-  <script src="js/home.js?v=3"></script>
+  <script src="js/comuni.js?v=5"></script>
+  <script src="js/home.js?v=4"></script>
   <script src="js/peropezie.js?v=2"></script>
 </body>
 </html>

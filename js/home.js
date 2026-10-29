@@ -53,13 +53,18 @@
   function mostra(comuni, home, eventiFile) {
     var t = K.tempo(comuni);
 
-    K.testata(comuni);
     C.scrivi(document.getElementById("occhiello"), home.campo("APERTURA", "occhiello"));
     C.scrivi(document.getElementById("titolo"), home.campo("APERTURA", "titolo"));
+    /* Le righe di testo sotto il titolo: un paragrafo per ogni "testo" */
+    home.campi("APERTURA", "testo").forEach(function (riga) {
+      document.getElementById("presentazione").appendChild(elemento("p", "", riga));
+    });
+    C.scrivi(document.getElementById("titolo-conto"), home.campo("CONTO ALLA ROVESCIA", "titolo"));
     K.timbro(comuni);
 
     /* Le parti che cambiano con la fase */
     function disponi() {
+      K.testata(comuni, t);
       conto(comuni, home, t, disponi);
       pulsanti(comuni, home, t);
       eventi(comuni, home, eventiFile, t);
@@ -134,14 +139,14 @@
       var data = elemento("p", "conto-data");
       var quando = t.scriviData(t.interramento);
       if (t.ora) { quando += ", " + parola("parola-ora") + " " + t.ora; }
-      /* I due pezzi non si spezzano: sul telefono "data provvisoria" va
-         a capo intera */
+      /* Data e ora non si spezzano; la scritta sulla data provvisoria,
+         più lunga, va a capo dove serve */
       data.appendChild(elemento("span", "intero", quando));
       if (t.provvisoria) {
         var punto = elemento("span", "", " · ");
         punto.setAttribute("aria-hidden", "true");
         data.appendChild(punto);
-        data.appendChild(elemento("span", "intero", comuni.campo("CAPSULA", "scritta-provvisoria")));
+        data.appendChild(elemento("span", "", comuni.campo("CAPSULA", "scritta-provvisoria")));
       }
       box.appendChild(data);
     }

@@ -7,20 +7,31 @@
 # ------------------------------------------------------------------
 
 == APERTURA ==
-# La riga piccola sopra il titolo. Il sito la scrive in maiuscolo.
-occhiello: 2006–2026 · capsula del tempo
+# La riga piccola sopra il titolo.
+occhiello: 2006–2026
 # Il titolo grande. Compare esattamente come è scritto qui.
 titolo: Vent'anni di Natta
-# Le scritte dei due pulsanti sotto il conto alla rovescia. Compaiono
+# Le righe di testo sotto il titolo: una riga "testo" per paragrafo.
+# ESEMPIO FUTURISTA (da sostituire prima di dare il link a chi non sa
+# che è una prova; vedi CLAUDE.md, punto 12)
+testo: Vent'anni = velocità.
+testo: Il Natta corre + accelera + sbuffa idee.
+testo: Chiudere il presente in una capsula, interrarla sotto il pero, lanciarla dieci anni avanti. Vrrr.
+# Le scritte dei due pulsanti sotto le righe di testo. Compaiono
 # solo quando la loro pagina è "pronta" (comuni.txt, sezione PAGINE).
 # "Partecipa" sparisce da solo dopo l'interramento.
 pulsante-partecipa: Partecipa
 pulsante-progetto: Il progetto
 
 == CONTO ALLA ROVESCIA ==
+# Il titolo della sezione con il conto alla rovescia
+titolo: Capsula del tempo
+# ESEMPIO FUTURISTA nelle frasi qui sotto, ma con informazioni vere:
+# che cosa si conta, le date e che la data è provvisoria devono restare
+# chiari (CLAUDE.md, punto 12).
 # Prima dell'interramento: la riga sopra i foglietti e le scritte
 # piccole dentro i foglietti.
-prima: All'interramento della capsula mancano
+prima: Motori accesi. All'interramento della capsula mancano
 giorni: giorni
 ore: ore
 minuti: minuti
@@ -36,15 +47,15 @@ secondo: secondo
 parola-ora: ore
 # Dopo l'interramento: la riga sopra il foglietto dei giorni. Il
 # foglietto mostra tutti i giorni che mancano all'apertura (3.653).
-dopo: All'apertura della capsula mancano
+dopo: Capsula in viaggio sotto il pero. All'apertura mancano
 # La riga con la data dell'apertura, sotto i foglietti: "prevista"
 # finché la data dell'interramento è provvisoria (comuni.txt).
-apertura-prevista: Apertura prevista:
-apertura: Apertura:
+apertura-prevista: Rientro dal futuro = apertura prevista:
+apertura: Rientro dal futuro = apertura:
 # Dopo l'apertura il conto alla rovescia sparisce e resta questa frase.
 # Al posto di [data] il sito scrive la data dell'apertura. Il link porta
 # ai contenuti della capsula, quando la pagina è "pronta".
-aperta: La capsula è stata aperta il [data].
+aperta: Atterraggio riuscito! La capsula è stata aperta il [data].
 link-contenuti: Che cosa c'era nella capsula
 
 == PEROPEZIE ==
@@ -54,8 +65,8 @@ link-contenuti: Che cosa c'era nella capsula
 # il sito ("10 anni di PEROpezie"), così il lettore di schermo legge una
 # parola sola.
 titolo: 10 anni di Peropezie
-# La riga sotto il titolo (da approvare)
-riga: Dal giorno dell'interramento, una foto all'anno fino all'apertura della capsula.
+# La riga sotto il titolo. ESEMPIO FUTURISTA
+riga: Un pero + una foto all'anno = dieci anni in fila, dall'interramento all'apertura. Clic.
 # Il pulsante sotto la foto, che rimette nel palco il disegno del pero
 torna: Torna al pero
 # Per il lettore di schermo: il nome dei pulsanti della fila di foto.

@@ -71,6 +71,10 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
   sottodominio della scuola a GitHub Pages. Si aggiunge solo quando il
   sito è pronto e il nome del sottodominio è deciso. Se un giorno il
   sito passerà sul server della scuola, basta cancellarlo.
+- **La pagina di errore `404.html`** non è un'eccezione: è una pagina
+  normale. GitHub Pages la mostra da solo; su un altro server va
+  attivata nelle sue impostazioni, altrimenti si vede l'errore del
+  server (punto 9).
 - Le pagine leggono i file di `contenuti/` con JavaScript: aprire una
   pagina con un doppio clic non basta, l'anteprima si fa con
   `anteprima.bat`.
@@ -82,7 +86,8 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
 - **Il numero `?v=`.** Quando cambia un file CSS o JS si aumenta di uno
   il `?v=` in **tutte** le pagine che lo richiamano (`grafica.css?v=3`
   diventa `?v=4`). Senza, i browser continuano a mostrare la versione
-  vecchia.
+  vecchia. In `404.html` i numeri stanno nello script in fondo alla
+  pagina (`FOGLIO` e `SCRIPT`).
 
 ## 3. Contenuti separati dal codice
 
@@ -105,7 +110,8 @@ Ogni pagina ha nella testa
 `<meta name="robots" content="noindex, nofollow">`, così i motori di
 ricerca non la mostrano. Si mette anche nelle pagine nuove e si toglie
 da tutte solo quando Alessandra dice che il sito è approvato. Non
-nasconde il sito a chi ha il link.
+nasconde il sito a chi ha il link. In `404.html` resta anche dopo: una
+pagina di errore non va mai sui motori di ricerca.
 
 ## 5. Prima il telefono, accessibilità sempre
 
@@ -235,6 +241,22 @@ deve restare vera anche dopo l'apertura, per questo dice "Capsula
 partita" e non "sigillata". La pagina si chiude al primo caricamento
 dopo l'interramento: a differenza della home, non si ridispone da sola
 se resta aperta in quel momento.
+
+**La pagina di errore** (`404.html`, `js/errore.js`, testi nella sezione
+PAGINA DI ERRORE di `comuni.txt`; deciso il 30 ottobre 2026): logo, nome
+della scuola, titolo, una riga e il pulsante "Torna alla home ›". Può
+comparire a qualunque indirizzo sbagliato, anche dentro cartelle che non
+esistono, dove i percorsi relativi non funzionano. Scelta fra due
+soluzioni: non una pagina autosufficiente, ma uno script dentro
+`404.html` che risale dall'indirizzo fino al primo `index.html` e da lì
+fa partire tutti i percorsi con un `<base>`. L'indirizzo del sito non è
+scritto da nessuna parte, i testi restano in `contenuti/` e lo stile è
+quello di tutto il sito. Senza JavaScript, o se la cartella del sito non
+si trova, si vede solo il titolo con il link al sito della scuola: quel
+testo sta nel file, come gli avvisi delle altre pagine. Per lo stesso
+`<base>` qui non c'è il link "Salta al contenuto". Con l'anteprima si
+prova a un indirizzo sbagliato (`anteprima.ps1` mostra `404.html` come
+GitHub); online si può provare solo dopo il push.
 
 **Niente pagina "Il pero".** Il pero sta nella home, nella sezione "10
 anni di PEROpezie". Le istruzioni per la foto annuale stanno in una

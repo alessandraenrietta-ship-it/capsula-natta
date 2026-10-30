@@ -52,6 +52,12 @@ capsula | la-capsula.html | in preparazione |
 # file di ciascuna pagina, sezione CHIUSA.
 torna-home: Torna alla home
 
+== PAGINA DI ERRORE ==
+# Compare a un indirizzo sbagliato (404.html), con il pulsante qui sopra.
+titolo: Pagina non trovata
+# ESEMPIO FUTURISTA, ma deve restare chiaro che la pagina non c'è.
+testo: Fuori rotta: qui la capsula non è mai passata.
+
 == MENU ==
 # Il pulsante che apre il menu sul telefono, e il nome del menu per il
 # lettore di schermo

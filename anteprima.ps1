@@ -1,4 +1,4 @@
-﻿# ------------------------------------------------------------
+# ------------------------------------------------------------
 #  Anteprima del sito sul tuo computer.
 #
 #  Non si avvia da qui: fai doppio clic su anteprima.bat.
@@ -67,10 +67,15 @@ while ($listener.IsListening) {
     $contesto.Response.OutputStream.Write($contenuto, 0, $contenuto.Length)
   } else {
     $contesto.Response.StatusCode = 404
-    $messaggio = [System.Text.Encoding]::UTF8.GetBytes(
-      "Non trovato: $percorso"
-    )
-    $contesto.Response.ContentType = "text/plain; charset=utf-8"
+    # Come su GitHub: a un indirizzo sbagliato si vede 404.html
+    $paginaErrore = Join-Path $cartella "404.html"
+    if (Test-Path -LiteralPath $paginaErrore -PathType Leaf) {
+      $messaggio = [System.IO.File]::ReadAllBytes($paginaErrore)
+      $contesto.Response.ContentType = "text/html; charset=utf-8"
+    } else {
+      $messaggio = [System.Text.Encoding]::UTF8.GetBytes("Non trovato: $percorso")
+      $contesto.Response.ContentType = "text/plain; charset=utf-8"
+    }
     $contesto.Response.OutputStream.Write($messaggio, 0, $messaggio.Length)
   }
 

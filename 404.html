@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TESTO MODIFICABILE: titolo della scheda del browser. Sta qui e non
+       in contenuti/ perché deve esserci prima che la pagina legga i file
+       di testo. -->
+  <title>Pagina non trovata | Vent'anni di Natta</title>
+
+  <!-- BOZZA: chiede ai motori di ricerca di non mostrare questa pagina
+       e di non seguirne i link. Questa resta anche quando il sito è
+       approvato: una pagina di errore non va mai sui motori di ricerca. -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body data-pagina="errore">
+
+  <!-- Niente link "Salta al contenuto": con il <base> dello script qui
+       sotto porterebbe alla home, e la pagina è così breve che non
+       serve. La testata compare quando i testi sono stati letti. -->
+  <header class="testata" id="testata" hidden>
+    <div class="interno testata-interno">
+      <a class="marchio" href="index.html">
+        <!-- alt vuoto: il nome della scuola è scritto subito accanto -->
+        <img class="logo-scuola" id="logo-scuola" alt="" width="231" height="155">
+        <span id="nome-scuola"></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Titolo, riga e pulsante arrivano da contenuti/comuni.txt, sezione
+       PAGINA DI ERRORE. -->
+  <main id="contenuto" tabindex="-1" hidden>
+    <section class="sezione apertura" aria-labelledby="titolo">
+      <div class="interno">
+        <h1 class="titolo-sito titolo-pagina" id="titolo"></h1>
+        <div class="presentazione" id="testo-apertura"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TESTO MODIFICABILE: compare solo se la pagina non riesce a trovare
+       la cartella del sito o a leggere i file di testo. -->
+  <section id="avviso" hidden>
+    <h1>Pagina non trovata</h1>
+    <p>Puoi visitare il <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+  </section>
+
+  <noscript>
+    <h1>Pagina non trovata</h1>
+    <p>Puoi visitare il <a href="https://www.itisgiulionatta.it">sito della scuola</a>.</p>
+  </noscript>
+
+  <!--
+    Questa pagina può comparire a qualunque indirizzo sbagliato, anche
+    dentro cartelle che non esistono: lì i percorsi relativi non
+    funzionano. Quindi prima di tutto si cerca la cartella del sito,
+    risalendo dall'indirizzo finché non si trova index.html, senza
+    scrivere da nessuna parte l'indirizzo del sito. Poi un <base> fa
+    partire da lì tutti i percorsi relativi.
+    QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
+    dopo ?v= anche nell'elenco qui sotto.
+  -->
+  <script>
+    (function () {
+      "use strict";
+
+      var FOGLIO = "grafica.css?v=11";
+      var SCRIPT = ["js/contenuti.js?v=1", "js/comuni.js?v=8", "js/errore.js?v=1"];
+      var cartelle = window.location.pathname.split("/").slice(0, -1);
+
+      function cerca() {
+        var cartella = cartelle.join("/") + "/";
+        return fetch(cartella + "index.html", { cache: "no-cache" }).then(function (risposta) {
+          if (risposta.ok) { return cartella; }
+          if (cartelle.length < 2) { throw new Error("Non trovo la cartella del sito"); }
+          cartelle.pop();
+          return cerca();
+        });
+      }
+
+      function aggiungi(tag, attributi) {
+        var e = document.createElement(tag);
+        Object.keys(attributi).forEach(function (k) { e[k] = attributi[k]; });
+        document.head.appendChild(e);
+      }
+
+      cerca().then(function (cartella) {
+        aggiungi("base", { href: cartella });
+        aggiungi("link", { rel: "stylesheet", href: FOGLIO });
+        aggiungi("link", { rel: "icon", href: "immagini/logo-natta.png" });
+        document.getElementById("logo-scuola").src = "immagini/logo-natta.png";
+        SCRIPT.forEach(function (file) { aggiungi("script", { src: file, async: false }); });
+      }).catch(function (errore) {
+        console.error(errore);
+        document.getElementById("avviso").hidden = false;
+      });
+    }());
+  </script>
+</body>
+</html>

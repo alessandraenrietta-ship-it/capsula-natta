@@ -198,9 +198,13 @@ lettere accentate compaiono storte, va sistemato sul server.
    non manda i file di `contenuti/`.
 2. Cercare in `contenuti/` gli indirizzi completi che contengono
    `github.io` e aggiornarli.
-3. Codici QR e materiali stampati con il vecchio indirizzo: le copie
+3. Provare un indirizzo sbagliato: deve comparire la pagina di errore
+   `404.html`. GitHub Pages la mostra da solo; sul server della scuola
+   va attivata nelle sue impostazioni, altrimenti si vede l'errore del
+   server. I testi stanno in `comuni.txt`, sezione PAGINA DI ERRORE.
+4. Codici QR e materiali stampati con il vecchio indirizzo: le copie
    già stampate continueranno a portare lì.
-4. Decidere che cosa lasciare al vecchio indirizzo: una pagina che
+5. Decidere che cosa lasciare al vecchio indirizzo: una pagina che
    rimanda al nuovo, oppure niente.
-5. Lo spostamento non toglie il `noindex`: si toglie solo quando il
+6. Lo spostamento non toglie il `noindex`: si toglie solo quando il
    sito è approvato.

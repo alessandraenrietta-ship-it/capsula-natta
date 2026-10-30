@@ -326,8 +326,10 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 .menu-pulsante { display: none; }
 
 /* La freccia del pulsante punta in basso; con il menu aperto, in alto */
-.menu-pulsante::after { transform: rotate(135deg); margin-top: -0.25em; }
-.menu-pulsante[aria-expanded="true"]::after { transform: rotate(-45deg); margin-top: 0.25em; }
+.menu-pulsante::after,
+.pulsante-giu::after { transform: rotate(135deg); margin-top: -0.25em; }
+.menu-pulsante[aria-expanded="true"]::after,
+.pulsante-giu[aria-expanded="true"]::after { transform: rotate(-45deg); margin-top: 0.25em; }
 
 .menu-stretto .menu { flex: none; overflow: visible; }
 /* Con il pulsante, il nome della scuola può andare su due righe invece
@@ -364,7 +366,7 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 
 /* -----------------------------------------------------------------
    APERTURA
-   Occhiello, titolo, conto alla rovescia e pulsanti, centrati. Senza
+   Occhiello, titolo, foto storiche e pulsanti, centrati. Senza
    disegno. La sezione d'apertura non ha il filetto sopra: c'è già
    quello della testata.
    ----------------------------------------------------------------- */
@@ -402,6 +404,67 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 }
 
 .pulsanti .pulsante { justify-content: center; }
+
+/* Il carosello delle foto storiche, fra il titolo e i pulsanti: una
+   foto alla volta dentro una striscia che si scorre con il dito. Tutte
+   le foto hanno lo stesso riquadro, intere, con i margini bianchi se
+   non hanno la sua forma: così, cambiando foto, la pagina non si muove.
+   Sul telefono le frecce stanno sopra la foto, ai lati. */
+.carosello {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  grid-template-areas:
+    "foto foto foto"
+    "didascalia didascalia didascalia";
+  width: min(100%, 34rem);
+  margin: 1rem auto 0;
+}
+
+/* Sotto il carosello i pulsanti stanno affiancati anche sul telefono:
+   così arrivano nella prima schermata. Se non ci stanno, vanno a capo. */
+.carosello + .pulsanti { flex-direction: row; flex-wrap: wrap; margin-top: 1rem; }
+.carosello + .pulsanti .pulsante { flex: 1 1 8rem; padding-inline: 0.5em; }
+
+.carosello-striscia {
+  grid-area: foto;
+  display: flex;
+  aspect-ratio: 3 / 2;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carosello-striscia img {
+  flex: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--bianco);
+  scroll-snap-align: start;
+}
+
+.carosello .freccia { grid-area: foto; align-self: center; z-index: 1; }
+.carosello .freccia-indietro { justify-self: start; }
+.carosello .freccia-avanti { justify-self: end; }
+
+/* Anno e credito sulla stessa riga. Sul telefono il testo non ci sta
+   tutto: due righe sempre, perché la pagina non si muova cambiando foto */
+.carosello-didascalia {
+  grid-area: didascalia;
+  min-height: 2.8em;
+  margin: 0.6rem 0 0;
+  color: var(--grigio);
+  font-size: 1rem;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.carosello-anno { color: var(--verde); }
+
+@media (min-width: 48rem) {
+  .carosello + .pulsanti .pulsante { flex: none; padding-inline: 1.1em; }
+}
 
 
 /* -----------------------------------------------------------------
@@ -656,6 +719,14 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
   gap: 1rem;
 }
 
+/* Sul telefono i primi tre eventi e il pulsante per vedere gli altri;
+   dai 48rem tutti gli eventi, senza pulsante */
+.eventi-altri { margin: 1.5rem 0 0; text-align: center; }
+
+@media (max-width: 47.99rem) {
+  .date:not(.eventi-aperti) .evento-in-piu { display: none; }
+}
+
 /* Il foglietto degli eventi è largo 58 pixel, come in orientamento */
 .data .foglietto { width: 58px; }
 
@@ -763,9 +834,29 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
   .titolo-sito { font-size: 3.25rem; }
 }
 
-/* Gli eventi in colonne */
+/* Gli eventi in colonne e le frecce del carosello accanto alla foto */
 @media (min-width: 48rem) {
   .date { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  .eventi-altri { display: none; }
+
+  .carosello {
+    column-gap: 0.75rem;
+    grid-template-areas:
+      "indietro foto avanti"
+      "didascalia didascalia didascalia";
+  }
+
+  .carosello .freccia-indietro { grid-area: indietro; }
+  .carosello .freccia-avanti { grid-area: avanti; }
+
+  /* Al computer la didascalia sta su una riga anche se è più larga
+     della foto */
+  .carosello-didascalia {
+    justify-self: center;
+    width: max-content;
+    max-width: min(44rem, calc(100vw - 3rem));
+    min-height: 0;
+  }
 }
 
 @media (min-width: 66rem) {

@@ -22,7 +22,7 @@
     QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
     in tutte le pagine che lo caricano.
   -->
-  <link rel="stylesheet" href="grafica.css?v=10">
+  <link rel="stylesheet" href="grafica.css?v=11">
   <link rel="icon" href="immagini/logo-natta.png">
 </head>
 <body data-pagina="home">
@@ -53,15 +53,29 @@
        vuoti. -->
   <main id="contenuto" tabindex="-1" hidden>
 
-    <!-- Apertura: occhiello, titolo (l'unico h1), le righe di testo e i
-         pulsanti. "Capsula del tempo", con il conto alla rovescia, sta
-         più sotto, dopo gli eventi. -->
+    <!-- Apertura: occhiello, titolo (l'unico h1), il carosello delle foto
+         storiche e i pulsanti. "Capsula del tempo", con il conto alla
+         rovescia, sta più sotto, dopo gli eventi. -->
     <section class="sezione apertura" aria-labelledby="titolo">
       <div class="interno">
         <p class="occhiello" id="occhiello"></p>
         <h1 class="titolo-sito" id="titolo"></h1>
-        <!-- Le righe di testo: una per ogni campo "testo" di home.txt -->
-        <div class="presentazione" id="presentazione"></div>
+        <!-- Il carosello: una foto alla volta, con sotto l'anno e il
+             credito. Lo riempie js/foto-storiche.js, con i testi di
+             home.txt e le foto di foto-storiche.txt. Compare solo se ci
+             sono foto. -->
+        <div class="carosello" id="carosello" role="group" hidden>
+          <div class="carosello-striscia" id="carosello-striscia" tabindex="-1"></div>
+          <button type="button" class="freccia freccia-indietro" id="carosello-indietro"></button>
+          <button type="button" class="freccia freccia-avanti" id="carosello-avanti"></button>
+          <p class="carosello-didascalia">
+            <span class="carosello-anno" id="carosello-anno"></span>
+            <span aria-hidden="true">·</span>
+            <span id="carosello-credito"></span>
+          </p>
+          <!-- Per il lettore di schermo: quale foto si vede dopo ogni cambio -->
+          <p class="solo-lettori" id="carosello-annuncio" aria-live="polite"></p>
+        </div>
         <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
         <p class="pulsanti" id="pulsanti" hidden></p>
       </div>
@@ -75,6 +89,10 @@
       <div class="interno">
         <h2 class="titolo-sezione titolo-centrato" id="titolo-eventi"></h2>
         <ul class="date" id="elenco-eventi"></ul>
+        <!-- Sul telefono, se gli eventi sono più di tre -->
+        <p class="eventi-altri" id="eventi-altri" hidden>
+          <button type="button" class="pulsante pulsante-vuoto pulsante-giu" id="eventi-tutti" aria-expanded="false" aria-controls="elenco-eventi"></button>
+        </p>
       </div>
     </section>
 
@@ -166,7 +184,8 @@
 
   <script src="js/contenuti.js?v=1"></script>
   <script src="js/comuni.js?v=8"></script>
-  <script src="js/home.js?v=4"></script>
+  <script src="js/home.js?v=5"></script>
+  <script src="js/foto-storiche.js?v=1"></script>
   <script src="js/peropezie.js?v=3"></script>
 </body>
 </html>

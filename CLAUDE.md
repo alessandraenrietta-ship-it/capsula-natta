@@ -329,17 +329,18 @@ sito; h2 le sezioni.
 
 1. **Testata**: logo, nome della scuola e menu (punto 9).
 2. **Apertura**, senza disegno: occhiello "2006–2026", titolo
-   "Vent'anni di Natta" (primo elemento della pagina e unico h1),
-   alcune righe di testo (campo `testo` della sezione APERTURA di
-   `home.txt`, una riga per paragrafo), poi i pulsanti "Partecipa" e "Il
-   progetto", quando le pagine sono pronte. Dopo l'interramento
-   "Partecipa" sparisce e resta solo "Il progetto".
+   "Vent'anni di Natta" (primo elemento della pagina e unico h1), il
+   carosello delle foto storiche (vedi sotto), poi i pulsanti
+   "Partecipa" e "Il progetto", quando le pagine sono pronte, affiancati
+   anche sul telefono per stare nella prima schermata. Le righe di testo
+   sotto il titolo sono state tolte il 30 ottobre 2026. Dopo
+   l'interramento "Partecipa" sparisce e resta solo "Il progetto".
 3. **"Gli eventi del ventennale"** (solo prima dell'interramento; dopo
    la sezione sparisce e al suo posto non compare nulla): il programma,
    ogni evento con il foglietto della data. Vedi sotto.
 4. **"Capsula del tempo"** (h2): il conto alla rovescia e la data (vedi
    sotto). Dopo l'interramento, spariti gli eventi, sale da sola sotto
-   le righe di testo, senza modifiche a mano.
+   l'apertura, senza modifiche a mano.
 5. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
    sotto il pero, dall'interramento all'apertura, non quelli della
    scuola. Vedi sotto.
@@ -401,7 +402,8 @@ aggiorna una volta al minuto.
 File della home: `index.html`, `grafica.css`, `js/contenuti.js`
 (copiato identico da orientamento: è il lettore dei file di testo),
 `js/comuni.js` (fasi, pagine, testata, piede, timbro), `js/home.js`,
-`contenuti/comuni.txt`, `contenuti/home.txt`. Titolo della scheda del
+`js/foto-storiche.js`, `contenuti/comuni.txt`, `contenuti/home.txt`,
+`contenuti/foto-storiche.txt`. Titolo della scheda del
 browser e descrizione per i motori di ricerca stanno in `index.html`,
 perché devono esserci prima che la pagina legga i file di testo.
 Descrizione della home: "Il ventennale dell'IIS Giulio Natta di Rivoli
@@ -415,6 +417,47 @@ tutti modificabili dai file di contenuto):
 - data sotto le foto: completa (1 maggio 2027);
 - eventi passati: nascosti, come le date degli open day di
   orientamento.
+
+**Il carosello delle foto storiche** (`js/foto-storiche.js`, testi per
+il lettore di schermo nella sezione FOTO STORICHE di
+`contenuti/home.txt`, foto in `contenuti/foto-storiche.txt`; deciso il 30
+ottobre 2026):
+
+- Una foto alla volta, in ordine di anno, dalla più vecchia, in tutte e
+  tre le fasi. Riquadro 3 per 2, largo come la pagina sul telefono:
+  foto intere, con margini bianchi se non hanno quella forma.
+- Due frecce (pulsanti quadrati a etichetta da 44 px, come PEROpezie):
+  sul telefono sopra la foto, ai lati (disposizione A, scelta da
+  Alessandra; la B, con le frecce sotto la foto, è stata scartata); al
+  computer accanto alla foto. Sul telefono si scorre anche con il dito.
+  Niente scorrimento automatico.
+- Sotto la foto, di seguito sulla stessa riga: l'anno in verde e il
+  credito in grigio, separati da un punto, della stessa grandezza,
+  16 px, nessuna didascalia. Al computer sta su una riga, sul telefono
+  va su due.
+- **Accessibilità**: frecce raggiungibili da tastiera ("Foto
+  precedente", "Foto successiva"), spente alla prima e all'ultima foto;
+  se la freccia in uso si spegne, il focus passa all'altra; ogni cambio
+  annunciato al lettore di schermo ("Foto del 2009, 2 di 5"), che legge
+  solo la foto visibile; testo alternativo per ogni foto; con
+  `prefers-reduced-motion` nessun movimento.
+- **Foto**: una riga per foto in `foto-storiche.txt` (file, anno,
+  credito, testo alternativo), con la sezione ESEMPIO e il campo
+  `esempio: sì/no` come in `foto-pero.txt`. File nella cartella
+  `foto-storiche/`, in JPG, sotto i 300 KB. Senza foto il carosello non
+  compare.
+- **Foto vere**: le sceglie e le verifica la vicepresidenza (liberatorie
+  di tutte le persone riconoscibili e diritti), come le foto del pero.
+  Forma del credito: [DA COMPLETARE: forma del credito delle foto
+  storiche]. Nessun nome di studenti.
+- **Foto d'esempio** (dal 30 ottobre 2026): cinque foto generiche di
+  scuole e aule, **non** del Natta, senza persone, scaricate da Wikimedia
+  Commons con il permesso di Alessandra
+  (`foto-storiche/esempio-storica-1.jpg` … `-5.jpg`, rimpicciolite a
+  1000 pixel e sotto i 300 KB). Due sono CC0, tre CC BY-SA 4.0: il
+  credito dice autore, Wikimedia Commons e licenza, e non va tolto
+  finché la foto è nel sito. Gli anni sono inventati (2006, 2009, 2014,
+  2019, 2025).
 
 **La sezione "10 anni di PEROpezie"** (`js/peropezie.js`, testi nella
 sezione PEROPEZIE di `contenuti/home.txt`, foto in
@@ -482,6 +525,11 @@ sezione EVENTI di `contenuti/home.txt`, eventi in
   sa. Senza data il foglietto mostra "?".
 - Gli eventi passati spariscono da soli dal giorno dopo; la sezione si
   vede solo prima dell'interramento e solo se resta almeno un evento.
+- **Sul telefono** (sotto i 48rem) si vedono i primi tre eventi e il
+  pulsante vuoto "Tutti gli eventi", con `aria-expanded` e
+  `aria-controls`; toccandolo, gli altri compaiono nella stessa pagina e
+  si possono richiudere. Al computer tutti gli eventi restano visibili e
+  il pulsante non c'è. Con tre eventi o meno il pulsante non compare.
 
 **Le foto del pero** le scattano gli studenti della classe prima
 incaricata, oppure le sceglie la vicepresidenza. Sotto ogni foto il
@@ -598,8 +646,8 @@ lettera. Se lo stile rende un'informazione ambigua, vince la chiarezza.
 ### Eccezione temporanea: i contenuti d'esempio
 
 Decisa da Alessandra il 29 ottobre 2026, per presentare il sito: sono
-d'esempio gli eventi del ventennale, le foto del pero e i testi in
-stile futurista. **Da sostituire prima di dare il link a chi non sa che
+d'esempio gli eventi del ventennale, le foto del pero, le foto storiche
+(dal 30 ottobre 2026) e i testi in stile futurista. **Da sostituire prima di dare il link a chi non sa che
 è una prova.** Sul sito non sono segnati come esempi. Stanno qui:
 
 - `contenuti/eventi.txt`, sezione EVENTI: tutti gli eventi tranne
@@ -609,9 +657,12 @@ stile futurista. **Da sostituire prima di dare il link a chi non sa che
   `foto-pero/esempio-pero-1.jpg` … `-5.jpg`: peri qualsiasi presi da
   Wikimedia Commons, con date inventate; restano come sono, con i loro
   crediti;
-- i testi in stile futurista: `contenuti/home.txt` (righe
-  dell'apertura, scritte del conto alla rovescia, riga sotto "10 anni
-  di PEROpezie"), `contenuti/comuni.txt` (scritta "data provvisoria",
+- `contenuti/foto-storiche.txt`, sezione ESEMPIO, con i file
+  `foto-storiche/esempio-storica-1.jpg` … `-5.jpg`: scuole e aule
+  qualsiasi prese da Wikimedia Commons, con anni inventati; restano come
+  sono, con i loro crediti;
+- i testi in stile futurista: `contenuti/home.txt` (scritte del conto
+  alla rovescia, riga sotto "10 anni di PEROpezie"), `contenuti/comuni.txt` (scritta "data provvisoria",
   riga del piede per i docenti), e dalle tappe 1, 2 e 3
   `contenuti/progetto.txt`, `contenuti/partecipa.txt`,
   `contenuti/docenti.txt`. Nei file sono segnati con il commento
@@ -646,7 +697,8 @@ I dati veri che mancano restano `[DA COMPLETARE: ...]`.
 - Testo della riga sotto "10 anni di PEROpezie" (punto 10): proposto
   "Dal giorno dell'interramento, una foto all'anno fino all'apertura
   della capsula.", da approvare.
-- Quando togliere le foto d'esempio (`esempio: no`).
+- Quando togliere le foto d'esempio (`esempio: no`), del pero e storiche.
+- Forma del credito delle foto storiche vere (punto 10).
 - Che cosa contiene la capsula oltre alle lettere (in definizione).
 - Nome del sottodominio della scuola.
 - Da confermare i valori predefiniti del punto 10: foto orizzontali

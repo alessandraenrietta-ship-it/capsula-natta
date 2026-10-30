@@ -55,10 +55,6 @@
 
     C.scrivi(document.getElementById("occhiello"), home.campo("APERTURA", "occhiello"));
     C.scrivi(document.getElementById("titolo"), home.campo("APERTURA", "titolo"));
-    /* Le righe di testo sotto il titolo: un paragrafo per ogni "testo" */
-    home.campi("APERTURA", "testo").forEach(function (riga) {
-      document.getElementById("presentazione").appendChild(elemento("p", "", riga));
-    });
     C.scrivi(document.getElementById("titolo-conto"), home.campo("CONTO ALLA ROVESCIA", "titolo"));
     K.timbro(comuni);
 
@@ -201,6 +197,9 @@
      eventi passati spariscono dal giorno dopo; la sezione si vede solo
      prima dell'interramento e solo se resta almeno un evento. I
      segnaposto [DA COMPLETARE] restano visibili.
+     Sul telefono si vedono i primi tre e, se ce ne sono altri, il
+     pulsante "Tutti gli eventi"; al computer il pulsante non c'è. Che
+     cosa si vede a quale larghezza lo decide grafica.css.
      --------------------------------------------------------------- */
 
   function eventi(comuni, home, eventiFile, t) {
@@ -270,7 +269,29 @@
     var titolo = document.getElementById("titolo-eventi");
     titolo.textContent = "";
     C.scrivi(titolo, parola("titolo"));
+    altriEventi(elenco, parola("pulsante-tutti"));
     sezione.hidden = false;
+  }
+
+  function altriEventi(elenco, scritta) {
+    var riga = document.getElementById("eventi-altri");
+    var pulsante = document.getElementById("eventi-tutti");
+    Array.prototype.slice.call(elenco.children, 3).forEach(function (voce) {
+      voce.classList.add("evento-in-piu");
+    });
+    riga.hidden = elenco.children.length <= 3;
+    elenco.classList.remove("eventi-aperti");
+    pulsante.setAttribute("aria-expanded", "false");
+    pulsante.textContent = "";
+    C.scrivi(pulsante, scritta);
+    if (!pulsante.dataset.pronto) {
+      pulsante.dataset.pronto = "1";
+      pulsante.addEventListener("click", function () {
+        var aperti = pulsante.getAttribute("aria-expanded") !== "true";
+        elenco.classList.toggle("eventi-aperti", aperti);
+        pulsante.setAttribute("aria-expanded", aperti ? "true" : "false");
+      });
+    }
   }
 
 

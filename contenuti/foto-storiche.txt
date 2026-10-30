@@ -1,0 +1,35 @@
+# LE FOTO STORICHE (il carosello nell'apertura della home)
+# ------------------------------------------------------------------
+# Le foto vere le sceglie e le verifica la vicepresidenza: liberatorie
+# di tutte le persone riconoscibili e diritti, come per le foto del
+# pero. Nessun nome di studenti.
+# Forma del credito: [DA COMPLETARE: forma del credito delle foto storiche]
+#
+# I file delle foto vanno nella cartella foto-storiche/, in JPG, sotto i
+# 300 KB, con il nome minuscolo, con i trattini, senza spazi né accenti
+# (per esempio foto-storiche/natta-2009.jpg).
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Il formato è spiegato in LEGGIMI.md.
+# ------------------------------------------------------------------
+
+== FOTO ==
+# Una riga per foto, in qualsiasi ordine: il sito le mette in ordine di
+# anno, dalla più vecchia. Il testo alternativo descrive la foto per chi
+# non la vede.
+# file | anno | credito | testo alternativo
+
+== ESEMPIO ==
+# Cinque foto generiche di scuole e aule, NON del Natta, per mostrare
+# come funziona il carosello prima che ci siano le foto vere. Vengono da
+# Wikimedia Commons, con licenza libera: il credito con autore e licenza
+# va lasciato com'è. Gli anni sono inventati.
+# Con "sì" compaiono, con "no" no. Senza foto vere e con "no", il
+# carosello non compare.
+esempio: sì
+# file | anno | credito | testo alternativo
+foto-storiche/esempio-storica-1.jpg | 2006 | Foto di Dietmar Rabich, Wikimedia Commons, CC BY-SA 4.0 | Un basso edificio di mattoni rossi con il tetto azzurro di metallo, lungo una strada vuota.
+foto-storiche/esempio-storica-2.jpg | 2009 | Foto di Saral Shots, Wikimedia Commons, CC0 | Un'aula vuota con file di banchi di legno e di metallo e tre finestre sul lato destro.
+foto-storiche/esempio-storica-3.jpg | 2014 | Foto di Kchava, Wikimedia Commons, CC BY-SA 4.0 | Un laboratorio di chimica con due lunghi banconi pieni di bottiglie di vetro e sgabelli di legno.
+foto-storiche/esempio-storica-4.jpg | 2019 | Foto di Dobrislava, Wikimedia Commons, CC BY-SA 4.0 | Un'aula in ordine con le sedie capovolte sui banchi, disegni alle pareti e due bacheche verdi.
+foto-storiche/esempio-storica-5.jpg | 2025 | Foto di AKA MBG, Wikimedia Commons, CC0 | Un'aula luminosa con grandi felci sui banchi, finestre sul verde e la lavagna in fondo.

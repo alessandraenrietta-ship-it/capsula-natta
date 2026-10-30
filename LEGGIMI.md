@@ -15,6 +15,9 @@ toccare nessun altro file.
 - `home.txt`: i testi della pagina iniziale. Occhiello, titolo, scritte
   dei pulsanti e del conto alla rovescia, testi della sezione "10 anni
   di Peropezie".
+- `foto-storiche.txt`: le foto del carosello in cima alla home, una riga
+  per foto (file, anno, credito, testo alternativo), e l'interruttore
+  delle foto d'esempio. Il sito le mette in ordine di anno.
 - `foto-pero.txt`: le foto del pero, una riga per foto (file, data,
   credito, testo alternativo), e l'interruttore delle foto d'esempio.
 - `progetto.txt`: i testi della pagina Il progetto. Le date
@@ -51,6 +54,23 @@ toccare nessun altro file.
 3. Quando ci sono le foto vere, in fondo allo stesso file si scrive
    `esempio: no`, così spariscono le cinque foto d'esempio (peri
    qualsiasi presi da Wikimedia Commons).
+
+### Aggiungere una foto storica
+
+Le foto vere le sceglie e le verifica la vicepresidenza: liberatorie di
+tutte le persone riconoscibili e diritti.
+
+1. Si salva la foto in JPG, sotto i 300 KB, nella cartella
+   `foto-storiche/`, con un nome minuscolo, con i trattini, senza spazi
+   né accenti (`foto-storiche/natta-2009.jpg`).
+2. In `foto-storiche.txt`, nella sezione FOTO, si aggiunge una riga:
+
+       foto-storiche/natta-2009.jpg | 2009 | [credito] | [che cosa si vede nella foto]
+
+   Nessun nome di studenti.
+3. Quando ci sono le foto vere, nella sezione ESEMPIO dello stesso file
+   si scrive `esempio: no`, così spariscono le cinque foto d'esempio
+   (scuole qualsiasi prese da Wikimedia Commons).
 
 L'elenco si allunga man mano che si crea ogni file.
 

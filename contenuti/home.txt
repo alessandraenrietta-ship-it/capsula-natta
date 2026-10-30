@@ -11,17 +11,21 @@
 occhiello: 2006–2026
 # Il titolo grande. Compare esattamente come è scritto qui.
 titolo: Vent'anni di Natta
-# Le righe di testo sotto il titolo: una riga "testo" per paragrafo.
-# ESEMPIO FUTURISTA (da sostituire prima di dare il link a chi non sa
-# che è una prova; vedi CLAUDE.md, punto 12)
-testo: Vent'anni = velocità.
-testo: Il Natta corre + accelera + sbuffa idee.
-testo: Chiudere il presente in una capsula, interrarla sotto il pero, lanciarla dieci anni avanti. Vrrr.
-# Le scritte dei due pulsanti sotto le righe di testo. Compaiono
+# Le scritte dei due pulsanti sotto le foto storiche. Compaiono
 # solo quando la loro pagina è "pronta" (comuni.txt, sezione PAGINE).
 # "Partecipa" sparisce da solo dopo l'interramento.
 pulsante-partecipa: Partecipa
 pulsante-progetto: Il progetto
+
+== FOTO STORICHE ==
+# Il carosello dell'apertura. Le foto non stanno qui: sono in
+# foto-storiche.txt. Queste scritte le sente solo il lettore di schermo:
+# il nome del carosello, i nomi delle frecce e l'annuncio a ogni cambio
+# di foto, dove il sito mette l'anno, il numero e il totale delle foto.
+nome: Foto storiche del Natta
+freccia-indietro: Foto precedente
+freccia-avanti: Foto successiva
+annuncio: Foto del [anno], [numero] di [totale]
 
 == CONTO ALLA ROVESCIA ==
 # Il titolo della sezione con il conto alla rovescia
@@ -88,3 +92,5 @@ titolo: Gli eventi del ventennale
 # ("con ..."), nella riga grigia sotto il titolo dell'evento
 parola-ora: ore
 parola-relatore: con
+# Il pulsante che sul telefono mostra gli eventi dopo i primi tre
+pulsante-tutti: Tutti gli eventi

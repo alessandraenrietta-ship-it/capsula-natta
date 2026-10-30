@@ -43,8 +43,9 @@ dell'IIS Giulio Natta di Rivoli (2006–2026).
 - **Tre fasi**, che il sito ricava da solo da quella data:
   1. **prima dell'interramento**: eventi, Partecipa, Per i docenti;
   2. **dopo l'interramento**: l'elenco di che cosa contiene la capsula,
-     senza i contenuti; spariscono Partecipa e Per i docenti, da sole,
-     e al loro posto non compare nulla. Nella capsula ci sono di sicuro
+     senza i contenuti; Partecipa e Per i docenti spariscono da sole da
+     menu, pulsanti e link, e chi ha il link le trova chiuse (punto 9).
+     Nella capsula ci sono di sicuro
      le lettere; il resto è in definizione: [DA COMPLETARE: che cosa
      contiene la capsula];
   3. **dopo l'apertura**: i contenuti, comprese le lettere.
@@ -223,6 +224,18 @@ Partecipa e Per i docenti compaiono solo prima dell'interramento (fase
 ricavata dalla data, come nella home) e solo se il loro stato in
 `comuni.txt` è `pronta`.
 
+**Le pagine chiuse** (deciso il 30 ottobre 2026). Dopo l'interramento,
+e anche dopo l'apertura, Partecipa e Per i docenti restano raggiungibili
+da chi ha il link, ma non mostrano più moduli, QR, materiali né testi:
+solo il titolo, una riga che dice che la partecipazione è chiusa e il
+pulsante pieno "Torna alla home ›" (`Comuni.paginaChiusa` in
+`js/comuni.js`). La riga sta nella sezione CHIUSA del file della pagina,
+la scritta del pulsante in `comuni.txt`, sezione PAGINE CHIUSE. La riga
+deve restare vera anche dopo l'apertura, per questo dice "Capsula
+partita" e non "sigillata". La pagina si chiude al primo caricamento
+dopo l'interramento: a differenza della home, non si ridispone da sola
+se resta aperta in quel momento.
+
 **Niente pagina "Il pero".** Il pero sta nella home, nella sezione "10
 anni di PEROpezie". Le istruzioni per la foto annuale stanno in una
 sezione della pagina Il progetto, che resta online per tutti i dieci
@@ -253,7 +266,10 @@ La pagina `partecipa.html` (`js/partecipa.js`, testi in
   sito di orientamento, che lo ha preso dal Liceo Digitale) e sotto la
   riga per inquadrarlo;
 - "Per i docenti": l'informazione vera che il questionario dei docenti
-  arriva solo via mail istituzionale, senza link né password.
+  arriva solo via mail istituzionale, senza link né password; sotto, il
+  link "Il kit per i docenti ›" verso `per-i-docenti.html`, con le
+  stesse regole del link nel piede (`Comuni.linkKit`): solo se la pagina
+  è `pronta`.
 
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
 "colleghe". La pagina `per-i-docenti.html` (`js/docenti.js`, testi in
@@ -279,8 +295,8 @@ La pagina `partecipa.html` (`js/partecipa.js`, testi in
 `contenuti/comuni.txt` elenca le pagine, ognuna `pronta` o `in
 preparazione`. Pulsanti e link verso una pagina `in preparazione` non
 compaiono, così nessuno finisce su una pagina di errore. È una cosa
-diversa dalle fasi: Partecipa e Per i docenti spariscono comunque da
-sole dopo l'interramento, anche se sono `pronta` (`Comuni.pagina` in
+diversa dalle fasi: dopo l'interramento Partecipa e Per i docenti non
+si collegano più, anche se sono `pronta` (`Comuni.pagina` in
 `js/comuni.js`). Prima di ogni push si controlla che ogni pagina
 `pronta` esista davvero.
 
@@ -497,7 +513,19 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 
 - Frasi brevi, in italiano.
 - Mai il trattino lungo al posto della virgola. Il trattino medio "–"
-  solo negli intervalli (2006–2026).
+  solo negli intervalli (2006–2026). Il trattino "—" come segno degli
+  elenchi e l'apostrofo del titolo restano come sono (deciso il 30
+  ottobre 2026).
+- **Date e orari non vanno mai a capo nel mezzo**: fra giorno, mese e
+  anno ("1 maggio 2037") e fra "ore" e l'orario ("ore 15.00") c'è lo
+  spazio indivisibile, cioè uno spazio che impedisce di andare a capo.
+  Nei file di testo si scrive lo spazio normale: lo cambia il sito
+  (`dateIntere` in `js/comuni.js`) in tutto quello che passa da
+  `Contenuti.scrivi`, comprese le date che calcola da solo. Il mese
+  deve essere in lettere e l'orario preceduto dalla parola "ore".
+  **Unica eccezione**: la data sotto le foto piccole di PEROpezie, che
+  a 14 px non sta su una riga in 80 px e senza a capo uscirebbe dalla
+  foto, sovrapponendosi a quella accanto.
 - **Mai inventare dati.** Dove un dato manca si scrive
   `[DA COMPLETARE: ...]`, ben visibile, e lo si segnala.
 
@@ -626,3 +654,10 @@ I dati veri che mancano restano `[DA COMPLETARE: ...]`.
   passati nascosti.
 - Dati degli eventi: oggi sono inventati (punto 10), da sostituire con
   quelli veri.
+- Dopo l'interramento i Google Moduli vanno chiusi a mano, in Google
+  Moduli: il sito non può farlo. I QR contengono il link del modulo,
+  non quello del sito: chi inquadra un QR stampato arriva al modulo, non
+  alla pagina chiusa. I link restano leggibili in `partecipa.txt` finché
+  non si cancellano, e comunque nella cronologia di Git.
+- Scartata il 30 ottobre 2026: l'immagine d'anteprima per la
+  condivisione del link (WhatsApp, mail).

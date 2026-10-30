@@ -11,6 +11,9 @@
    il modulo ›" e il codice QR; finché c'è [DA COMPLETARE], compare il
    segnaposto.
 
+   Dopo l'interramento la pagina è chiusa: solo il titolo, la riga della
+   sezione CHIUSA e il pulsante per la home (Comuni.paginaChiusa).
+
    Ha bisogno di js/contenuti.js, js/comuni.js e js/qr.js.
    ================================================================== */
 
@@ -51,6 +54,11 @@
     K.timbro(comuni);
     K.piede(comuni, t);
 
+    if (t.fase() !== "prima") {
+      K.paginaChiusa(comuni, t, partecipa.campo("APERTURA", "titolo"), partecipa.campo("CHIUSA", "testo"));
+      return;
+    }
+
     scriviIn("titolo", partecipa.campo("APERTURA", "titolo"));
     paragrafi("testo-apertura", partecipa.campi("APERTURA", "testo"));
     scriviIn("avviso-account", partecipa.campo("APERTURA", "avviso"));
@@ -62,6 +70,13 @@
     /* La frase sul questionario dei docenti sta in comuni.txt: la usa
        anche la pagina Per i docenti */
     paragrafi("testo-docenti", [comuni.campo("DOCENTI", "questionario")]);
+    /* Sotto, il link al kit, con le stesse regole di quello nel piede */
+    var kit = K.pagina(comuni, "docenti", t);
+    if (kit) {
+      var riga = elemento("p");
+      riga.appendChild(K.linkKit(comuni, kit));
+      document.getElementById("testo-docenti").appendChild(riga);
+    }
     modulo(partecipa, "STUDENTI", "link-studenti");
     modulo(partecipa, "DIZIONARIO", "link-dizionario");
 

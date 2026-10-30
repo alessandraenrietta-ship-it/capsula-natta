@@ -251,7 +251,11 @@
       img.height = 72;
       img.loading = "lazy";
       b.appendChild(img);
-      b.appendChild(C.scrivi(document.createElement("span"), f.data));
+      /* Sotto la foto piccola la data intera non sta su una riga: solo
+         qui può andare a capo (CLAUDE.md, punto 12) */
+      var dataPiccola = C.scrivi(document.createElement("span"), f.data);
+      if (!C.daCompletare(f.data)) { dataPiccola.textContent = f.data; }
+      b.appendChild(dataPiccola);
       b.lastChild.className = "miniatura-data";
       b.addEventListener("click", function () { mostra(i); });
       voce.appendChild(b);

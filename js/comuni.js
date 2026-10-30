@@ -6,6 +6,9 @@
      - le pagine che si possono collegare (Comuni.pagina)
      - la testata (Comuni.testata), il piede (Comuni.piede) e il suo
        timbro rotondo (Comuni.timbro)
+     - le pagine chiuse dopo l'interramento (Comuni.paginaChiusa)
+     - date e orari che non vanno a capo nel mezzo: vale per tutto
+       quello che passa da Contenuti.scrivi
 
    Ha bisogno di js/contenuti.js, che va caricato prima di questo.
    ================================================================== */
@@ -23,9 +26,34 @@ window.Comuni = (function () {
   /* L'apertura è dieci anni dopo l'interramento, lo stesso giorno */
   var ANNI_CAPSULA = 10;
 
-  /* Le pagine che spariscono da sole dopo l'interramento, anche se
-     sono "pronta" in comuni.txt (CLAUDE.md, punto 1) */
+  /* Le pagine che dopo l'interramento non si collegano più, anche se
+     sono "pronta" in comuni.txt: spariscono da menu, pulsanti e link e
+     chi ha il link le trova chiuse (CLAUDE.md, punto 9) */
   var SOLO_PRIMA = ["partecipa", "docenti"];
+
+
+  /* ---------------------------------------------------------------
+     DATE E ORARI INTERI
+     Fra giorno, mese e anno ("1 maggio 2037") e fra "ore" e l'orario
+     ("ore 15.00") ci va lo spazio indivisibile, che non lascia andare a
+     capo. Tutte le scritte delle pagine passano da Contenuti.scrivi:
+     il controllo sta lì, così vale per le date calcolate dal sito e per
+     quelle scritte nei file di testo. js/contenuti.js è copiato identico
+     dal sito di orientamento e non si tocca: lo si completa da qui.
+     --------------------------------------------------------------- */
+
+  var SPAZIO_FISSO = " ";
+  var UNA_DATA = new RegExp("\\d{1,2}º? (" + MESI.join("|") + ")( \\d{4})?", "gi");
+  var UN_ORARIO = /\bore \d{1,2}[.:]\d{2}\b/gi;
+
+  function intero(pezzo) { return pezzo.replace(/ /g, SPAZIO_FISSO); }
+
+  function dateIntere(testo) {
+    return testo.replace(UNA_DATA, intero).replace(UN_ORARIO, intero);
+  }
+
+  var scriviTesto = C.scrivi;
+  C.scrivi = function (elemento, testo) { return scriviTesto(elemento, dateIntere(testo)); };
 
 
   /* ---------------------------------------------------------------
@@ -204,6 +232,40 @@ window.Comuni = (function () {
 
 
   /* ---------------------------------------------------------------
+     LE PAGINE CHIUSE
+     Partecipa e Per i docenti, dopo l'interramento e anche dopo
+     l'apertura: restano raggiungibili da chi ha il link, ma mostrano
+     solo il titolo, una riga e il pulsante per la home. Le altre
+     sezioni si tolgono dalla pagina. La riga sta nel file della pagina,
+     la scritta del pulsante in comuni.txt.
+     --------------------------------------------------------------- */
+
+  function paginaChiusa(comuni, t, titolo, riga) {
+    var contenuto = document.getElementById("contenuto");
+    Array.prototype.slice.call(contenuto.querySelectorAll(".sezione:not(.apertura)"))
+      .forEach(function (sezione) { sezione.parentNode.removeChild(sezione); });
+    var avviso = document.getElementById("avviso-account");
+    if (avviso) { avviso.parentNode.removeChild(avviso); }
+
+    C.scrivi(document.getElementById("titolo"), titolo);
+    var testo = document.getElementById("testo-apertura");
+    testo.appendChild(C.scrivi(document.createElement("p"), riga));
+
+    var file = pagina(comuni, "home", t);
+    if (file) {
+      var riquadro = document.createElement("p");
+      riquadro.className = "pulsanti";
+      var a = document.createElement("a");
+      a.className = "pulsante pulsante-pieno";
+      a.href = file;
+      riquadro.appendChild(C.scrivi(a, comuni.campo("PAGINE CHIUSE", "torna-home")));
+      testo.parentNode.appendChild(riquadro);
+    }
+    contenuto.hidden = false;
+  }
+
+
+  /* ---------------------------------------------------------------
      TESTATA E PIEDE
      --------------------------------------------------------------- */
 
@@ -320,6 +382,13 @@ window.Comuni = (function () {
     voce.appendChild(C.scrivi(document.createElement("span"), comuni.campo("PIEDE", "docenti-domanda")));
     voce.querySelector("span").className = "piede-domanda";
     voce.appendChild(document.createTextNode(" "));
+    voce.appendChild(linkKit(comuni, file));
+    elenco.appendChild(voce);
+    elenco.hidden = false;
+  }
+
+  /* Il link "Il kit per i docenti ›", nel piede e nella pagina Partecipa */
+  function linkKit(comuni, file) {
     var link = document.createElement("a");
     link.href = file;
     /* L'ultima parola e la freccia non si separano: sul telefono la
@@ -331,9 +400,7 @@ window.Comuni = (function () {
     ultima.className = "con-freccia";
     C.scrivi(ultima, testo.slice(spazio + 1));
     link.appendChild(ultima);
-    voce.appendChild(link);
-    elenco.appendChild(voce);
-    elenco.hidden = false;
+    return link;
   }
 
 
@@ -426,8 +493,10 @@ window.Comuni = (function () {
     giorniCalendario: giorniCalendario,
     foglietto: foglietto,
     pagina: pagina,
+    paginaChiusa: paginaChiusa,
     testata: testata,
     piede: piede,
+    linkKit: linkKit,
     timbro: timbro
   };
 }());

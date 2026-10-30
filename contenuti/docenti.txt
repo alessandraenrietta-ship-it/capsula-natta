@@ -19,6 +19,13 @@ titolo: Per i docenti
 # La riga sotto il titolo. ESEMPIO FUTURISTA
 testo: Docenti = piloti del presente. Qui la cassetta degli attrezzi per portare la capsula in classe.
 
+== CHIUSA ==
+# La riga che si vede dopo l'interramento, al posto di tutta la pagina,
+# fra il titolo e il pulsante per la home. Deve valere anche dopo
+# l'apertura. ESEMPIO FUTURISTA, ma deve restare chiaro che la
+# partecipazione è chiusa.
+testo: Capsula partita = partecipazione chiusa. Kit in hangar.
+
 == IN CLASSE ==
 titolo: Come funziona in classe
 # Tre passaggi, nell'ordine: nome | descrizione. Il sito li numera.

@@ -15,7 +15,7 @@ nome: IIS Giulio Natta
 # sito la calcola da solo. Dalla data il sito capisce anche in quale
 # fase siamo e che cosa mostrare:
 #   - prima dell'interramento: eventi, Partecipa, Per i docenti;
-#   - dopo l'interramento: Partecipa e Per i docenti spariscono;
+#   - dopo l'interramento: Partecipa e Per i docenti si chiudono;
 #   - dopo l'apertura: i contenuti della capsula.
 # Si scrive il giorno, il mese in lettere e l'anno: 1 maggio 2027
 data-interramento: 1 maggio 2027
@@ -34,8 +34,9 @@ scritta-provvisoria: data provvisoria, ancora da confermare
 # pulsanti e i link che portano lì non compaiono, nemmeno nel menu, così
 # nessuno finisce su una pagina di errore. Quando la pagina è fatta si
 # scrive "pronta".
-# Partecipa e Per i docenti spariscono comunque da sole dopo
-# l'interramento, anche se sono "pronta".
+# Dopo l'interramento Partecipa e Per i docenti si chiudono da sole,
+# anche se sono "pronta": spariscono da menu, pulsanti e link, e chi ha
+# il link trova solo il titolo, una riga e il pulsante per la home.
 # L'ultima colonna è il nome della voce nel menu, nell'ordine del menu;
 # vuota se la pagina non sta nel menu.
 # pagina | file | stato | nel menu
@@ -44,6 +45,12 @@ progetto | il-progetto.html | pronta | Il progetto
 partecipa | partecipa.html | pronta | Partecipa
 docenti | per-i-docenti.html | pronta | Per i docenti
 capsula | la-capsula.html | in preparazione |
+
+== PAGINE CHIUSE ==
+# Il pulsante delle pagine Partecipa e Per i docenti dopo l'interramento
+# (la freccia la aggiunge il sito). La riga sopra il pulsante sta nel
+# file di ciascuna pagina, sezione CHIUSA.
+torna-home: Torna alla home
 
 == MENU ==
 # Il pulsante che apre il menu sul telefono, e il nome del menu per il

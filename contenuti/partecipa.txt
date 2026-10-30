@@ -21,6 +21,13 @@ testo: Prendere la penna + il telefono + la fantasia. Il presente aspetta la tua
 # Informazione vera: deve restare chiaro che serve l'account della scuola
 avviso: Motore riservato: i moduli si aprono solo con l'account della scuola.
 
+== CHIUSA ==
+# La riga che si vede dopo l'interramento, al posto di tutta la pagina,
+# fra il titolo e il pulsante per la home. Deve valere anche dopo
+# l'apertura. ESEMPIO FUTURISTA, ma deve restare chiaro che la
+# partecipazione è chiusa.
+testo: Capsula partita = partecipazione chiusa.
+
 == STUDENTI ==
 titolo: Questionario per gli studenti
 # ESEMPIO FUTURISTA

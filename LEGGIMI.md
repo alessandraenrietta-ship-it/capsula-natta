@@ -61,9 +61,12 @@ punto (15.00). Vale per tutti gli orari del sito.
 
 Dalla data scritta in `comuni.txt` il sito capisce da solo in quale
 fase siamo: prima dell'interramento, dopo l'interramento, dopo
-l'apertura. Partecipa e Per i docenti spariscono da sole dopo
-l'interramento; il conto alla rovescia cambia da solo. Non c'è niente
-da cambiare a mano quel giorno.
+l'apertura. Dopo l'interramento Partecipa e Per i docenti si chiudono
+da sole: spariscono da menu, pulsanti e link, e chi ha il link trova
+solo il titolo, una riga e il pulsante per la home. Il conto alla
+rovescia cambia da solo. Sul sito non c'è niente da cambiare a mano quel
+giorno. I Google Moduli invece vanno chiusi in Google Moduli: il sito
+non può farlo, e i QR stampati portano al modulo, non alla pagina.
 
 Per vedere come sarà la pagina in un altro momento, nell'anteprima si
 aggiunge all'indirizzo `?prova=` e una data (in ora italiana):

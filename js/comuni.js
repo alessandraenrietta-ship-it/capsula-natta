@@ -18,7 +18,6 @@ window.Comuni = (function () {
 
   var C = window.Contenuti;
   var SVG = "http://www.w3.org/2000/svg";
-  var GIORNO = 24 * 60 * 60 * 1000;
 
   var MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
               "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
@@ -203,14 +202,39 @@ window.Comuni = (function () {
     };
   }
 
-  /* Quanti giorni del calendario italiano ci sono fra un momento e
-     l'altro, senza guardare l'ora: dal giorno dell'interramento
-     all'apertura sono 3.653 (dieci anni, con tre 29 febbraio), anche
-     subito dopo l'interramento */
-  function giorniCalendario(da, a) {
-    var g1 = giornoItaliano(da), g2 = giornoItaliano(a);
-    return Math.max(0, Math.round((Date.UTC(g2[0], g2[1] - 1, g2[2]) -
-                                   Date.UTC(g1[0], g1[1] - 1, g1[2])) / GIORNO));
+  /* Quanto manca sul calendario italiano: anni e mesi interi, poi
+     giorni, ore, minuti e secondi. I mesi hanno lunghezze diverse: si
+     contano i mesi interi a partire da "da" e il resto va nei giorni.
+     Se il mese d'arrivo è più corto, ci si ferma al suo ultimo giorno
+     (dal 31 gennaio, un mese dopo è il 28 febbraio). */
+  function mancanoCalendario(da, a) {
+    var inizio = new Date(da + scartoItalia(da));
+    var fine = new Date(a + scartoItalia(a));
+
+    function dopoMesi(n) {
+      var mesi = inizio.getUTCMonth() + n;
+      var anno = inizio.getUTCFullYear() + Math.floor(mesi / 12);
+      var mese = mesi % 12;
+      var ultimo = new Date(Date.UTC(anno, mese + 1, 0)).getUTCDate();
+      return oraItaliana(anno, mese + 1, Math.min(inizio.getUTCDate(), ultimo),
+                         inizio.getUTCHours(), inizio.getUTCMinutes(), inizio.getUTCSeconds());
+    }
+
+    var mesi = Math.max(0, (fine.getUTCFullYear() - inizio.getUTCFullYear()) * 12 +
+                           fine.getUTCMonth() - inizio.getUTCMonth());
+    while (mesi > 0 && dopoMesi(mesi) > a) { mesi--; }
+
+    var resto = mancano(dopoMesi(mesi), a);
+    resto.anni = Math.floor(mesi / 12);
+    resto.mesi = mesi % 12;
+    return resto;
+  }
+
+  /* La mezzanotte italiana del giorno di un momento: per contare sul
+     calendario senza guardare l'ora */
+  function mezzanotte(momento) {
+    var g = giornoItaliano(momento);
+    return oraItaliana(g[0], g[1], g[2]);
   }
 
 
@@ -489,8 +513,8 @@ window.Comuni = (function () {
     leggiData: leggiData,
     giornoItaliano: giornoItaliano,
     MESI: MESI,
-    mancano: mancano,
-    giorniCalendario: giorniCalendario,
+    mancanoCalendario: mancanoCalendario,
+    mezzanotte: mezzanotte,
     foglietto: foglietto,
     pagina: pagina,
     paginaChiusa: paginaChiusa,

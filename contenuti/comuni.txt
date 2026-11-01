@@ -23,11 +23,10 @@ data-interramento: 1 maggio 2027
 # conto alla rovescia arriva alla mezzanotte. Sempre ora italiana.
 ora-interramento: 15.00
 # Finché data e ora non sono approvate qui c'è "sì": accanto alla data
-# compare la scritta "data provvisoria" e l'apertura è "prevista".
+# compare la scritta qui sotto e l'apertura è "prevista".
 # Quando sono approvate si scrive "no".
 data-provvisoria: sì
-# ESEMPIO FUTURISTA, ma deve restare chiaro che la data non è confermata
-scritta-provvisoria: data provvisoria, ancora da confermare
+scritta-provvisoria: data da confermare
 
 == PAGINE ==
 # Le pagine del sito. Con "in preparazione" la pagina non c'è ancora: i

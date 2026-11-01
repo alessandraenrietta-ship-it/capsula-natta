@@ -22,7 +22,7 @@
     QUANDO SI MODIFICA UN FILE .css O .js, SI AUMENTA IL NUMERO DI UNO
     in tutte le pagine che lo caricano.
   -->
-  <link rel="stylesheet" href="grafica.css?v=11">
+  <link rel="stylesheet" href="grafica.css?v=12">
   <link rel="icon" href="immagini/logo-natta.png">
 </head>
 <body data-pagina="home">
@@ -53,13 +53,14 @@
        vuoti. -->
   <main id="contenuto" tabindex="-1" hidden>
 
-    <!-- Apertura: occhiello, titolo (l'unico h1), il carosello delle foto
-         storiche e i pulsanti. "Capsula del tempo", con il conto alla
-         rovescia, sta più sotto, dopo gli eventi. -->
+    <!-- Apertura: occhiello, titolo (l'unico h1), una riga e il carosello
+         delle foto storiche. "Capsula del tempo", con il conto alla
+         rovescia e i pulsanti, sta più sotto, dopo gli eventi. -->
     <section class="sezione apertura" aria-labelledby="titolo">
       <div class="interno">
         <p class="occhiello" id="occhiello"></p>
         <h1 class="titolo-sito" id="titolo"></h1>
+        <p class="presentazione" id="riga-apertura"></p>
         <!-- Il carosello: una foto alla volta, con sotto l'anno e il
              credito. Lo riempie js/foto-storiche.js, con i testi di
              home.txt e le foto di foto-storiche.txt. Compare solo se ci
@@ -76,8 +77,6 @@
           <!-- Per il lettore di schermo: quale foto si vede dopo ogni cambio -->
           <p class="solo-lettori" id="carosello-annuncio" aria-live="polite"></p>
         </div>
-        <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
-        <p class="pulsanti" id="pulsanti" hidden></p>
       </div>
     </section>
 
@@ -104,7 +103,10 @@
     <section class="sezione sezione-conto" id="sezione-conto" aria-labelledby="titolo-conto">
       <div class="interno">
         <h2 class="titolo-sezione" id="titolo-conto"></h2>
+        <p class="sezione-riga" id="riga-conto"></p>
         <div class="conto" id="conto"></div>
+        <!-- I pulsanti compaiono solo se la loro pagina è "pronta" -->
+        <p class="pulsanti" id="pulsanti" hidden></p>
       </div>
     </section>
 
@@ -171,20 +173,17 @@
     </section>
   </noscript>
 
-  <!-- Il piede: il timbro rotondo e, accanto, il link al kit per i
-       docenti (solo quando la pagina c'è, e solo prima
-       dell'interramento) -->
+  <!-- Il piede: il timbro rotondo -->
   <footer class="piede">
     <div class="interno piede-interno">
       <!-- Il timbro lo disegna js/comuni.js. È solo decorativo. -->
       <div class="timbro" id="timbro" aria-hidden="true"></div>
-      <ul class="piede-voci" id="piede" hidden></ul>
     </div>
   </footer>
 
   <script src="js/contenuti.js?v=1"></script>
-  <script src="js/comuni.js?v=8"></script>
-  <script src="js/home.js?v=5"></script>
+  <script src="js/comuni.js?v=9"></script>
+  <script src="js/home.js?v=6"></script>
   <script src="js/foto-storiche.js?v=1"></script>
   <script src="js/peropezie.js?v=3"></script>
 </body>

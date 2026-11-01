@@ -21,8 +21,9 @@ servono: `fonts/cutive-mono-regular.ttf` con `fonts/OFL.txt`,
 
 ## 1. Che cos'è
 
-Il sito "Vent'anni di Natta": la capsula del tempo per il ventennale
-dell'IIS Giulio Natta di Rivoli (2006–2026).
+Il sito "Vent'anni di Natta": il sito del ventennale dell'IIS Giulio
+Natta di Rivoli (2006–2026), non della sola capsula del tempo. La
+scuola nasce nel 2006: prima non esisteva.
 
 - **Titolo del sito**: "Vent'anni di Natta" (sostituisce "Vent'anni del
   Natta"; scelta di Alessandra, 28 ottobre 2026, consapevole del doppio
@@ -351,57 +352,60 @@ sito; h2 le sezioni.
 
 1. **Testata**: logo, nome della scuola e menu (punto 9).
 2. **Apertura**, senza disegno: occhiello "2006–2026", titolo
-   "Vent'anni di Natta" (primo elemento della pagina e unico h1), il
-   carosello delle foto storiche (vedi sotto), poi i pulsanti
-   "Partecipa" e "Il progetto", quando le pagine sono pronte, affiancati
-   anche sul telefono per stare nella prima schermata. Le righe di testo
-   sotto il titolo sono state tolte il 30 ottobre 2026. Dopo
-   l'interramento "Partecipa" sparisce e resta solo "Il progetto".
+   "Vent'anni di Natta" (primo elemento della pagina e unico h1), la
+   riga "La nostra storia, dalle origini a oggi." e il carosello delle
+   foto storiche (vedi sotto). I pulsanti non stanno qui.
 3. **"Gli eventi del ventennale"** (solo prima dell'interramento; dopo
    la sezione sparisce e al suo posto non compare nulla): il programma,
    ogni evento con il foglietto della data. Vedi sotto.
-4. **"Capsula del tempo"** (h2): il conto alla rovescia e la data (vedi
-   sotto). Dopo l'interramento, spariti gli eventi, sale da sola sotto
-   l'apertura, senza modifiche a mano.
+4. **"Capsula del tempo"** (h2): la riga "La scuola di oggi parla a
+   quella di domani.", in tutte e tre le fasi, il conto alla rovescia e
+   la data (vedi sotto); in fondo i pulsanti "Partecipa" e "Il progetto",
+   quando le pagine sono pronte. Dopo l'interramento "Partecipa" sparisce
+   e resta solo "Il progetto". Dopo l'interramento, spariti gli eventi,
+   la sezione sale da sola sotto l'apertura, senza modifiche a mano.
 5. **"10 anni di PEROpezie"**: i dieci anni sono quelli della capsula
    sotto il pero, dall'interramento all'apertura, non quelli della
    scuola. Vedi sotto.
-6. **Piede**, uguale in tutte le pagine: il timbro e, accanto, nello
-   stile del sito di orientamento, la domanda in grigio "Docente ai
-   comandi?" (futurista) e il link verde sottolineato "Il kit per i
-   docenti ›" verso `per-i-docenti.html` (sezione PIEDE di
-   `comuni.txt`; la freccia la aggiunge il sito e resta attaccata
-   all'ultima parola). La riga non compare sulla pagina Per i docenti
-   stessa e sparisce insieme alla pagina, da sola, con la data
-   dell'interramento: non c'è un interruttore da cambiare a mano.
+6. **Piede**: solo il timbro. Il link al kit non sta più nel piede di
+   tutte le pagine (deciso il 30 ottobre 2026): compare solo nel piede
+   della pagina Il progetto (punto 9).
 
 **Il conto alla rovescia** si mostra subito, con la data provvisoria
-dell'interramento (1 maggio 2027, ore 15.00) scritta come provvisoria
-anche sulla pagina. Cambia con le fasi:
+dell'interramento (1 maggio 2027, ore 15.00) scritta come tale anche
+sulla pagina. Dal 30 ottobre 2026 ha mesi e anni: sostituiscono il
+foglietto unico con il totale dei giorni, deciso il 28 ottobre 2026.
+Cambia con le fasi:
 
 - **prima dell'interramento**: "All'interramento della capsula
-  mancano", foglietti per giorni, ore, minuti e secondi, sotto la data
-  e l'ora dell'interramento (con "data provvisoria" finché non è
-  approvata) e la riga "Apertura prevista: 1 maggio 2037" finché la
-  data è provvisoria ("Apertura: ..." quando è approvata);
-- **dopo l'interramento**: "All'apertura della capsula mancano", un solo
-  foglietto, più largo degli altri, con "GIORNI" e il numero totale dei
-  giorni all'apertura, con il punto delle migliaia (3.653); sotto
-  "Apertura: 1 maggio 2037". Il conto si fa per giorni del calendario,
-  non per ore: il giorno dell'interramento mostra il totale pieno;
+  mancano", foglietti per mesi, giorni, ore, minuti e secondi; sotto
+  "1 maggio 2027, ore 15.00 · data da confermare" (data e ora da
+  `comuni.txt`, la scritta finché la data non è approvata);
+- **dopo l'interramento**: "All'apertura della capsula mancano",
+  foglietti per anni, mesi e giorni; sotto la sola data dell'apertura;
 - **dopo l'apertura** sparisce e resta la frase "La capsula è stata
-  aperta il [data]", con il link "Che cosa c'era nella capsula" ai
+  aperta il [data].", con il link "Che cosa c'era nella capsula" ai
   contenuti, quando la pagina c'è.
 
-Testi approvati da Alessandra: "All'interramento della capsula
-mancano", "All'apertura della capsula mancano", "Che cosa c'era nella
-capsula", "Apertura prevista:" e "Apertura:".
+**Come si conta** (`Comuni.mancanoCalendario`): anni e mesi sul
+calendario, come si conta l'età, non dividendo i giorni per 30 o per
+365; se il mese d'arrivo è più corto, ci si ferma al suo ultimo giorno.
+Prima dell'interramento si conta fino al momento esatto. Dopo si guarda
+solo il giorno, non l'ora: il giorno dell'interramento, dalle 15.00,
+mostra 10 anni, 0 mesi, 0 giorni; il giorno dopo 9 anni, 11 mesi, 29
+giorni.
+
+**Niente foglietti iniziali a zero**: si tolgono da sinistra e ne resta
+sempre almeno uno (quello degli anni c'è solo con almeno un anno; a 15
+ore dall'interramento restano ore, minuti e secondi). Uno zero in mezzo
+resta ("6 mesi, 0 giorni"). I foglietti stanno in due gruppi, calendario
+e orologio: sul telefono vanno su due righe centrate.
 
 Il conteggio non si annuncia di continuo ai lettori di schermo: niente
 `aria-live` sui numeri. I foglietti sono `aria-hidden`; accanto alla
-riga sopra i foglietti c'è una frase nascosta ("184 giorni, 7 ore, 53
-minuti"), senza i secondi, che il lettore di schermo legge quando ci
-arriva.
+riga sopra i foglietti c'è una frase nascosta ("6 mesi, 1 giorno, 7 ore,
+53 minuti"), senza i secondi, che il lettore di schermo legge quando ci
+arriva. Se restano solo i secondi, dice quelli.
 
 **Eccezione consapevole alla regola WCAG 2.2.2** (un contenuto che si
 aggiorna da solo deve potersi fermare): il foglietto dei secondi cambia
@@ -599,82 +603,31 @@ lavoro di Alessandra stanno in `materiali-grezzi/` o hanno
 - **Mai inventare dati.** Dove un dato manca si scrive
   `[DA COMPLETARE: ...]`, ben visibile, e lo si segnala.
 
-### Lo stile futurista (deciso il 29 ottobre 2026)
+### Come sono i testi (deciso il 30 ottobre 2026)
 
-**Tutti i testi del sito sono scritti in stile futurista**, compresi i
-nomi e le descrizioni degli eventi e le scritte del conto alla
-rovescia. Restano come sono soltanto:
+**Lo stile futurista è abbandonato**: tutti i testi definitivi sono in
+prosa normale ed essenziale. Date, orari, formati e nomi di cartelle si
+scrivono alla lettera. Non contengono date, orari, numeri o luoghi
+inventati che sembrino reali, nomi di persone reali, promesse o impegni
+a nome della scuola.
 
-- i titoli concordati: titolo del sito, occhiello, voci del menu,
-  titoli delle pagine e delle sezioni ("Gli eventi del ventennale",
-  "Capsula del tempo", "10 anni di PEROpezie", "Il progetto", "La
-  capsula del tempo", "Che cosa mettiamo nella capsula", "Chi
-  partecipa", "Quando si chiude, quando si apre", "La foto annuale del
-  pero", "Partecipa", "Questionario per gli studenti", "Dizionario del
-  presente", "Per i docenti", "Come funziona in classe", "Materiali da
-  scaricare", "Il questionario dei docenti", "Calendario",
-  "Referenti");
-- i testi dei pulsanti e i link di servizio (per esempio "Il kit per i
-  docenti ›");
-- i crediti delle foto ("Foto della classe 1ª X, a.s. AAAA/AA" e i
-  crediti delle foto d'esempio, con autore e licenza), i segnaposto
-  `[DA COMPLETARE: ...]`, le date e gli orari, la descrizione per i
-  motori di ricerca e i testi nascosti per l'accessibilità (etichette
-  aria, testo alternativo).
-
-Se un testo non rientra chiaramente in queste eccezioni, si chiede ad
-Alessandra. **Prima di scrivere i testi nei file si propongono tutti in
-un unico elenco** e si aspetta la conferma.
-
-**Come si scrive**: frasi brevi e incalzanti, verbi all'infinito,
-accostamenti di parole senza congiunzioni, segni matematici al posto
-delle congiunzioni (+, =, x), qualche onomatopea, esaltazione della
-velocità, della macchina, della chimica e della plastica, il futuro
-contro il passato, la capsula come razzo lanciato verso il futuro.
-Bizzarri ma attinenti al tema.
-
-- **Leggibilità**: ogni testo resta comprensibile a una prima lettura e
-  dice comunque di che cosa parla; punteggiatura ridotta ma sufficiente
-  perché un lettore di schermo lo legga in modo sensato; al massimo una
-  onomatopea per testo, breve; niente paragrafi interi in maiuscolo;
-  nessun effetto tipografico nuovo (solo Cutive Mono, con gli stili che
-  il sito ha già).
-- **Non contengono**: esaltazione della guerra, della violenza o della
-  distruzione; disprezzo per qualcuno; citazioni o frasi riconoscibili
-  dei manifesti futuristi o di Marinetti (si imita lo stile, non si
-  copia); date, orari, numeri o luoghi inventati che sembrino reali;
-  nomi di persone reali (dirigente, docenti, studenti, Giulio Natta, i
-  futuristi); promesse o impegni a nome della scuola; nulla che prenda
-  in giro studenti, docenti o la scuola.
-
-**Testi con informazioni vere**: anche questi in stile futurista, ma
-ogni informazione resta esatta e impossibile da fraintendere:
-
-- le scritte del conto alla rovescia: che cosa si sta contando
-  (l'interramento, poi l'apertura), che la data è provvisoria finché
-  vale, la data prevista dell'apertura, la frase dopo l'apertura;
-- i moduli si aprono solo con l'account della scuola;
-- il questionario dei docenti arriva solo via mail istituzionale, senza
-  link né password sul sito;
-- la foto annuale: una classe prima, stesso punto, stessa data,
-  liberatorie verificate dalla vicepresidenza, invio a chi gestisce il
-  sito, nessun nome di studenti, JPG sotto i 300 KB, scatto in
-  verticale consigliato;
-- la capsula si interra sotto il pero e si apre dopo dieci anni.
-
-Dati tecnici, formati, nomi di cartelle e date si scrivono alla
-lettera. Se lo stile rende un'informazione ambigua, vince la chiarezza.
+I titoli concordati: titolo del sito, occhiello, voci del menu, titoli
+delle pagine e delle sezioni ("Gli eventi del ventennale", "Capsula del
+tempo", "10 anni di PEROpezie", "Il progetto", "La capsula del tempo",
+"Che cosa mettiamo nella capsula", "Quando si chiude, quando si apre",
+"Partecipa", "Questionario per gli studenti", "Dizionario del presente",
+"Per i docenti", "Come funziona in classe", "Materiali da scaricare",
+"Il questionario dei docenti", "Calendario", "Referenti").
 
 ### Eccezione temporanea: i contenuti d'esempio
 
-Decisa da Alessandra il 29 ottobre 2026, per presentare il sito: sono
-d'esempio gli eventi del ventennale, le foto del pero, le foto storiche
-(dal 30 ottobre 2026) e i testi in stile futurista. **Da sostituire prima di dare il link a chi non sa che
-è una prova.** Sul sito non sono segnati come esempi. Stanno qui:
+Decisa da Alessandra il 29 ottobre 2026, per presentare il sito. **Da
+sostituire prima di dare il link a chi non sa che è una prova.** Sul
+sito non sono segnati come esempi. Restano d'esempio soltanto:
 
-- `contenuti/eventi.txt`, sezione EVENTI: tutti gli eventi tranne
-  l'interramento (nomi, date, orari, luogo e relatori inventati); il
-  nome dell'interramento è in stile futurista;
+- `contenuti/eventi.txt`, sezione EVENTI: tutti gli eventi (nomi, date,
+  orari, luogo e relatori inventati), compresi il nome e il luogo
+  dell'interramento;
 - `contenuti/foto-pero.txt`, sezione ESEMPIO, con i file
   `foto-pero/esempio-pero-1.jpg` … `-5.jpg`: peri qualsiasi presi da
   Wikimedia Commons, con date inventate; restano come sono, con i loro
@@ -683,13 +636,8 @@ d'esempio gli eventi del ventennale, le foto del pero, le foto storiche
   `foto-storiche/esempio-storica-1.jpg` … `-5.jpg`: scuole e aule
   qualsiasi prese da Wikimedia Commons, con anni inventati; restano come
   sono, con i loro crediti;
-- i testi in stile futurista: `contenuti/home.txt` (scritte del conto
-  alla rovescia, riga sotto "10 anni di PEROpezie"), `contenuti/comuni.txt` (scritta "data provvisoria",
-  riga del piede per i docenti), e dalle tappe 1, 2 e 3
-  `contenuti/progetto.txt`, `contenuti/partecipa.txt`,
-  `contenuti/docenti.txt`. Nei file sono segnati con il commento
-  `# ESEMPIO FUTURISTA`.
-
+- `contenuti/progetto.txt`, sezione CONTENUTI ("Che cosa mettiamo nella
+  capsula"): la rivede Alessandra dopo aver sentito il dirigente.
 I dati veri che mancano restano `[DA COMPLETARE: ...]`.
 
 ## 13. Git e metodo di lavoro
@@ -716,11 +664,14 @@ I dati veri che mancano restano `[DA COMPLETARE: ...]`.
 
 - Data e ora dell'interramento: 1 maggio 2027, ore 15.00, provvisorie,
   da approvare.
-- Testo della riga sotto "10 anni di PEROpezie" (punto 10): proposto
-  "Dal giorno dell'interramento, una foto all'anno fino all'apertura
-  della capsula.", da approvare.
 - Quando togliere le foto d'esempio (`esempio: no`), del pero e storiche.
 - Forma del credito delle foto storiche vere (punto 10).
+- Mail della commissione anniversario: dovrà essere un indirizzo sul
+  dominio della scuola, non su un servizio esterno, perché ci arrivano
+  le risposte degli studenti. Finché non esiste: [DA COMPLETARE:
+  indirizzo mail istituzionale della commissione].
+- "Che cosa mettiamo nella capsula" in `progetto.txt`: la rivede
+  Alessandra dopo aver sentito il dirigente.
 - Che cosa contiene la capsula oltre alle lettere (in definizione).
 - Nome del sottodominio della scuola.
 - Da confermare i valori predefiniti del punto 10: foto orizzontali

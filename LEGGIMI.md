@@ -36,7 +36,7 @@ toccare nessun altro file.
 - `docenti.txt`: i testi della pagina Per i docenti. Per mettere un
   materiale da scaricare si salva il file nella cartella `materiali/`
   (nome minuscolo, con i trattini) e si scrive il percorso al posto di
-  `[DA COMPLETARE: file]`, per esempio `materiali/scheda-revisione.pdf`.
+  `[DA COMPLETARE: file]`, per esempio `materiali/qr-da-stampare.pdf`.
   La frase sul questionario dei docenti sta in `comuni.txt`, sezione
   DOCENTI, perché la usa anche la pagina Partecipa.
 - `eventi.txt`: gli eventi del ventennale, una riga per evento (data,

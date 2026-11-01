@@ -3,12 +3,7 @@
 # Nessuna password e nessun link al questionario dei docenti: la
 # pagina è pubblica come tutto il sito. La frase sul questionario dei
 # docenti sta in comuni.txt, sezione DOCENTI, perché la usa anche la
-# pagina Partecipa.
-#
-# ESEMPIO FUTURISTA: le righe descrittive sono in stile futurista, per
-# presentare il sito (CLAUDE.md, punto 12): vanno sostituite prima di
-# dare il link a chi non sa che è una prova. I contatti dei referenti,
-# quando ci saranno, solo istituzionali.
+# pagina Partecipa. I contatti, quando ci saranno, solo istituzionali.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
 # Il formato è spiegato in LEGGIMI.md.
@@ -16,32 +11,27 @@
 
 == APERTURA ==
 titolo: Per i docenti
-# La riga sotto il titolo. ESEMPIO FUTURISTA
-testo: Docenti = piloti del presente. Qui la cassetta degli attrezzi per portare la capsula in classe.
+# La riga sotto il titolo.
+testo: Il kit per partecipare con la propria classe: come funziona, i materiali, il calendario.
 
 == CHIUSA ==
 # La riga che si vede dopo l'interramento, al posto di tutta la pagina,
-# fra il titolo e il pulsante per la home. Deve valere anche dopo
-# l'apertura. ESEMPIO FUTURISTA, ma deve restare chiaro che la
-# partecipazione è chiusa.
-testo: Capsula partita = partecipazione chiusa. Kit in hangar.
+# fra il titolo e il pulsante per la home.
+testo: La capsula è stata interrata: la partecipazione è chiusa.
 
 == IN CLASSE ==
 titolo: Come funziona in classe
-# Tre passaggi, nell'ordine: nome | descrizione. Il sito li numera.
-# Descrizioni ESEMPIO FUTURISTA; "20–30 minuti" è un dato vero.
-Il questionario con il QR | Telefoni accesi, codice inquadrato, risposte in corsa: 20–30 minuti in classe.
-Il controllo delle risposte | Ogni docente rilegge le risposte della propria classe: occhio attento + matita rossa virtuale.
-La lezione di revisione | Una lezione sulla bozza stampata: tagliare, limare, lucidare le parole prima del decollo.
+# I passaggi, nell'ordine: nome | descrizione. Il sito li numera.
+# La mail della commissione dovrà essere sul dominio della scuola, non
+# su un servizio esterno, perché ci arrivano le risposte degli studenti.
+Il questionario con il QR | Gli studenti compilano il questionario con il telefono oppure con i PC della scuola.
+Le risposte della classe | Il docente di italiano invia le risposte della propria classe alla commissione anniversario, [DA COMPLETARE: indirizzo mail istituzionale della commissione], che sceglie i commenti più interessanti.
 
 == MATERIALI ==
 titolo: Materiali da scaricare
-# La riga sotto il titolo. ESEMPIO FUTURISTA
-testo: Carta + inchiostro + QR: tutto il necessario per il decollo in classe.
 # Un materiale per riga: nome | file. Il file va nella cartella
-# materiali/ (per esempio materiali/scheda-revisione.pdf): quando c'è,
+# materiali/ (per esempio materiali/qr-da-stampare.pdf): quando c'è,
 # il nome diventa il link per scaricarlo.
-Scheda di lavoro per la revisione | [DA COMPLETARE: file]
 QR da stampare | [DA COMPLETARE: file]
 Istruzioni passo passo | [DA COMPLETARE: file]
 

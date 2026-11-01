@@ -16,12 +16,12 @@
 # Per l'interramento, in data e ora si scrive "interramento": il sito
 # prende data e ora da comuni.txt, così non si scrivono due volte.
 #
-# ESEMPIO FUTURISTA: gli eventi qui sotto, tranne l'interramento, sono
-# INVENTATI, per presentare il sito (decisione di Alessandra, 28 e 29
-# ottobre 2026). Anche il nome e il luogo dell'interramento sono in stile
-# futurista; la data e l'ora sono quelle vere, prese da comuni.txt. Sul
-# sito non sono segnati come inventati: vanno sostituiti con quelli veri
-# prima di dare il link a chi non sa che è una prova (CLAUDE.md, punto 12).
+# ESEMPIO: gli eventi qui sotto sono INVENTATI, per presentare il sito
+# (decisione di Alessandra, 28 e 29 ottobre 2026), compresi il nome e il
+# luogo dell'interramento; la sua data e la sua ora vengono da comuni.txt.
+# Sul sito non sono segnati come inventati: vanno sostituiti con quelli
+# veri prima di dare il link a chi non sa che è una prova (CLAUDE.md,
+# punto 12).
 20 novembre 2026 | 17.00 | Galà del polipropilene: catena + catena + catena = festa | Teatro del Natta | il Coro delle Molecole in Fila
 15 dicembre 2026 | 10.30 | Torneo di lancio della pera immaginaria. Zac! | Teatro del Natta | la Lega dei Frutteti Supersonici
 22 gennaio 2027 | 18.00 | Il catalizzatore spiegato ai piccioni | Teatro del Natta | la Dott.ssa Catena Laterale

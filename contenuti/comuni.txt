@@ -54,8 +54,7 @@ torna-home: Torna alla home
 == PAGINA DI ERRORE ==
 # Compare a un indirizzo sbagliato (404.html), con il pulsante qui sopra.
 titolo: Pagina non trovata
-# ESEMPIO FUTURISTA, ma deve restare chiaro che la pagina non c'è.
-testo: Fuori rotta: qui la capsula non è mai passata.
+testo: Questa pagina non esiste o è stata spostata.
 
 == MENU ==
 # Il pulsante che apre il menu sul telefono, e il nome del menu per il
@@ -81,5 +80,5 @@ docenti-link: Il kit per i docenti
 == DOCENTI ==
 # Informazione vera, comune alle pagine Partecipa e Per i docenti: il
 # questionario dei docenti arriva solo via mail istituzionale. Sul sito
-# non c'è nessun link e nessuna password. Stile futurista, ma esatta.
-questionario: Canale riservato: il questionario dei docenti arriva solo via mail istituzionale. Qui nessun link, nessuna password.
+# non c'è nessun link e nessuna password.
+questionario: Il questionario dei docenti arriva solo via mail istituzionale.

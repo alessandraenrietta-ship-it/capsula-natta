@@ -238,8 +238,8 @@ solo il titolo, una riga che dice che la partecipazione è chiusa e il
 pulsante pieno "Torna alla home ›" (`Comuni.paginaChiusa` in
 `js/comuni.js`). La riga sta nella sezione CHIUSA del file della pagina,
 la scritta del pulsante in `comuni.txt`, sezione PAGINE CHIUSE. La riga
-deve restare vera anche dopo l'apertura, per questo dice "Capsula
-partita" e non "sigillata". La pagina si chiude al primo caricamento
+è "La capsula è stata interrata: la partecipazione è chiusa." e resta
+vera anche dopo l'apertura. La pagina si chiude al primo caricamento
 dopo l'interramento: a differenza della home, non si ridispone da sola
 se resta aperta in quel momento.
 
@@ -299,36 +299,34 @@ si caricano foto.
 La pagina `partecipa.html` (`js/partecipa.js`, testi in
 `contenuti/partecipa.txt`, fatta il 29 ottobre 2026):
 
-- apertura: titolo "Partecipa", una riga futurista e, in un riquadro
-  con il bordo verde, l'informazione vera che i moduli si aprono solo
-  con l'account della scuola;
+- apertura: titolo "Partecipa", una riga e, in un riquadro con il bordo
+  verde, l'avviso che i moduli si aprono solo con l'account della scuola;
 - "Questionario per gli studenti" e "Dizionario del presente": per
-  ciascuno una riga futurista e il campo `link`. Finché c'è
+  ciascuno una riga e il campo `link`. Finché c'è
   `[DA COMPLETARE: link del modulo]` compare il segnaposto; quando c'è
   un link che comincia con `https://`, compaiono il pulsante pieno
   "Apri il modulo ›", il codice QR (`js/qr.js`, copiato identico dal
   sito di orientamento, che lo ha preso dal Liceo Digitale) e sotto la
   riga per inquadrarlo;
-- "Per i docenti": l'informazione vera che il questionario dei docenti
-  arriva solo via mail istituzionale, senza link né password.
+- "Per i docenti": la frase comune sul questionario dei docenti, che
+  arriva solo via mail istituzionale.
 
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
 "colleghe". La pagina `per-i-docenti.html` (`js/docenti.js`, testi in
 `contenuti/docenti.txt`, fatta il 29 ottobre 2026):
 
-- apertura: titolo "Per i docenti" e una riga futurista;
-- "Come funziona in classe": tre passaggi numerati (il questionario con
-  il QR, 20–30 minuti; il controllo delle risposte della propria
-  classe; la lezione di revisione sulla bozza stampata), con i nomi
-  normali e le descrizioni futuriste;
-- "Materiali da scaricare": scheda di lavoro per la revisione, QR da
-  stampare, istruzioni passo passo, ognuno con `[DA COMPLETARE: file]`;
-  quando c'è il percorso del file (cartella `materiali/`), il nome
-  diventa il link per scaricarlo;
-- "Il questionario dei docenti": la frase vera sulla mail
-  istituzionale, senza link né password. Sta in `comuni.txt`, sezione
-  DOCENTI, perché la usa anche Partecipa: un dato comune a più pagine
-  sta in un solo file;
+- apertura: titolo "Per i docenti" e una riga;
+- "Come funziona in classe": due passaggi numerati (il questionario con
+  il QR; le risposte della classe, che il docente di italiano invia alla
+  commissione anniversario). La lezione di revisione è stata tolta il
+  30 ottobre 2026;
+- "Materiali da scaricare": senza riga sotto il titolo; QR da stampare e
+  istruzioni passo passo, ognuno con `[DA COMPLETARE: file]`; quando c'è
+  il percorso del file (cartella `materiali/`), il nome diventa il link
+  per scaricarlo;
+- "Il questionario dei docenti": la frase comune sulla mail
+  istituzionale. Sta in `comuni.txt`, sezione DOCENTI, perché la usa
+  anche Partecipa: un dato comune a più pagine sta in un solo file;
 - "Calendario" e "Referenti": `[DA COMPLETARE]` (referenti: solo
   contatti istituzionali).
 

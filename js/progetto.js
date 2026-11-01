@@ -2,11 +2,12 @@
    LA PAGINA "IL PROGETTO" (il-progetto.html)
 
    Legge contenuti/comuni.txt e contenuti/progetto.txt e riempie la
-   pagina: testata con il menu, apertura, "La capsula del tempo", "Che
-   cosa mettiamo nella capsula", "Chi partecipa", "Quando si chiude,
-   quando si apre" (le date di comuni.txt, le stesse della home: nessuna
-   data scritta in progetto.txt), "La foto annuale del pero", piede con
-   il timbro.
+   pagina: testata con il menu, apertura, "La capsula del tempo" (tre
+   domande con la risposta), "Che cosa mettiamo nella capsula", "Quando
+   si chiude, quando si apre" (le date di comuni.txt, le stesse della
+   home: nessuna data scritta in progetto.txt), piede con il timbro e i
+   due link: il kit per i docenti, solo se la pagina si può collegare, e
+   le istruzioni per la foto del pero, solo quando c'è il file.
 
    Ha bisogno di js/contenuti.js e js/comuni.js.
    ================================================================== */
@@ -60,29 +61,41 @@
 
     K.testata(comuni, t);
     K.timbro(comuni);
-    K.piede(comuni, t);
+    piede(comuni, progetto, t);
 
     scriviIn("titolo", campo("APERTURA", "titolo"));
     paragrafi("riga-apertura", progetto.campi("APERTURA", "testo"));
 
     scriviIn("titolo-capsula", campo("CAPSULA", "titolo"));
-    paragrafi("testo-capsula", progetto.campi("CAPSULA", "testo"));
+    voci("voci-capsula", progetto.righe("CAPSULA"));
 
     scriviIn("titolo-contenuti", campo("CONTENUTI", "titolo"));
     paragrafi("nota-contenuti", progetto.campi("CONTENUTI", "testo"));
     voci("voci-contenuti", progetto.righe("CONTENUTI"));
 
-    scriviIn("titolo-chi", campo("CHI PARTECIPA", "titolo"));
-    voci("voci-chi", progetto.righe("CHI PARTECIPA"));
-
     scriviIn("titolo-date", campo("DATE", "titolo"));
     date(comuni, progetto, t);
 
-    scriviIn("titolo-foto", campo("FOTO", "titolo"));
-    var foto = document.getElementById("voci-foto");
-    progetto.campi("FOTO", "voce").forEach(function (v) { foto.appendChild(elemento("li", "", v)); });
-
     document.getElementById("contenuto").hidden = false;
+  }
+
+  /* I link del piede, uno per riga. Il kit come le altre pagine che si
+     collegano; le istruzioni solo quando in progetto.txt c'è il percorso
+     del file al posto del segnaposto. */
+  function piede(comuni, progetto, t) {
+    var link = [];
+    var kit = K.pagina(comuni, "docenti", t);
+    if (kit) { link.push([comuni.campo("PIEDE", "docenti-link"), kit]); }
+    var foto = progetto.campo("PIEDE", "istruzioni-foto").trim();
+    if (foto && !C.daCompletare(foto)) { link.push([progetto.campo("PIEDE", "link-foto"), foto]); }
+
+    var elenco = document.getElementById("piede");
+    link.forEach(function (l) {
+      var voce = document.createElement("li");
+      voce.appendChild(K.linkConFreccia(l[0], l[1]));
+      elenco.appendChild(voce);
+    });
+    elenco.hidden = !link.length;
   }
 
 

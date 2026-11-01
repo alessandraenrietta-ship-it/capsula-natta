@@ -260,9 +260,30 @@ prova a un indirizzo sbagliato (`anteprima.ps1` mostra `404.html` come
 GitHub); online si può provare solo dopo il push.
 
 **Niente pagina "Il pero".** Il pero sta nella home, nella sezione "10
-anni di PEROpezie". Le istruzioni per la foto annuale stanno in una
-sezione della pagina Il progetto, che resta online per tutti i dieci
-anni.
+anni di PEROpezie". Le istruzioni per la foto annuale stanno solo in un
+PDF nella cartella `materiali/`, collegato dal piede di Il progetto: il
+PDF lo prepara Alessandra quando ci saranno punto di ripresa, data fissa
+e foto di riferimento.
+
+**Il progetto** (`il-progetto.html`, `js/progetto.js`, testi in
+`contenuti/progetto.txt`, rifatta il 30 ottobre 2026), in quest'ordine:
+
+- apertura: titolo e una riga;
+- "La capsula del tempo": tre voci, domanda e risposta ("Che cos'è?",
+  "Perché?", "Dove?"), una sotto l'altra;
+- "Che cosa mettiamo nella capsula": contenuto d'esempio (punto 12);
+- "Quando si chiude, quando si apre": "Interramento" con la data, l'ora
+  e "data da confermare" finché vale, "Apertura prevista" ("Apertura"
+  quando `data-provvisoria` è "no"). Date da `comuni.txt`;
+- piede: il timbro e due link, uno per riga. "Il kit per i docenti ›",
+  solo se la pagina è `pronta` e solo prima dell'interramento; "Istruzioni
+  per la foto del pero (PDF) ›", dal campo `istruzioni-foto` di
+  `progetto.txt`: finché c'è il segnaposto non compare; quando c'è il
+  percorso del file in `materiali/`, compare e resta per tutti i dieci
+  anni.
+
+**Il link al kit** sta solo nel piede di Il progetto (deciso il 30
+ottobre 2026). La voce "Per i docenti" resta nel menu.
 
 **Nessuna password**, in nessuna pagina: un sito statico non può
 proteggere davvero una pagina, quindi tutto ciò che sta nel sito è
@@ -289,10 +310,7 @@ La pagina `partecipa.html` (`js/partecipa.js`, testi in
   sito di orientamento, che lo ha preso dal Liceo Digitale) e sotto la
   riga per inquadrarlo;
 - "Per i docenti": l'informazione vera che il questionario dei docenti
-  arriva solo via mail istituzionale, senza link né password; sotto, il
-  link "Il kit per i docenti ›" verso `per-i-docenti.html`, con le
-  stesse regole del link nel piede (`Comuni.linkKit`): solo se la pagina
-  è `pronta`.
+  arriva solo via mail istituzionale, senza link né password.
 
 **Per i docenti**: contiene il kit. Si scrive "docenti", non
 "colleghe". La pagina `per-i-docenti.html` (`js/docenti.js`, testi in
@@ -427,7 +445,7 @@ aggiorna una volta al minuto.
 
 File della home: `index.html`, `grafica.css`, `js/contenuti.js`
 (copiato identico da orientamento: è il lettore dei file di testo),
-`js/comuni.js` (fasi, pagine, testata, piede, timbro), `js/home.js`,
+`js/comuni.js` (fasi, pagine, testata, timbro), `js/home.js`,
 `js/foto-storiche.js`, `contenuti/comuni.txt`, `contenuti/home.txt`,
 `contenuti/foto-storiche.txt`. Titolo della scheda del
 browser e descrizione per i motori di ricerca stanno in `index.html`,
@@ -666,6 +684,8 @@ I dati veri che mancano restano `[DA COMPLETARE: ...]`.
   da approvare.
 - Quando togliere le foto d'esempio (`esempio: no`), del pero e storiche.
 - Forma del credito delle foto storiche vere (punto 10).
+- PDF con le istruzioni per la foto del pero: lo prepara Alessandra;
+  mancano punto di ripresa, data fissa e foto di riferimento.
 - Mail della commissione anniversario: dovrà essere un indirizzo sul
   dominio della scuola, non su un servizio esterno, perché ci arrivano
   le risposte degli studenti. Finché non esiste: [DA COMPLETARE:

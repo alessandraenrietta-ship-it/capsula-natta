@@ -73,12 +73,9 @@ in-alto: IIS Giulio Natta
 in-basso: 2006 · vent'anni · 2026
 
 == PIEDE ==
-# Il link al kit della pagina Per i docenti, accanto al timbro. Compare
-# solo quando la pagina è "pronta", solo prima dell'interramento e mai
-# sulla pagina Per i docenti stessa.
-# La domanda è un ESEMPIO FUTURISTA; il link è un link di servizio (la
-# freccia la aggiunge il sito).
-docenti-domanda: Docente ai comandi?
+# Il link alla pagina Per i docenti, nel piede della pagina Il progetto.
+# Compare solo quando la pagina è "pronta" e solo prima
+# dell'interramento. La freccia la aggiunge il sito.
 docenti-link: Il kit per i docenti
 
 == DOCENTI ==

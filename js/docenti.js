@@ -7,7 +7,6 @@
    quando nel file c'è il percorso del file), "Il questionario dei
    docenti" (la frase di comuni.txt, sezione DOCENTI: nessun link e
    nessuna password), "Calendario", "Referenti", piede con il timbro.
-   Nel piede di questa pagina la riga per i docenti non compare.
 
    Dopo l'interramento la pagina è chiusa: solo il titolo, la riga della
    sezione CHIUSA e il pulsante per la home (Comuni.paginaChiusa).
@@ -50,7 +49,6 @@
     var t = K.tempo(comuni);
     K.testata(comuni, t);
     K.timbro(comuni);
-    K.piede(comuni, t);
 
     if (t.fase() !== "prima") {
       K.paginaChiusa(comuni, t, docenti.campo("APERTURA", "titolo"), docenti.campo("CHIUSA", "testo"));

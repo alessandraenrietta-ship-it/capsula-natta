@@ -4,8 +4,8 @@
      - le tre fasi del sito, ricavate dalla data dell'interramento
        scritta in contenuti/comuni.txt (Comuni.tempo)
      - le pagine che si possono collegare (Comuni.pagina)
-     - la testata (Comuni.testata), il piede (Comuni.piede) e il suo
-       timbro rotondo (Comuni.timbro)
+     - la testata (Comuni.testata) e il timbro rotondo del piede
+       (Comuni.timbro)
      - le pagine chiuse dopo l'interramento (Comuni.paginaChiusa)
      - date e orari che non vanno a capo nel mezzo: vale per tutto
        quello che passa da Contenuti.scrivi
@@ -395,29 +395,13 @@ window.Comuni = (function () {
     }
   }
 
-  /* Accanto al timbro, il link al kit della pagina Per i docenti, solo
-     quando la pagina si può collegare */
-  function piede(comuni, t) {
-    var file = pagina(comuni, "docenti", t);
-    var elenco = document.getElementById("piede");
-    /* Mai sulla pagina Per i docenti stessa */
-    if (!file || !elenco || document.body.getAttribute("data-pagina") === "docenti") { return; }
-    var voce = document.createElement("li");
-    voce.appendChild(C.scrivi(document.createElement("span"), comuni.campo("PIEDE", "docenti-domanda")));
-    voce.querySelector("span").className = "piede-domanda";
-    voce.appendChild(document.createTextNode(" "));
-    voce.appendChild(linkKit(comuni, file));
-    elenco.appendChild(voce);
-    elenco.hidden = false;
-  }
-
-  /* Il link "Il kit per i docenti ›", nel piede e nella pagina Partecipa */
-  function linkKit(comuni, file) {
+  /* Un link con la freccia dopo, come quelli del piede di Il progetto */
+  function linkConFreccia(testo, file) {
     var link = document.createElement("a");
     link.href = file;
     /* L'ultima parola e la freccia non si separano: sul telefono la
        freccia non va a capo da sola */
-    var testo = comuni.campo("PIEDE", "docenti-link").trim();
+    testo = testo.trim();
     var spazio = testo.lastIndexOf(" ");
     if (spazio !== -1) { C.scrivi(link, testo.slice(0, spazio + 1)); }
     var ultima = document.createElement("span");
@@ -519,8 +503,7 @@ window.Comuni = (function () {
     pagina: pagina,
     paginaChiusa: paginaChiusa,
     testata: testata,
-    piede: piede,
-    linkKit: linkKit,
+    linkConFreccia: linkConFreccia,
     timbro: timbro
   };
 }());

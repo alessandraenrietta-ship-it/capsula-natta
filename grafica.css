@@ -799,8 +799,6 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
   line-height: 1.7;
 }
 
-.piede-domanda { color: var(--grigio); }
-
 
 /* -----------------------------------------------------------------
    SCHERMI PIÙ LARGHI
@@ -899,6 +897,8 @@ a.marchio:hover #nome-scuola { text-decoration: underline; }
 @media (min-width: 48rem) {
   .voci { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; max-width: 52rem; }
   .date-due { grid-template-columns: repeat(2, 1fr); }
+  /* Le domande di "La capsula del tempo": una sotto l'altra */
+  .voci-colonna { grid-template-columns: 1fr; max-width: 40rem; gap: 1.5rem; }
 }
 
 

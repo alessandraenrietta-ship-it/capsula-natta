@@ -52,7 +52,6 @@
     var t = K.tempo(comuni);
     K.testata(comuni, t);
     K.timbro(comuni);
-    K.piede(comuni, t);
 
     if (t.fase() !== "prima") {
       K.paginaChiusa(comuni, t, partecipa.campo("APERTURA", "titolo"), partecipa.campo("CHIUSA", "testo"));
@@ -70,13 +69,6 @@
     /* La frase sul questionario dei docenti sta in comuni.txt: la usa
        anche la pagina Per i docenti */
     paragrafi("testo-docenti", [comuni.campo("DOCENTI", "questionario")]);
-    /* Sotto, il link al kit, con le stesse regole di quello nel piede */
-    var kit = K.pagina(comuni, "docenti", t);
-    if (kit) {
-      var riga = elemento("p");
-      riga.appendChild(K.linkKit(comuni, kit));
-      document.getElementById("testo-docenti").appendChild(riga);
-    }
     modulo(partecipa, "STUDENTI", "link-studenti");
     modulo(partecipa, "DIZIONARIO", "link-dizionario");
 

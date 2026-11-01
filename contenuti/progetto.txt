@@ -3,35 +3,30 @@
 # Le date dell'interramento e dell'apertura non stanno qui: sono in
 # comuni.txt, le stesse della home.
 #
-# ESEMPIO FUTURISTA: i testi descrittivi di questa pagina sono in stile
-# futurista, per presentare il sito (CLAUDE.md, punto 12): vanno
-# sostituiti prima di dare il link a chi non sa che è una prova. Le
-# informazioni vere (dove si interra la capsula, quando si apre, le
-# istruzioni della foto annuale) devono restare esatte.
-#
 # Le righe che iniziano con # sono commenti: il sito le ignora.
 # Il formato è spiegato in LEGGIMI.md.
 # ------------------------------------------------------------------
 
 == APERTURA ==
 titolo: Il progetto
-# La riga introduttiva sotto il titolo. ESEMPIO FUTURISTA
-testo: Un progetto = una capsula + dieci anni di attesa + un pero di guardia. Avanti tutta.
+# La riga sotto il titolo.
+testo: La capsula del tempo del ventennale: che cosa contiene e quando si apre.
 
 == CAPSULA ==
 titolo: La capsula del tempo
-# Che cos'è, perché per il ventennale, dove sarà interrata. Una riga
-# "testo" per paragrafo. ESEMPIO FUTURISTA, ma il luogo (sotto il pero,
-# con una targa a terra) e i dieci anni sono veri.
-testo: Che cos'è: un contenitore sigillato, pieno di presente, spedito verso il futuro. Una macchina del tempo che va avanti, e solo avanti.
-testo: Perché adesso: vent'anni di Natta = il momento giusto per fermare la corsa un istante, fotografare l'oggi, rilanciarlo.
-testo: Dove: sotto il pero, nel terreno. Sopra, una targa a terra segna il punto di partenza. Dopo dieci anni la capsula si apre.
+# Una voce per riga: domanda | risposta.
+Che cos'è? | Un contenitore sigillato con lettere e lavori che raccontano il Natta di oggi.
+Perché? | Per lasciare un messaggio al Natta del futuro.
+Dove? | Sotto il pero della scuola, segnato da una targa a terra.
 
 == CONTENUTI ==
 titolo: Che cosa mettiamo nella capsula
 # Una riga sotto il titolo e poi una voce per lavoro: nome | descrizione.
 # Si descrivono i lavori, mai i contenuti, che restano chiusi fino
-# all'apertura. ESEMPIO FUTURISTA
+# all'apertura.
+# ESEMPIO: tutta questa sezione va sostituita prima di dare il link a
+# chi non sa che è una prova. La rivede Alessandra dopo aver sentito il
+# dirigente (CLAUDE.md, punto 12).
 testo: Qui si raccontano i lavori, non quello che c'è dentro: i contenuti restano chiusi nella capsula fino all'apertura.
 Lettere al futuro | Ogni annata scrive una lettera a chi aprirà la capsula. Penna + coraggio = messaggio in orbita.
 Dizionario del presente | Raccogliere le parole di oggi, spiegarle a chi parlerà domani. Parole veloci, parole nuove, parole di plastica lucida.
@@ -39,34 +34,21 @@ Lettera dei docenti | I docenti scrivono insieme una lettera ai docenti del futu
 Disegno | Un disegno collettivo: linee che corrono, colori che accelerano, il Natta di oggi visto da dentro.
 Interviste in video | Domande + risposte + facce di oggi, registrate per lo schermo del futuro. Clac, si gira.
 
-== CHI PARTECIPA ==
-titolo: Chi partecipa
-# nome | descrizione. ESEMPIO FUTURISTA
-Le classi | Classi in moto: scrivere, disegnare, rispondere, raccontare. Ogni classe = un pezzo di presente.
-I docenti | Accendono i motori in classe, guidano i lavori, scrivono la loro lettera.
-Il dipartimento di Lettere | La sala macchine del progetto: idee, parole, ingranaggi di grammatica.
-
 == DATE ==
 titolo: Quando si chiude, quando si apre
-# I titoli delle due voci. Le date vengono da comuni.txt. ESEMPIO
-# FUTURISTA, ma deve restare chiaro che cosa succede in quella data.
+# Le etichette delle due voci. Le date vengono da comuni.txt.
 # "apertura-prevista" vale finché la data dell'interramento è
 # provvisoria, poi "apertura".
-interramento: Chiusura = interramento sotto il pero
-apertura-prevista: Riapertura prevista, dieci anni dopo
-apertura: Riapertura, dieci anni dopo
+interramento: Interramento
+apertura-prevista: Apertura prevista
+apertura: Apertura
 parola-ora: ore
 
-== FOTO ==
-titolo: La foto annuale del pero
-# Le istruzioni per la foto, una riga "voce" per punto dell'elenco.
-# Informazioni vere, in stile futurista ma esatte (CLAUDE.md, punto 12).
-voce: Ogni anno una classe prima fotografa il pero. Sempre dallo stesso punto, sempre nella stessa data: un albero, tanti scatti, il tempo che corre.
-voce: Punto di ripresa: [DA COMPLETARE: punto di ripresa].
-voce: Data fissa: [DA COMPLETARE: data fissa della foto].
-voce: Foto di riferimento: [DA COMPLETARE: foto di riferimento].
-voce: Scatto consigliato: in verticale.
-voce: Liberatorie: le verifica la vicepresidenza, prima dell'invio.
-voce: Invio: le foto vanno a chi gestisce il sito.
-voce: Credito sotto la foto: "Foto della classe 1ª X, a.s. AAAA/AA". Nessun nome di studenti.
-voce: Formato: JPG, sotto i 300 KB, nella cartella foto-pero/.
+== PIEDE ==
+# Il link alle istruzioni per la foto annuale del pero, nel piede di
+# questa pagina. Il PDF va nella cartella materiali/: finché qui c'è il
+# segnaposto il link non compare; quando c'è il percorso del file (per
+# esempio materiali/istruzioni-foto-pero.pdf), compare e resta per tutti
+# i dieci anni. La freccia la aggiunge il sito.
+link-foto: Istruzioni per la foto del pero (PDF)
+istruzioni-foto: [DA COMPLETARE: file]

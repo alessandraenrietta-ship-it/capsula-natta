@@ -9,9 +9,9 @@ toccare nessun altro file.
 - `comuni.txt`: i dati di tutte le pagine. Il nome della scuola; la
   **data dell'interramento** (l'unica data da scrivere: l'apertura è
   dieci anni dopo e il sito la calcola), la sua ora e la scritta "data
-  provvisoria"; l'elenco delle **pagine**, con il nome nel menu, ognuna `pronta` o `in
-  preparazione`; le scritte del timbro; il link del piede per i
-  docenti.
+  da confermare"; l'elenco delle **pagine**, con il nome nel menu, ognuna `pronta` o `in
+  preparazione`; le scritte del timbro; il link al kit nel piede di Il
+  progetto; i testi della pagina di errore.
 - `home.txt`: i testi della pagina iniziale. Occhiello, titolo, scritte
   dei pulsanti e del conto alla rovescia, testi della sezione "10 anni
   di Peropezie".
@@ -23,7 +23,12 @@ toccare nessun altro file.
 - `progetto.txt`: i testi della pagina Il progetto. Le date
   dell'interramento e dell'apertura non stanno qui: la pagina le prende
   da `comuni.txt`, come la home. Le istruzioni per la foto annuale del
-  pero sono nella sezione FOTO, una riga `voce` per punto dell'elenco.
+  pero stanno in un PDF: si salva il file nella cartella `materiali/`
+  (nome minuscolo, con i trattini) e nella sezione PIEDE, al campo
+  `istruzioni-foto`, si scrive il percorso al posto di `[DA COMPLETARE:
+  file]`, per esempio `materiali/istruzioni-foto-pero.pdf`. Da quel
+  momento il link compare nel piede di Il progetto e ci resta per tutti
+  i dieci anni.
 - `partecipa.txt`: i testi della pagina Partecipa e i link dei Google
   Moduli. Per mettere un modulo si sostituisce `[DA COMPLETARE: link del
   modulo]` con il link, che comincia con `https://`: compaiono da soli
